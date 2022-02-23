@@ -837,7 +837,9 @@ let mT = [
     },
     {
         "name" : 'B.Sc. Data Science - 180',
-        "careId" : '10007851'
+        "careId" : '10007851',
+        "careIdCs" : '10008525_CS_DS',
+        "intake" : "Oct 22, Oct 23"
     },
     {
         "name" : 'M.Sc. Artificial Intelligence - 60',
@@ -859,16 +861,26 @@ let mT = [
 
     {
         "name" : 'M.Sc. Data Science - 60',
-        "careId" : '10007855'
+        "careId" : '10007855',
+        "careIdCs" : '10008538_CS_DS',
+        "intake" : "Oct 22, Oct 23"
     },
     {
         "name" : 'M.Sc. Data Science - 120',
-        "careId" : '10007854'
+        "careId" : '10007854',
+        "careIdCs" : '10008537_CS_DS',
+        "intake" : "Oct 22, Oct 23"
     },
     {
         "name" : 'M.Sc. Cyber Security - 120',
         "careId" : '10008014_FI',
         "careIdCs" : '10008533_CS',
+        "intake" : "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
+    },
+    {
+        "name" : 'M.Sc. Cyber Security Management - 60',
+        "careId" : '10008015_FI',
+        "careIdCs" : '10008534_CSM',
         "intake" : "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
     },
     //added today
@@ -1063,6 +1075,12 @@ let mT = [
         "intake" : "Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
     },
     {
+        "name" : 'MBA - specialisation Salesforce - 90',
+        "careId" : '121_FI_SF',
+        "careIdCs" : '10008379_SF',
+        "intake" : "Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
+    },
+    {
         "name" : 'B.Sc. Applied Artificial Intelligence - 180',
         "careId" : '10008073_FI_AI'
         //needs to be there
@@ -1149,7 +1167,9 @@ let mT = [
     },
     {
         "name" : 'B.Sc. Software Development - 180',
-        "careId" : '10008074_FI_SD'
+        "careId" : '10008074_FI_SD',
+        "careIdCs" : '10008528_CS_SD',
+        "intake" : "Oct 22, Apr 23, Oct 23"
     },
     {
         "name" : 'M.A. International Management - 60',
@@ -1260,7 +1280,9 @@ mtCheckOnline = [
     "M.A. Innovation & Entrepreneurship - 120",
     "B.Eng. Engineering - 180",
     "M.A. Project Management - 60",
-    "M.A. Project Management - 120"
+    "M.A. Project Management - 120",
+    "MBA - specialisation Salesforce - 90",
+    "M.Sc. Cyber Security Management - 60",
 
 
 ]
