@@ -1280,9 +1280,7 @@ mtCheckOnline = [
     "M.A. Innovation & Entrepreneurship - 120",
     "B.Eng. Engineering - 180",
     "M.A. Project Management - 60",
-    "M.A. Project Management - 120",
-    "MBA - specialisation Salesforce - 90",
-    "M.Sc. Cyber Security Management - 60",
+    "M.A. Project Management - 120"
 
 
 ]
