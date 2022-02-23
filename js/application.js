@@ -1,7 +1,7 @@
 let voucherVar = null;
 let businessUnit = "fi";
 let obwVersion = "obw21";
-let agbVersion = '2.7';
+let agbVersion = '2.8';
 let directDebit = null;
 let locationSite = "3";
 let currentPage = 3;
@@ -119,17 +119,20 @@ function scrollTo() {
     else if(document.getElementById('city').value === "") {
         document.getElementById('city').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
     }
-
-    else if ($('input[name=school]:checked').length === 0) {
+    //else if ($('input[name=school]:checked').length === 0) {
+    else if($('#yes').find(":selected").text().startsWith('C') || $('#yes').val() =='' ) {
         document.getElementById('yes').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
     }
-    else if($('input[name=enlgishlevel]:checked').length === 0) {
+    //else if($('input[name=enlgishlevel]:checked').length === 0) {
+    else if($('#enlgishlevel').find(":selected").text().startsWith('C') || $('#enlgishlevel').val() =='' ) {
         document.getElementById('2').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
     }
-    else if($('input[name=budget]:checked').length === 0) {
+    //else if($('input[name=budget]:checked').length === 0) {
+    else if($('#budget').find(":selected").text().startsWith('C') || $('#budget').val() =='' ) {
         document.getElementById('0-75-eur').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
     }
-    else if($('input[name=workexperience]:checked').length === 0 && workExperience()) {
+    //else if($('input[name=workexperience]:checked').length === 0 && workExperience()) {
+    else if( ($('#workexperience').find(":selected").text().startsWith('C') || $('#workexperience').val() =='') && workExperience() ) {
         document.getElementById('we3').scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
     }
     else if($('.study-start').val() === "") {
@@ -249,26 +252,10 @@ function checkAgentVoucher() {
             if (value.startsWith('AGENT')) {
                 voucherVar = value;
                 console.log("AGENT VOUCHER INSERTED");
-                window.dataLayer.push({
-                    event: 'customEvent',
-                    eventData: {
-                        action: 'submit agent form',
-                        category: 'Application Form',
-                        label: `Agent voucher inserted correctly - ${voucherVar}`
-                    }
-                });
                 return voucherVar;
             } else {
                 voucherVar = preVoucher
                 console.log('back to old voucher');
-                window.dataLayer.push({
-                    event: 'customEvent',
-                    eventData: {
-                        action: 'dynamic voucher',
-                        category: 'Application Form',
-                        label: `One of the basic vouchers inserted - ${voucherVar}`
-                    }
-                });
                 return voucherVar;
             }
             $.ajax({
@@ -880,9 +867,11 @@ let mT = [
     },
     {
         "name" : 'M.Sc. Cyber Security - 120',
-        "careId" : '10008014_FI'
+        "careId" : '10008014_FI',
+        "careIdCs" : '10008533_CS',
+        "intake" : "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
     },
-   //added today
+    //added today
     {
         "name" : 'M.Sc. Data Management - 60',
         "careId" : '10008099_FI_DM'
@@ -983,7 +972,9 @@ let mT = [
     },
     {
         "name" : 'B.Sc. Cyber Security - 180',
-        "careId" : '10007999_FI'
+        "careId" : '10007999_FI',
+        "careIdCs" : '10008524_CS',
+        "intake" : "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
     },
     {
         "name" : 'MBA One-Year - 60',
@@ -1243,7 +1234,6 @@ mtCheckOnline = [
     'B.Eng. Robotics - 180',
     'B.Sc. Data Science - 180',
     'B.A. Digital Business - 180',
-    'B.Sc. Cyber Security - 180',
     'B.A. Entrepreneurship - 180',
     'M.Sc. Data Science - 60',
     'M.Sc. Data Science - 120',
@@ -1252,7 +1242,6 @@ mtCheckOnline = [
     'M.A. Marketing Management - 60',
     'M.A. Marketing Management - 120',
     'M.A. Management - Specialisation Leadership - 60',
-    'M.Sc. Cyber Security - 120',
     'M.A. Information Technology Management - 60',
     'M.A. Information Technology Management - 120',
     'B.Sc. Applied Artificial Intelligence - 180',
@@ -1316,12 +1305,26 @@ function validatefilledIn() {
     let requiredFields = document.getElementsByTagName('input');
     let arr = Array.from(requiredFields).filter(input => input.required);
     let arr2 = $("label").filter(".pl-0");
+    let arr3 = $("label").filter(".cst-pl-0");
 
-    if ($('#Degree').find(":selected").text().startsWith('S')) { $('#Degree').css('border-color', 'red'); } else { $('#Degree').css('border-color', 'green'); }
-    if ($('#studyProgram').find(":selected").text().startsWith('S')) { $('#studyProgram').css('border-color', 'red'); } else { $('#studyProgram').css('border-color', 'green'); }
+    //if ($('#Degree').find(":selected").text().startsWith('S')) { $('#Degree').css('border-color', 'red'); } else { $('#Degree').css('border-color', 'green'); }
+    //if ($('#studyProgram').find(":selected").text().startsWith('S')) { $('#studyProgram').css('border-color', 'red'); } else { $('#studyProgram').css('border-color', 'green'); }
+    if ($('#studyProgram').find(":selected").text().startsWith('D')) { $('#studyProgram').css('border-color', 'red'); } else { $('#studyProgram').css('border-color', 'green'); }
 
-    if ($('#country').find(":selected").val() === '' || $('#country').find(":selected").val() === null || $('#country').val() === null || $('#country').val() === '') { $('#country').css('border-color', 'red');  } else { $('#country').css('border-color', 'green'); }
 
+    if( $('#Degree').val() === null ){
+
+        for (let i = 0; i < 2; i++) {
+            if ($('input[name=degree_type]:checked').length === 0) {
+                arr3[i].style.borderColor = 'red'
+                setTimeout(function () {
+                    arr3[i].style.borderColor = ''
+                },3000)
+            } else {
+                arr3[i].style.borderColor = 'green'
+            }
+        }
+    }
 
     if(!mtCheckOnline.includes($('#studyProgram').find(":selected").text()) && !($('#Degree').find(":selected").text().startsWith('S') || $('#studyProgram').find(":selected").text().startsWith('S') )){
             for (let i = 0; i < 2; i++) {
@@ -1349,14 +1352,14 @@ function validatefilledIn() {
 
     for(let i=0; i<arr.length;i++){
         if(arr[i].value == "") {
-            $(arr[i]).val('').css( "border-color", "red" );
+            $(arr[i]).val('').css( "border-color", "red" ).addClass('field-error').removeClass('field-valid');
         } else {
-            $(arr[i]).css( "border-color", "green" );
+            $(arr[i]).css( "border-color", "green" ).removeClass('field-error').addClass('field-valid');
         }
     }
 
 
-    for (let i = 2; i < 6; i++) {
+    for (let i = 2; i < 10; i++) {
         if ($('input[name=intake]:checked').length === 0) {
             arr2[i].style.borderColor = 'red'
             setTimeout(function () {
@@ -1378,7 +1381,7 @@ function validatefilledIn() {
             arr2[i].style.borderColor = 'green'
         }
     }
-    for (let i = 11; i < 15; i++) {
+    for (let i = 12; i < 16; i++) {
         if ($('input[name=gender]:checked').length === 0) {
             arr2[i].style.borderColor = 'red'
             setTimeout(function () {
@@ -1388,46 +1391,11 @@ function validatefilledIn() {
             arr2[i].style.borderColor = 'green'
         }
     }
-    for (let i = 15; i < 17; i++) {
-        if ($('input[name=school]:checked').length === 0) {
-            arr2[i].style.borderColor = 'red'
-            setTimeout(function () {
-                arr2[i].style.borderColor = ''
-            },3000)
-        } else {
-            arr2[i].style.borderColor = 'green'
-        }
-    }
-    for (let i = 17; i < 27; i++) {
-        if ($('input[name=enlgishlevel]:checked').length === 0) {
-            arr2[i].style.borderColor = 'red'
-            setTimeout(function () {
-                arr2[i].style.borderColor = ''
-            },3000)
-        } else {
-            arr2[i].style.borderColor = 'green'
-        }
-    }
-    for (let i = 27; i < 31; i++) {
-        if ($('input[name=budget]:checked').length === 0) {
-            arr2[i].style.borderColor = 'red'
-            setTimeout(function () {
-                arr2[i].style.borderColor = ''
-            },3000)
-        } else {
-            arr2[i].style.borderColor = 'green'
-        }
-    }
-    for (let i = 31; i < 41; i++) {
-        if ($('input[name=workexperience]:checked').length === 0) {
-            arr2[i].style.borderColor = 'red'
-            setTimeout(function () {
-                arr2[i].style.borderColor = ''
-            },3000)
-        } else {
-            arr2[i].style.borderColor = 'green'
-        }
-    }
+
+    if ($('#yes').find(":selected").text().startsWith('C')) { $('#yes').css('border-color', 'red'); } else { $('#yes').css('border-color', 'green'); }
+    if ($('#enlgishlevel').find(":selected").text().startsWith('C')) { $('#enlgishlevel').css('border-color', 'red'); } else { $('#enlgishlevel').css('border-color', 'green'); }
+    if ($('#budget').find(":selected").text().startsWith('C')) { $('#budget').css('border-color', 'red'); } else { $('#budget').css('border-color', 'green'); }
+    if ($('#workexperience').find(":selected").text().startsWith('C')) { $('#workexperience').css('border-color', 'red'); } else { $('#workexperience').css('border-color', 'green'); }
 
 
 }
@@ -1445,9 +1413,13 @@ function checkingFields() {
         return false;
     }
 
-
-
-    if ($('#Degree').find(":selected").text().startsWith('S') || $('#studyProgram').find(":selected").text().startsWith('S')){
+    if($('input[name=degree_type]:checked').length === 0){
+        validatefilledIn();
+        $("#myModalStudyProgramme").modal();
+        document.getElementById("submit").disabled = false;
+        return false;
+    }
+    else if ($('#Degree').find(":selected").text().startsWith('S') || $('#studyProgram').find(":selected").text().startsWith('D')){
         validatefilledIn();
         $("#myModalStudyProgramme").modal();
         document.getElementById("submit").disabled = false;
@@ -1487,22 +1459,32 @@ function checkingFields() {
             $("#myModalgender").modal();
             document.getElementById("submit").disabled = false;
             return false;
-    } else if (   myNameCheck == "" || surNameCheck == "" || document.getElementById('street').value === "" || document.getElementById('e-mail').value === "" || document.getElementById('date-of-birth').value === "" || document.getElementById('city').value === "" ) {
+    } else if (   myNameCheck == "" || surNameCheck == "" || document.getElementById('street').value === "" || document.getElementById('e-mail').value === "" || document.getElementById('date-of-birth').value === "" || document.getElementById('city').value === ""  ) {
         validatefilledIn();
         $("#myModal").modal();
         document.getElementById("submit").disabled = false;
         return false;
-    } else if ( document.getElementById('country').value === "" || document.getElementById('country').value === null  ) {
-        validatefilledIn();
-        $("#countryModal").modal();
-        document.getElementById("submit").disabled = false;
-        return false;
-    } else if ($('input[name=school]:checked').length === 0 || $('input[name=budget]:checked').length === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
+    } /*else if ($('input[name=school]:checked').length === 0 || $('input[name=budget]:checked').length === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
             validatefilledIn();
             $("#eligibilityModal").modal();
             document.getElementById("submit").disabled = false;
             return false;
-    } else if ($('input[name=workexperience]:checked').length === 0 && workExperience()) {
+    }*/ else if ( $('#yes').find(":selected").text().startsWith('C') || $('#yes').val() =='') {        
+            validatefilledIn();
+            $("#eligibilityModal").modal();
+            document.getElementById("submit").disabled = false;
+            return false;
+    } else if ( $('#enlgishlevel').find(":selected").text().startsWith('C') || $('#enlgishlevel').val() =='') {        
+            validatefilledIn();
+            $("#eligibilityModal").modal();
+            document.getElementById("submit").disabled = false;
+            return false;
+    } else if ( $('#budget').find(":selected").text().startsWith('C') || $('#budget').val() =='') {        
+            validatefilledIn();
+            $("#eligibilityModal").modal();
+            document.getElementById("submit").disabled = false;
+            return false;
+    } else if ( ($('#workexperience').find(":selected").text().startsWith('C') || $('#workexperience').val() =='') && workExperience()) {
             validatefilledIn();
             $("#eligibilityModal").modal();
             document.getElementById("submit").disabled = false;
@@ -1575,6 +1557,7 @@ function activate() {
         let intake = null;
         let startDate = null
         if (document.getElementsByClassName('intake')[0].value !== "") {
+            //studyStartDate = null;
             for (let i = 0; i < mT.length; i++) {
                 if (mT[i].name === $("#studyProgram :selected").text()) {
                     startDate = document.getElementsByClassName('intake')[0].value
@@ -1656,6 +1639,8 @@ function activate() {
 
     }
     let obj;
+
+        console.log(t)
 
     fetch('https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/obw' , {
         method : 'POST',
@@ -1963,7 +1948,6 @@ function verifyStudyModel() {
 function checkLocation() {
 
     if(mtCheckOnline.includes($("#studyProgram :selected").text())) {
-        console.log("online program")
         $('.labelMonthlyPrice').text('Monthly Price With Scholarship')
         $('.labelMonthlyPrice').css("line-height", "18px");
         setTimeout(function () {
@@ -1977,7 +1961,8 @@ function checkLocation() {
             item.value = 'Study online'
 
         })
-        document.getElementById("something").value = 'Study online'
+        //document.getElementById("something").value = 'Study online'
+        $( "#h5Here" ).html( htmlFragment + "Study online" )
         //$("#something").css("background","url(../images/online.png) 95% center no-repeat");
         $( "#something" ).removeClass( "study-campus" )
         $( "#something" ).addClass( "study-online" )
@@ -2091,7 +2076,7 @@ function PriceChange() {
         voucherVar = "IUINTLMYSTUDISCOUNT25"
     } else if (($('input[name="studyLocation"]:checked').val() === "Study on campus" && $("#studyProgram :selected").text().includes('60'))){
         disC = discMyStu60M
-        voucherVar = "IUINTLMYSTUDISCOUNT29"
+        voucherVar = "IUINTLMYSTUDISCOUNT35"
     } else if ($('input[name="studyLocation"]:checked').val() === "Study on campus" && $("#studyProgram :selected").text().includes('120')){
         disC = discMyStu120M
         voucherVar = "IUINTLMYSTUDISCOUNT33"
@@ -2154,13 +2139,13 @@ function PriceChange() {
                 //verifyStudyModel()
                 switch (document.getElementsByClassName('study-model')[0].value) {
                     case '18' : {
-                        document.getElementsByClassName('finalPrice')[0].innerHTML = '12490'
-                        document.getElementsByClassName('finalPrice')[1].innerHTML = '12490'
-                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '12490'
-                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '12490'
-                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('12490')/18).toFixed(1))
-                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('12490')/18).toFixed(1))
-                        x = parseFloat('12490')
+                        document.getElementsByClassName('finalPrice')[0].innerHTML = '13950'
+                        document.getElementsByClassName('finalPrice')[1].innerHTML = '13950'
+                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '13950'
+                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '13950'
+                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('13950')/18).toFixed(1))
+                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('13950')/18).toFixed(1))
+                        x = parseFloat('13950')
                         document.getElementsByClassName('discountPrice')[0].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('discountPrice')[1].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('monthlyPrice')[0].innerHTML = Math.ceil((parseFloat(x)/18).toFixed(1))
@@ -2168,13 +2153,13 @@ function PriceChange() {
                         break;
                     }
                     case '24' : {
-                        document.getElementsByClassName('finalPrice')[0].innerHTML = '13990'
-                        document.getElementsByClassName('finalPrice')[1].innerHTML = '13990'
-                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '13990'
-                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '13990'
-                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('13990')/24).toFixed(1))
-                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('13990')/24).toFixed(1))
-                        x = parseFloat('13990')
+                        document.getElementsByClassName('finalPrice')[0].innerHTML = '14550'
+                        document.getElementsByClassName('finalPrice')[1].innerHTML = '14550'
+                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '14550'
+                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '14550'
+                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('14550')/24).toFixed(1))
+                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('14550')/24).toFixed(1))
+                        x = parseFloat('14550')
                         document.getElementsByClassName('discountPrice')[0].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('discountPrice')[1].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('monthlyPrice')[0].innerHTML = Math.ceil((parseFloat(x)/24).toFixed(1))
@@ -2182,13 +2167,13 @@ function PriceChange() {
                         break;
                     }
                     default : {
-                        document.getElementsByClassName('finalPrice')[0].innerHTML = '10990'
-                        document.getElementsByClassName('finalPrice')[1].innerHTML = '10990'
-                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '10990'
-                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '10990'
-                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('10990')/12).toFixed(1))
-                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('10990')/12).toFixed(1))
-                        x = parseFloat('10990')
+                        document.getElementsByClassName('finalPrice')[0].innerHTML = '11950'
+                        document.getElementsByClassName('finalPrice')[1].innerHTML = '11950'
+                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '11950'
+                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '11950'
+                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('11950')/12).toFixed(1))
+                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('11950')/12).toFixed(1))
+                        x = parseFloat('11950')
                         document.getElementsByClassName('discountPrice')[0].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('discountPrice')[1].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('monthlyPrice')[0].innerHTML = Math.ceil((parseFloat(x)/12).toFixed(1))
@@ -2342,13 +2327,13 @@ function PriceChange() {
                 //verifyStudyModel()
                 switch (document.getElementsByClassName('study-model')[0].value) {
                     case '18' : {
-                        document.getElementsByClassName('finalPrice')[0].innerHTML = '12490'
-                        document.getElementsByClassName('finalPrice')[1].innerHTML = '12490'
-                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '12490'
-                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '12490'
-                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('12490')/18).toFixed(1))
-                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('12490')/18).toFixed(1))
-                        x = parseFloat('12490')*disC
+                        document.getElementsByClassName('finalPrice')[0].innerHTML = '13950'
+                        document.getElementsByClassName('finalPrice')[1].innerHTML = '13950'
+                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '13950'
+                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '13950'
+                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('13950')/18).toFixed(1))
+                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('13950')/18).toFixed(1))
+                        x = parseFloat('13950')*disC
                         document.getElementsByClassName('discountPrice')[0].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('discountPrice')[1].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('monthlyPrice')[0].innerHTML = Math.ceil((parseFloat(x)/18).toFixed(1))
@@ -2356,13 +2341,13 @@ function PriceChange() {
                         break;
                     }
                     case '24' : {
-                        document.getElementsByClassName('finalPrice')[0].innerHTML = '13990'
-                        document.getElementsByClassName('finalPrice')[1].innerHTML = '13990'
-                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '13990'
-                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '13990'
-                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('13990')/24).toFixed(1))
-                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('13990')/24).toFixed(1))
-                        x = parseFloat('13990')*disC
+                        document.getElementsByClassName('finalPrice')[0].innerHTML = '14550'
+                        document.getElementsByClassName('finalPrice')[1].innerHTML = '14550'
+                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '14550'
+                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '14550'
+                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('14550')/24).toFixed(1))
+                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('14550')/24).toFixed(1))
+                        x = parseFloat('14550')*disC
                         document.getElementsByClassName('discountPrice')[0].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('discountPrice')[1].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('monthlyPrice')[0].innerHTML = Math.ceil((parseFloat(x)/24).toFixed(1))
@@ -2370,13 +2355,13 @@ function PriceChange() {
                         break;
                     }
                     default : {
-                        document.getElementsByClassName('finalPrice')[0].innerHTML = '10990'
-                        document.getElementsByClassName('finalPrice')[1].innerHTML = '10990'
-                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '10990'
-                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '10990'
-                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('10990')/12).toFixed(1))
-                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('10990')/12).toFixed(1))
-                        x = parseFloat('10990')*disC
+                        document.getElementsByClassName('finalPrice')[0].innerHTML = '11950'
+                        document.getElementsByClassName('finalPrice')[1].innerHTML = '11950'
+                        document.getElementsByClassName('totalBeforeDiscount')[0].innerHTML = '11950'
+                        document.getElementsByClassName('totalBeforeDiscount')[1].innerHTML = '11950'
+                        document.getElementsByClassName('monthlyPriceBefore')[0].innerHTML = Math.ceil((parseFloat('11950')/12).toFixed(1))
+                        document.getElementsByClassName('monthlyPriceBefore')[1].innerHTML = Math.ceil((parseFloat('11950')/12).toFixed(1))
+                        x = parseFloat('11950')*disC
                         document.getElementsByClassName('discountPrice')[0].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('discountPrice')[1].innerHTML = Math.ceil(x.toFixed(1))
                         document.getElementsByClassName('monthlyPrice')[0].innerHTML = Math.ceil((parseFloat(x)/12).toFixed(1))
@@ -2481,8 +2466,9 @@ function PriceChange() {
 }
 
 
+let htmlFragment = '<svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 0C5.59476 0 0 5.59476 0 12.5C0 19.4052 5.59476 25 12.5 25C19.4052 25 25 19.4052 25 12.5C25 5.59476 19.4052 0 12.5 0ZM22.2379 7.66129H18.0796C17.626 5.42339 16.8649 3.51815 15.9022 2.1623C18.6744 3.07964 20.9526 5.08065 22.2379 7.66129ZM16.9355 12.5C16.9355 13.6542 16.8548 14.7278 16.7188 15.7258H8.28125C8.14516 14.7278 8.06452 13.6542 8.06452 12.5C8.06452 11.3458 8.14516 10.2722 8.28125 9.27419H16.7188C16.8548 10.2722 16.9355 11.3458 16.9355 12.5ZM12.5 1.6129C13.8558 1.6129 15.5948 3.83569 16.4365 7.66129H8.56351C9.40524 3.83569 11.1442 1.6129 12.5 1.6129ZM9.09778 2.1623C8.14012 3.5131 7.37399 5.41835 6.92036 7.66129H2.7621C4.04738 5.08065 6.3256 3.07964 9.09778 2.1623ZM1.6129 12.5C1.6129 11.376 1.78427 10.2923 2.10181 9.27419H6.66331C6.53226 10.3075 6.45161 11.381 6.45161 12.5C6.45161 13.619 6.52722 14.6925 6.66331 15.7258H2.10181C1.78427 14.7077 1.6129 13.624 1.6129 12.5ZM2.7621 17.3387H6.92036C7.37399 19.5766 8.13508 21.4819 9.09778 22.8377C6.3256 21.9204 4.04738 19.9194 2.7621 17.3387ZM12.5 23.3871C11.1442 23.3871 9.40524 21.1643 8.56351 17.3387H16.4365C15.5948 21.1643 13.8558 23.3871 12.5 23.3871ZM15.9022 22.8377C16.8599 21.4869 17.626 19.5817 18.0796 17.3387H22.2379C20.9526 19.9194 18.6744 21.9204 15.9022 22.8377ZM18.3367 15.7258C18.4677 14.6925 18.5484 13.619 18.5484 12.5C18.5484 11.381 18.4728 10.3075 18.3367 9.27419H22.8982C23.2157 10.2923 23.3871 11.376 23.3871 12.5C23.3871 13.624 23.2157 14.7077 22.8982 15.7258H18.3367Z" fill="black"/></svg>'
 
-document.getElementById("Degree").addEventListener("change", function() {
+function changeDegreeVal(){    
     if ($("#Degree :selected").text().includes('Master')){
         $( "#rowLocOne" ).removeClass( "hide" )
         $( "#rowLocTwo" ).addClass( "hide" )
@@ -2506,7 +2492,8 @@ document.getElementById("Degree").addEventListener("change", function() {
         item.value = 'Study online'
 
     })
-    document.getElementById("something").value = 'Study online'
+    //document.getElementById("something").value = 'Study online'
+    $( "#h5Here" ).html( htmlFragment + "Study online" )
     //$("#something").css("background","url(../images/online.png) 95% center no-repeat");
     $( "#something" ).removeClass( "study-campus" )
     $( "#something" ).addClass( "study-online" )
@@ -2520,33 +2507,9 @@ document.getElementById("Degree").addEventListener("change", function() {
     $("#campus1").css("background","url()");
     $("#campus2").css("background","url()");
 
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
-
-    /*setTimeout(function () {
-        document.querySelectorAll('.study-start').forEach(item => {
-            item.value = $( "#datepicker" ).val()
-        })
-    },100)*/
-
-
-            //document.getElementsByClassName("study-start")[0].value = $( "#datepicker" ).val()
-
-    // $( "#semesterVariable" ).removeClass( "hide" )
-    // $( "#semesterOnCampusOnly" ).addClass( "hide" )
-
-
-//graduation fee
-//     $( "#graduationFee" ).removeClass( "hide" )
-//     $( "#graduationFee2" ).removeClass( "hide" )
-
-
 //time model showing up
     $("div").find("label[for=monthstwo]").show()
     $("div").find("label[for=monthsthree]").show()
-
 
 
     if(document.getElementById("Degree").value == 'Master'){
@@ -2574,7 +2537,7 @@ document.getElementById("Degree").addEventListener("change", function() {
         starting()
         $(".siteRow").show()
         document.getElementById("bgrInformation").innerHTML = 'Do you have a High School Diploma?' ;
-        document.getElementById("workExperienceRow").classList.add("hide");
+        document.getElementById("workExperienceRow").classList.add("hide"); 
         document.getElementsByClassName('numMonth')[0].innerHTML = 36;
         document.getElementsByClassName('numMonth')[1].innerHTML = 48;
         document.getElementsByClassName('numMonth')[2].innerHTML = 72;
@@ -2594,7 +2557,7 @@ document.getElementById("Degree").addEventListener("change", function() {
 
     $(".ui-state-default.ui-state-active").attr('style', 'background: #ffffff !important;color: #000000 !important;border: none !important');
 
-});
+} // });
 
 document.getElementById("studyProgram").addEventListener("change", function() {
 
@@ -2717,70 +2680,76 @@ document.getElementById("studyProgram").addEventListener("change", function() {
 
 function checkIntakeStart() {
 
-        /*document.getElementsByClassName("study-start")[0].type = "date";
-        document.getElementsByClassName("study-start")[1].type = "date";*/
-
         switch ($('input[type=radio][name=intake]:checked').val()) {
             case "October 2021" : {
+                //$('#datepicker').datepicker("setDate", new Date(2021,9,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.10.2021";
-                    document.getElementsByClassName("study-start")[1].value = "01.10.2021";
+                    document.getElementsByClassName("study-start")[0].value = "2021/10/01";
+                    document.getElementsByClassName("study-start")[1].value = "2021/10/01";
 
                 break;
             }
             case "October 2022" : {
+                //$('#datepicker').datepicker("setDate", new Date(2021,9,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.10.2022";
-                    document.getElementsByClassName("study-start")[1].value = "01.10.2022";
+                    document.getElementsByClassName("study-start")[0].value = "2022/10/01";
+                    document.getElementsByClassName("study-start")[1].value = "2022/10/01";
 
                 break;
             }
             case "January 2022" : {
+                //$('#datepicker').datepicker("setDate", new Date(2022,0,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.01.2022";
-                    document.getElementsByClassName("study-start")[1].value = "01.01.2022";
+                    document.getElementsByClassName("study-start")[0].value = "2022/01/01";
+                    document.getElementsByClassName("study-start")[1].value = "2022/01/01";
 
                 break;
             }
             case "April 2022" : {
+                //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.04.2022";
-                    document.getElementsByClassName("study-start")[1].value = "01.04.2022";
+                    document.getElementsByClassName("study-start")[0].value = "2022/04/01";
+                    document.getElementsByClassName("study-start")[1].value = "2022/04/01";
 
                 break;
             }
             case "April 2023" : {
+                //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.04.2023";
-                    document.getElementsByClassName("study-start")[1].value = "01.04.2023";
+                    document.getElementsByClassName("study-start")[0].value = "2023/04/01";
+                    document.getElementsByClassName("study-start")[1].value = "2023/04/01";
 
                 break;
             }
             case "October 2023" : {
+                //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.01.2023";
-                    document.getElementsByClassName("study-start")[1].value = "01.01.2023";
+                    document.getElementsByClassName("study-start")[0].value = "2023/10/01";
+                    document.getElementsByClassName("study-start")[1].value = "2023/10/01";
 
                 break;
             }
             case "January 2023" : {
+                //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.01.2023";
-                    document.getElementsByClassName("study-start")[1].value = "01.01.2023";
+                    document.getElementsByClassName("study-start")[0].value = "2023/01/01";
+                    document.getElementsByClassName("study-start")[1].value = "2023/01/01";
 
                 break;
             }
             case "July 2023" : {
+                //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.07.2023";
-                    document.getElementsByClassName("study-start")[1].value = "01.07.2023";
+                    document.getElementsByClassName("study-start")[0].value = "2023/07/01";
+                    document.getElementsByClassName("study-start")[1].value = "2023/07/01";
 
                 break;
             }
             default : {
+                //$('#datepicker').datepicker("setDate", new Date(2022,5,1) )
 
-                    document.getElementsByClassName("study-start")[0].value = "01.07.2022";
-                    document.getElementsByClassName("study-start")[1].value = "01.07.2022";
+                    document.getElementsByClassName("study-start")[0].value = "2022/07/01";
+                    document.getElementsByClassName("study-start")[1].value = "2022/07/01";
 
             }
         }
@@ -2792,7 +2761,7 @@ function starting() {
 
     businessUnit = "fi";
     obwVersion = "obw21";
-    agbVersion = '2.7';
+    agbVersion = '2.8';
     directDebit = null;
     locationSite = "3";
     currentPage = 3;
@@ -2912,7 +2881,7 @@ $("input[name='studyLocation']").change(function() {
     if ($('input[name="studyLocation"]:checked').val() === "Study on campus") {
         businessUnit = "cs";
         obwVersion = "defaultEN";
-        agbVersion = "3.0";
+        agbVersion = "3.1";
         directDebit = true;
 
         changeCareIds()
@@ -2953,7 +2922,7 @@ $("input[name='studyLocation']").change(function() {
     } else {
          businessUnit = "fi";
          obwVersion = "obw21";
-         agbVersion = '2.7';
+         agbVersion = '2.8';
          directDebit = null;
         setTimeout(function () {
             $('input[name=site]:checked').prop('checked', false)
@@ -2995,12 +2964,10 @@ $("#studyOnCampus").click(function() {
         $( "#monthsone" ).trigger( "click" )
         $('#intakes div.col-md-6').each(function(index) {
             if(!$( this ).hasClass( "hide" )){
-                //document.getElementById(this.id).click()
                 $('input[name="intake"]')[index].click()
                 return false;
             }
         });
-        //document.getElementById("winterintake").click()
         locationSite = "4"
         $( "#berlin" ).trigger( "click" )
 
@@ -3098,3 +3065,18 @@ if ($(window).width() < 400 ) {
     $("#postcode").attr("placeholder","ZIP*");
 }
 else { $("#postcode").attr("placeholder","Postcode*");}
+
+/* -- 02.02.2022 -- */
+
+function findOutAndClick(x,y){
+    $("#"+y).val(x);
+    if(y==='Degree'){
+        findOutAndChange('Degree','degree');
+        changeDegreeVal();
+    }
+}
+
+
+
+
+

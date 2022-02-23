@@ -18,14 +18,6 @@ $("#contractIframe").attr("src", "https://api.careerpartner.eu/centraldataservic
 
 
 $('#download2').click(function() {
-    window.dataLayer.push({
-        event: 'customEvent',
-        eventData: {
-            action: 'Sign contract page',
-            category: 'Application Form',
-            label: "Downloaded contract!"
-        }
-    });
     window.location='https://api.careerpartner.eu/centraldataservice-api/lara/api/v1/application/contract/'+result;
 });
 
@@ -86,14 +78,6 @@ function signContract() {
         .then(data => {
             obj = data;
             console.log(obj)
-            window.dataLayer.push({
-                event: 'customEvent',
-                eventData: {
-                    action: 'Sign contract page',
-                    category: 'Application Form',
-                    label: "Signed contract!"
-                }
-            });
 
         }).then(
         () => {

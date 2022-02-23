@@ -12,6 +12,7 @@ if (t.degree === "Bachelor"){
 }
 
 
+
 function getOppInfo() {
     fetch('https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/obw/'+result , {
         method : 'GET',
@@ -69,6 +70,4 @@ $( "#skip" ).click(function() {
     });
     toAnotherPage();
 });
-
-
 

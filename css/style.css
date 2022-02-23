@@ -120,65 +120,15 @@ html{overflow-x:hidden;}
 .radiobtn label h5 span{font-size:31px; line-height:24px; font-weight:700;}
 .radiobtn label h6{font-size:16px; line-height:24px; font-weight:400; color:#757B7B; margin:0px 0 10px;}
 
-.radiobtn {
-  position: relative;
-  display: block;
-}
-.radiobtn label {
-  display: block;
-  background: #fff;
-  color: #444;
-  border-radius: 5px;
-  padding: 8px 10px;
-  border: 2px solid #A5ABA6;
-  margin-bottom: 5px;
-  cursor: pointer; text-transform:none;
-}
-.radiobtn label:after, .radiobtn label:before {
-  content: "";
-  position: absolute;
-  right: 11px;
-  top: 11px;
-  width: 20px;
-  height: 20px;
-  border-radius: 3px;
-  background: #fff; border-radius:50%;
-}
-.radiobtn label:before {
-  background: transparent;
-  transition: 0.1s width cubic-bezier(0.075, 0.82, 0.165, 1) 0s, 0.3s height cubic-bezier(0.075, 0.82, 0.165, 2) 0.1s;
-  z-index: 2;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: 13px;
-  background-position: center;
-  width: 0;
-  height: 0;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNS4zIDEzLjIiPiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LjcuOGwtLjQtLjRhMS43IDEuNyAwIDAgMC0yLjMuMUw1LjIgOC4yIDMgNi40YTEuNyAxLjcgMCAwIDAtMi4zLjFMLjQgN2ExLjcgMS43IDAgMCAwIC4xIDIuM2wzLjggMy41YTEuNyAxLjcgMCAwIDAgMi40LS4xTDE1IDMuMWExLjcgMS43IDAgMCAwLS4yLTIuM3oiIGRhdGEtbmFtZT0iUGZhZCA0Ii8+PC9zdmc+);
-}
-.radiobtn input[type=radio],.radiobtn input[type=checkbox] {
-  display: none;
-  position: absolute;
-  width: 100%;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-.radiobtn input[type=radio]:checked + label,.radiobtn input[type=checkbox]:checked + label {
-  background: #fff;
-  -webkit-animation-name: blink;
-          animation-name: blink;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  border-color: #0043E0;
-}
-.radiobtn input[type=radio]:checked + label:after,.radiobtn input[type=checkbox]:checked + label:after {
-  background: #0043E0;
-}
-.radiobtn input[type=radio]:checked + label:before,.radiobtn input[type=checkbox]:checked + label:before {
-  width: 20px;
-  height: 20px;
-}
+.radiobtn{position:relative; display:block;}
+.radiobtn label{display:block; background: #fff; color: #444; border-radius: 5px; padding: 8px 10px; border: 2px solid #A5ABA6;  margin-bottom: 5px; cursor: pointer; text-transform:none;}
+.radiobtn label:after, .radiobtn label:before {content: ""; position: absolute; right: 11px; top: 11px; width: 20px; height: 20px;
+  border-radius: 3px; background: #fff; border-radius:50%;}
+.radiobtn label:before{background: transparent; transition: 0.1s width cubic-bezier(0.075, 0.82, 0.165, 1) 0s, 0.3s height cubic-bezier(0.075, 0.82, 0.165, 2) 0.1s; z-index: 2; overflow: hidden; background-repeat: no-repeat; background-size: 13px; background-position: center; width: 0; height: 0; background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNS4zIDEzLjIiPiAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE0LjcuOGwtLjQtLjRhMS43IDEuNyAwIDAgMC0yLjMuMUw1LjIgOC4yIDMgNi40YTEuNyAxLjcgMCAwIDAtMi4zLjFMLjQgN2ExLjcgMS43IDAgMCAwIC4xIDIuM2wzLjggMy41YTEuNyAxLjcgMCAwIDAgMi40LS4xTDE1IDMuMWExLjcgMS43IDAgMCAwLS4yLTIuM3oiIGRhdGEtbmFtZT0iUGZhZCA0Ii8+PC9zdmc+);}
+.radiobtn input[type=radio],.radiobtn input[type=checkbox]{display:none; position:absolute; width:100%; -webkit-appearance:none;     -moz-appearance:none; appearance:none;}
+.radiobtn input[type=radio]:checked + label,.radiobtn input[type=checkbox]:checked + label {background: #fff; -webkit-animation-name: blink; animation-name: blink; -webkit-animation-duration: 1s; animation-duration: 1s; border-color: #0043E0;}
+.radiobtn input[type=radio]:checked + label:after,.radiobtn input[type=checkbox]:checked + label:after {background: #0043E0;}
+.radiobtn input[type=radio]:checked + label:before,.radiobtn input[type=checkbox]:checked + label:before {width:20px; height:20px;}
 .radiobtn input[type=radio]:checked + label h5 span,.radiobtn input[type=checkbox]:checked + label h5 span{color:#0043E0;}
 .radiobtn input[type="checkbox"]:checked + label::after{border-radius:0%;}
 
@@ -290,9 +240,19 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 .sidenav .order-summary label{margin-bottom:5px; line-height:20px;}
 .ui-datepicker{width:100% !important; padding:15px 25% !important;}
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active{line-height:38px; border:none !important; background:none !important; text-align:center;}
-.ui-state-default.ui-state-active{background:#0043E0 !important; border:2px solid #AFC7FF !important; border-radius:50%; color:#fff !important; width:32px; height:32px; margin:0px auto; line-height:24px;}
+.ui-state-default.ui-state-active{background:#353538 !important; border:2px solid #AFC7FF !important; border-radius:50%; color:#fff !important; width:32px; height:32px; margin:0px auto; line-height:24px;}
 .suround{background:#0043E0 !important; border:2px solid #AFC7FF !important; border-radius:50%; color:#fff !important; width:32px; height:32px; margin:0px auto; line-height:24px;}
 .unsuround{background:#0043E0 !important; border:2px solid #AFC7FF !important; border-radius:50%; color:#fff !important; width:32px; height:32px; margin:0px auto; line-height:24px;}
+.ui-datepicker-prev{background:transparent !important; border:none !important; cursor:pointer;}
+.ui-datepicker-next{background:transparent !important; border:none !important; cursor:pointer; right:12px !important;}
+.ui-datepicker-prev .ui-icon-circle-triangle-w{background-position:-98px -3px; margin-top:0px !important; margin-left:0px !important;}
+.ui-datepicker-next .ui-icon-circle-triangle-e{background-position:-35px -3px; margin-top:0px !important; margin-left:0px !important;}
+.iti.iti--allow-dropdown.iti--separate-dial-code{width:100% !important;}
+.iti--separate-dial-code .iti__selected-flag{border:#A5ABA6 solid 1px !important; height:49px !important;}
+.iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container{float:left; position:static;}
+#phone{padding:0 0 0 15px !important; float: right; width: 75% !important;}
+
+
 
 .thankyou-content{margin:0px; padding:35px 0 40px; width:100%; background:#F5F4F3;}
 .thankyou-content h2{display:inline-block; vertical-align:top; font-size:36px; line-height:40px; color:#000; font-weight:700; padding:8px 13px; background:#55FF4D; color:#1D1D1F; text-transform:uppercase; margin-bottom:25px;}
@@ -309,3 +269,54 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 .fileupload{background:#fff; border-radius:5px; border:2px dashed #A5ABA6; padding:43px 20px; text-align:center; margin:15px 0 60px; position:relative; cursor:pointer;}
 .fileupload input[type="file"]{position:absolute; left:0px; top:0px; width:100%; height:100%; opacity:0;}
 .privacyPolicy{color: #0043E0}
+
+
+/* 02.02.2022  */
+.formblock .form-group .field-error {
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url('../images/error-indicator.png');
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+.formblock .form-group .field-valid {
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url('../images/valid-indicator.png');
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.iu-online-frm .radiobtn input[type=radio]:checked + label, .iu-online-frm .radiobtn input[type=checkbox]:checked + label{
+  background: #000; border-color: #000;
+}
+.iu-online-frm .radiobtn input[type=radio]:checked + label h5{color: #fff;}
+.iu-online-frm .radiobtn label:before{background: #000; background-image: none !important;}
+.iu-online-frm .ui-state-default.ui-state-active{background: #000; border: 2px solid #a4a8b1 !important;}
+
+
+/*====New Update Css====*/
+.content label{text-transform:none;}
+.radiobtn input[type="radio"]:checked + label::before, .radiobtn input[type="checkbox"]:checked + label::before{display:none;}
+.radiobtn input[type="radio"]:checked + label::after, .radiobtn input[type="checkbox"]:checked + label::after{display:none;}
+.radiobtn input[type="radio"]:checked + label, .radiobtn input[type="checkbox"]:checked + label{-webkit-animation-name: blink; animation-name: blink; -webkit-animation-duration: 0s; animation-duration: 0s;}
+.iu-online-frm .radiobtn input[type="radio"]:checked + label h5 svg, .iu-online-frm .radiobtn input[type="checkbox"]:checked + label h5 svg{fill:#fff;}
+.iu-online-frm .radiobtn input[type="radio"]:checked + label h5 svg path, .iu-online-frm .radiobtn input[type="checkbox"]:checked + label h5 svg path{fill:#fff;}
+#Degree{border:none;}
+.radiobtn input[type="radio"]:checked + label h5 span, .radiobtn input[type="checkbox"]:checked + label h5 span{padding:0 5px !important;}
+.radiobtn label::after, .radiobtn label::before{display:none;}
+#campusLocation{margin-left:-15px; margin-right:-15px;}
+.radiobtn label h5 span{padding:0 5px !important;}
+.content input[type="tel"]{width:100% !important;}
+.formblock span{margin-bottom:10px; display:inline-block;}
+.formblock label span{margin-bottom:0px;}
+#timeModalsSection .radiobtn.tm .mobile-view{text-align:center;}
+#timeModalsSection .radiobtn.tm .mobile-view h6{display:inline-block; vertical-align:top; margin:0px; font-size:16px;}
+#timeModalsSection .radiobtn.tm .mobile-view h5{display:inline-block; vertical-align:top; margin:0px; text-transform:uppercase; font-weight:700; font-size:16px;}
+#timeModalsSection .radiobtn.tm .mobile-view h5 span{font-size:17px; padding-right:0px !important;}
+#timeModalsSection .radiobtn.tm .mobile-view:checked + label h6{color:#fff;}
+#timeModalsSection .radiobtn.tm .mobile-view:checked + label h5{color:#fff;}
+#timeModalsSection .radiobtn input[type="radio"]:checked + label h5 span{color:#fff;}
+.iu-online-frm #timeModalsSection .radiobtn input[type="radio"]:checked + label h6{color:#fff;}
+
+
