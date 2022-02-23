@@ -1075,7 +1075,7 @@ let mT = [
         "intake" : "Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
     },
     {
-        "name" : 'MBA - specialisation Salesforce - 90',
+        "name" : 'MBA - Specialisation Salesforce - 90',
         "careId" : '121_FI_SF',
         "careIdCs" : '10008379_SF',
         "intake" : "Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
@@ -1252,11 +1252,8 @@ let mT = [
 //online only
 mtCheckOnline = [
     'B.Eng. Robotics - 180',
-    'B.Sc. Data Science - 180',
     'B.A. Digital Business - 180',
     'B.A. Entrepreneurship - 180',
-    'M.Sc. Data Science - 60',
-    'M.Sc. Data Science - 120',
     'M.Sc. Artificial Intelligence - 60',
     'M.Sc. Artificial Intelligence - 120',
     'M.A. Marketing Management - 60',
@@ -1272,7 +1269,6 @@ mtCheckOnline = [
     "M.A. International Healthcare Management - 60",
     "M.A. Human Resource Management - 120",
     "M.A. Human Resource Management - 60",
-    "B.Sc. Software Development - 180",
     "M.A. Digital Innovation & Intrapreneurship - 60",
     "M.Sc. Business Intelligence - 60",
     "M.Sc. Business Intelligence - 120",
