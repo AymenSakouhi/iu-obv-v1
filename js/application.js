@@ -160,6 +160,17 @@ function errorPush(label) {
 
 }
 
+
+function removeBadHonnefLocation() {
+    if(mT.find( ({ name, studyLocation }) => name === $("#studyProgram :selected").text() && studyLocation === "OnlyBerlin" )) {
+        $( "#badHonnefLocation" ).addClass( "hide" )
+    } else {
+        $( "#badHonnefLocation" ).removeClass( "hide" )
+    }
+}
+
+
+
 //intake variables
 let currentProgramme = "";
 let ProgrammeIntakes = [];
@@ -863,13 +874,15 @@ let mT = [
         "name" : 'M.Sc. Data Science - 60',
         "careId" : '10007855',
         "careIdCs" : '10008538_CS_DS',
-        "intake" : "Oct 22, Oct 23"
+        "intake" : "Oct 22, Oct 23",
+        "studyLocation" : "OnlyBerlin"
     },
     {
         "name" : 'M.Sc. Data Science - 120',
         "careId" : '10007854',
         "careIdCs" : '10008537_CS_DS',
-        "intake" : "Oct 22, Oct 23"
+        "intake" : "Oct 22, Oct 23",
+        "studyLocation" : "OnlyBerlin"
     },
     {
         "name" : 'M.Sc. Cyber Security - 120',
@@ -1343,7 +1356,7 @@ function validatefilledIn() {
     }
 
     if(!mtCheckOnline.includes($('#studyProgram').find(":selected").text()) && !($('#Degree').find(":selected").text().startsWith('S') || $('#studyProgram').find(":selected").text().startsWith('S') )){
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 3; i++) {
                 if ($('input[name=studyLocation]:checked').length === 0) {
                     arr2[i].style.borderColor = 'red'
                     setTimeout(function () {
@@ -2581,10 +2594,7 @@ document.getElementById("studyProgram").addEventListener("change", function() {
 
     checkLocation()
 
-    //checkIpAndChange(); changed position
-
-    // $( "#graduationFee" ).addClass( "hide" )
-    // $( "#graduationFee2" ).addClass( "hide" )
+    removeBadHonnefLocation();
 
     if($("#studyProgram :selected").text() === "B.A. Aviation Management - 180" || $("#studyProgram :selected").text() === "B.A. Hospitality Management - 180"){
         $('#datepicker').datepicker("setDate", new Date(2022,8,1) );
@@ -2989,6 +2999,8 @@ $("#studyOnCampus").click(function() {
         });
         locationSite = "4"
         $( "#berlin" ).trigger( "click" )
+        
+        removeBadHonnefLocation();
 
     },100)
 });
