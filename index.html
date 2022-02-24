@@ -2839,17 +2839,35 @@
                 <div class="formblock">
 
                     <h3 class="formstep-title"><span class="number">3</span> Background information</h3>
-
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12" translate="no">
+                    
+                    <div class="row" style="align-items: baseline">
+                        <div class="col-md-6 col-sm-6 col-xs-12" translate="no">
                             <label>Current level of education <span class="required-mark">*</span></label>
                             <label class="text-transform-none" id="bgrInformation">Do you have a High School / Bachelor Diploma?</label>
-                            <div class="form-group"><!-- yes -->
+                            <!-- //old row for select box high school or bachelor-->
+                            <!-- <div class="form-group">
                                 <select name="school" id="yes" onchange="findOutAndChange('yes','Diploma')">
                                     <option value="" disabled selected>Choose one</option>
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
+                            </div> -->
+                        </div>
+                        <!-- //added by me to change the design from a selectbox to radiobuttons -->
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <div class="radiobtn">
+                                    <input type="radio" id="yes" name="school" value="1" onclick="findOutAndChange(this.id,'Diploma')" required/>
+                                    <label for="yes" class="pl-0"><h5 class="text-center">Yes</h5></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6">
+                            <div class="form-group">
+                                <div class="radiobtn">
+                                    <input type="radio" id="no" name="school" value="0" onclick="findOutAndChange(this.id,'Diploma')" />
+                                    <label for="no" class="pl-0"><h5 class="text-center">No</h5></label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2857,7 +2875,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12" translate="no">
                             <label>English level <span class="required-mark">*</span></label>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <select name="enlgishlevel" id="enlgishlevel" onchange="findOutAndChange(this.id ,'EnglishLevelSummary')">
                                     <option value="" disabled selected>Choose one</option>
                                     <option value="1">1</option>
@@ -2871,6 +2889,68 @@
                                     <option value="9">9</option>
                                     <option value="10">10</option>
                                 </select>
+                            </div> -->
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0%;">
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="1" name="enlgishlevel" value="1" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" required/>
+                                        <label for="1" class="pl-0"><h5 class="text-center">1</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="2" name="enlgishlevel" value="2" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="2" class="pl-0"><h5 class="text-center">2</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="3" name="enlgishlevel" value="3" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="3" class="pl-0"><h5 class="text-center">3</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="4" name="enlgishlevel" value="4" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="4" class="pl-0"><h5 class="text-center">4</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="5" name="enlgishlevel" value="5" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="5" class="pl-0"><h5 class="text-center">5</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="6" name="enlgishlevel" value="6" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="6" class="pl-0"><h5 class="text-center">6</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="7" name="enlgishlevel" value="7" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="7" class="pl-0"><h5 class="text-center">7</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="8" name="enlgishlevel" value="8" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="8" class="pl-0"><h5 class="text-center">8</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="9" name="enlgishlevel" value="9" onclick="findOutAndChange(this.id,'EnglishLevelSummary')"  />
+                                        <label for="9" class="pl-0"><h5 class="text-center">9</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="10" name="enlgishlevel" value="10" onclick="findOutAndChange(this.id,'EnglishLevelSummary')" />
+                                        <label for="10" class="pl-0"><h5 class="text-center">10</h5></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2897,7 +2977,8 @@
                             <label>Work Experience <span class="required-mark">*</span></label>
                             <br>
                             <span>How many months of professional work experience do you already have?</span>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
+                                
                                 <select name="workexperience" id="workexperience" onchange="findOutAndChange(this.id ,'workExperienceSummary')">
                                     <option value="" disabled selected>Choose one</option>
                                     <option value="1">1</option>
@@ -2911,6 +2992,68 @@
                                     <option value="9">9</option>
                                     <option value="10">+10</option>
                                 </select>
+                            </div> -->
+                            <div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0%;">
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we1" name="workexperience" value="1" onclick="findOutAndChange(this.id,'workExperienceSummary')"/>
+                                        <label for="we1" class="pl-0"><h5 class="text-center">1</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we2" name="workexperience" value="2" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we2" class="pl-0"><h5 class="text-center">2</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we3" name="workexperience" value="3" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we3" class="pl-0"><h5 class="text-center">3</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we4" name="workexperience" value="4" onclick="findOutAndChange(this.id,'workExperienceSummary')"  />
+                                        <label for="we4" class="pl-0"><h5 class="text-center">4</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we5" name="workexperience" value="5" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we5" class="pl-0"><h5 class="text-center">5</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we6" name="workexperience" value="6" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we6" class="pl-0"><h5 class="text-center">6</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we7" name="workexperience" value="7" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we7" class="pl-0"><h5 class="text-center">7</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we8" name="workexperience" value="8" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we8" class="pl-0"><h5 class="text-center">8</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we9" name="workexperience" value="9" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we9" class="pl-0"><h5 class="text-center">9</h5></label>
+                                    </div>
+                                </div>
+                                <div class="bilebel">
+                                    <div class="radiobtn">
+                                        <input type="radio" id="we10" name="workexperience" value="10" onclick="findOutAndChange(this.id,'workExperienceSummary')" />
+                                        <label for="we10" class="pl-0"><h5 class="text-center">+10</h5></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -4669,6 +4812,114 @@ function closeNav() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.js" integrity="sha512-llCHNP2CQS+o3EUK2QFehPlOngm8Oa7vkvdUpEFN71dVOf3yAj9yMoPdS5aYRTy8AEdVtqUBIsVThzUSggT0LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="upload/js/jquery.dropzone.js" type="text/javascript"></script>
+
+<!--                                                                                                                                                                                                                                                                                                                                                                                                       
+                                                      ░░░░                                                                                                                                              
+                        ▒▒▒▒▓▓                        ▓▓██          ▒▒▒▒▒▒                                                          ▒▒▓▓▒▒▒▒▒▒▒▒  ░░░░        
+        ░░▒▒░░          ▓▓▒▒██          ▒▒▒▒          ▓▓██          ▓▓▓▓▒▒            ▓▓▓▓                                          ▓▓▒▒▒▒▒▒▒▒▓▓  ▓▓▓▓        
+        ▓▓▓▓▒▒          ▒▒▒▒██          ▓▓██          ▓▓██          ▓▓▓▓▒▒            ▒▒██            ▒▒▓▓▒▒                        ▓▓░░▒▒▒▒▒▒▒▒  ▓▓▓▓        
+        ▓▓▓▓▒▒          ░░▒▒██          ▓▓▓▓          ░░░░          ▓▓▓▓▒▒            ▒▒▓▓            ▓▓▓▓▒▒                        ▒▒░░░░░░░░▒▒  ▓▓▒▒        
+        ▓▓▓▓▒▒          ▒▒▒▒██          ▓▓▓▓                        ████▒▒            ▒▒██            ▒▒██▒▒            ▓▓▓▓░░      ▒▒░░░░▒▒▒▒░░  ░░  ░░      
+        ▓▓▓▓▒▒                        ░░▓▓▓▓░░            ░░        ██▓▓▓▓              ██            ▓▓▓▓▓▓            ▓▓▓▓░░      ▒▒░░░░░░░░▒▒      ░░      
+        ░░▒▒▓▓                        ░░▓▓▓▓░░        ░░░░░░    ░░██▓▓▒▒▓▓██          ▒▒▓▓            ▒▒▓▓▓▓            ▒▒▒▒        ▒▒░░░░░░░░▒▒  ░░░░░░      
+        ░░░░▓▓        ░░░░░░░░░░      ▒▒▓▓██▓▓        ▒▒▒▒░░    ▓▓████████████      ▒▒▒▒▒▒▒▒░░        ▒▒░░▒▒            ▒▒▒▒        ▒▒▒▒▒▒▒▒░░▒▒  ░░░░▒▒      
+        ░░░░▒▒        ░░░░░░░░░░░░  ██▒▒████████    ▓▓▒▒░░▓▓    ██▓▓▓▓▓▓▓▓████    ▒▒░░░░▒▒▒▒▒▒        ░░░░▒▒          ░░▒▒▒▒▒▒      ▒▒░░░░░░░░▒▒▒▒    ░░░░    
+      ▒▒▓▓▓▓██      ░░░░░░░░░░░░▒▒░░▒▒░░████████░░░░░░░░░░░░▒▒  ██████▓▓██████  ░░▒▒░░░░░░▒▒▒▒▒▒      ██████          ░░▒▒▒▒▒▒      ▓▓░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒    
+    ▓▓▒▒▒▒▒▒▒▒▓▓░░  ░░░░░░░░░░░░▒▒░░▒▒▒▒▒▒▓▓████░░▓▓▒▒▒▒▒▒▒▒▒▒  ██████████████    ▒▒░░░░░░▒▒▒▒▒▒  ░░▓▓▒▒▒▒▒▒▓▓░░      ▓▓▓▓▓▓██      ▓▓░░░░░░░░▓▓▒▒░░░░▒▒▒▒    
+  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓      ░░░░      ░░▒▒░░░░░░░░▓▓░░▓▓▒▒▒▒▒▒▒▒░░  ████████████▓▓    ░░░░░░░░░░▒▒░░  ▓▓▒▒▒▒▒▒▒▒▒▒▓▓  ░░▓▓▒▒░░░░▒▒▓▓▒▒  ▓▓░░░░░░░░▓▓░░░░▒▒░░▒▒    
+  ▒▒░░▒▒▒▒▒▒▒▒▒▒▓▓        ▓▓      ░░░░░░▒▒▒▒▒▒░░░░▓▓▓▓▒▒▒▒▒▒░░  ██░░░░░░  ░░██    ░░░░▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██▓▓▒▒░░░░▒▒▓▓▓▓  ▓▓▓▓▒▒░░▒▒▓▓    ░░░░▓▓    
+  ░░░░░░░░░░░░░░░░    ░░░░░░░░        ░░░░▒▒░░░░  ▓▓▓▓▓▓▓▓▓▓▒▒  ██░░░░░░▒▒░░▓▓    ░░  ▒▒▒▒░░▒▒░░░░░░░░░░▒▒▒▒▒▒▒▒░░██▓▓▒▒░░▒▒▒▒▓▓▓▓  ▓▓▓▓▒▒▒▒▓▓▓▓    ░░░░▓▓    
+  ░░░░▒▒░░░░░░░░░░    ░░░░░░          ░░░░░░░░░░  ▓▓▒▒▓▓▒▒▓▓▒▒  ██░░░░░░░░░░██    ░░░░░░░░░░░░░░    ░░░░░░░░░░░░  ▓▓▓▓▒▒░░▒▒▒▒▓▓▓▓  ▓▓▓▓▒▒▒▒▓▓▓▓░░░░░░░░▓▓    
+  ░░░░    ░░░░░░░░      ░░░░░░        ▒▒▒▒▒▒▒▒░░  ▒▒░░▒▒▓▓▒▒▒▒  ▓▓░░▒▒▒▒▒▒░░▓▓    ░░░░░░▒▒░░▒▒░░      ░░░░░░░░░░  ▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓  ▓▓▓▓▓▓▒▒▓▓▓▓░░  ░░░░▓▓    
+  ░░░░░░░░░░░░░░░░  ░░░░░░░░░░░░░░  ░░░░░░░░░░▒▒  ▒▒▒▒▒▒▒▒▒▒▓▓  ▓▓░░░░░░░░░░▓▓    ░░░░░░░░░░▒▒░░    ░░░░░░░░░░░░  ▓▓▓▓▒▒▒▒▒▒▒▒▓▓▓▓  ▓▓▓▓▒▒▒▒▒▒▓▓  ░░░░░░▓▓    
+  ░░░░░░░░▒▒░░░░░░  ░░▓▓▒▒▒▒▒▒░░▒▒    ░░░░░░▒▒░░  ▒▒▓▓▓▓▒▒▓▓██  ▓▓▓▓▓▓▓▓▓▓▓▓▒▒    ░░░░░░░░▒▒▒▒        ░░▒▒░░░░░░  ▓▓▓▓▒▒▒▒▒▒▓▓▓▓▓▓  ▓▓▓▓▒▒▒▒▓▓▓▓      ░░▓▓    
+  ░░░░▒▒▒▒▒▒▒▒░░░░  ░░▒▒▒▒▒▒▒▒▒▒▓▓    ░░░░░░░░░░  ▒▒▓▓▓▓▒▒▓▓██  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒    ░░░░░░░░░░▒▒      ░░░░░░░░░░░░  ▒▒▒▒░░▒▒▒▒░░▒▒▒▒  ▓▓▓▓▒▒▒▒▓▓▓▓░░░░░░░░▓▓    
+  ░░░░░░░░░░░░░░░░  ░░▒▒▒▒▒▒▒▒▒▒▒▒  ▓▓▒▒░░░░▓▓██  ▒▒▓▓▓▓▓▓▓▓██  ▒▒████████▓▓▒▒    ▒▒░░░░░░▒▒▒▒  ░░▒▒▒▒▒▒▓▓▒▒▓▓▓▓░░▒▒▒▒░░░░▒▒▒▒▒▒▓▓  ▒▒░░░░░░░░▓▓░░░░░░░░▒▒    
+  ▒▒▒▒████████▓▓▓▓  ░░░░░░░░░░░░░░  ▓▓▒▒████████  ▒▒▒▒▓▓▓▓▓▓▓▓  ▓▓████████████    ▒▒▒▒▒▒▒▒▒▒▒▒    ▓▓▓▓██████▓▓▓▓░░▓▓▒▒░░░░░░░░▒▒▓▓  ▒▒▒▒░░░░▒▒▓▓▒▒▒▒▒▒▒▒▒▒    
+  ░░██████████████  ░░░░░░░░░░░░▒▒  ▓▓▒▒████████  ▒▒▒▒░░░░▓▓▓▓  ██████████████    ▒▒░░░░▒▒▒▒▒▒  ░░██████████████  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ▒▒░░░░░░▒▒▓▓▒▒▒▒▒▒▒▒▒▒    
+  ░░▒▒▒▒▓▓▓▓▓▓▓▓▒▒    ░░░░░░░░░░    ▒▒▒▒▒▒▒▒▒▒▒▒  ░░▒▒░░░░▒▒░░  ░░▒▒▒▒▒▒▓▓▒▒░░    ░░░░░░░░░░░░    ▒▒▓▓▓▓▓▓▓▓▓▓▒▒    ░░░░░░░░░░░░              ░░▒▒▒▒░░▒▒▒▒    Total 8 bottles of whisky spent on this!
+      ░░░░░░░░                                                                                                             
+
+
+                                                   ,d""7b.                                  
+                                           ,'    ,d^b.
+                            __,d"""""""b..d.    d'
+              ,d""""-.  ,d""'              `"b.dP
+            dP' ,___  `7b.                     `b
+          `"788P'  `".   "                       `b
+          ,d" `b      `"                          `7.
+    `P""""7.   8)                                   7.
+     `.    8  ,P               ,---.                 """"b.
+      8.  d' ,P             ,d"   ,88b.         "b       `8
+     d' `"  ,P             ""    ,P   `7b        `b     ,dP
+    d'      8                    d       `b.      d8888888888b.
+   ,'      d'                   ,8.     8   78""""""788888888' `"b.
+   8b _   8P                 ,P'   `"""oo.,d"          ""788'     `7.
+ .-""""8 d8'            ,-""7P                       .    `7.      ,8.
+`b     8 88              ,d"8   d8b.                 8b    `b      d `.                 
+  `b___8 88             '  ,8  d8888888b.           ; `b    8     ,P  8.
+   8     88                8  d8"7P""8""""b..      ,8  `b  ,8"""""8'  88
+   8     `b ,d"'           7  8  8   8   ,8. 7P--,dP   ,8"'     ,8' _,d8.
+   7.     8d"                 8 ,db.P""bd' `7P ,d""""""""""""""""""'    8
+   `b     d'                  8P'  8   88  ,P"'                         8
+    7. _,d'                   7b  ,d88888"'                            d'
+    ,P' '8                     8888888"'                               8
+   ,P   88                     `888P'                                  8
+  ,8_mGk_8                       "'                                   d'
+        "8                                                    ,'     d'
+         `b                                                  d8b..d""
+          `b                                              ,dP'
+           `7.                           ______________,d""
+             `7b.                     ,d""
+                `7b..             _,d"'
+                     """--....-"""'                                         My mood fixing a bug right now!
+
+
+                                        ,   ,                                
+                                        $,  $,     ,                         
+                                        "ss.$ss. .s'                         
+                                ,     .ss$$$$$$$$$$s,                        
+                                $. s$$$$$$$$$$$$$$`$$Ss                      
+                                "$$$$$$$$$$$$$$$$$$o$$$       ,              
+                               s$$$$$$$$$$$$$$$$$$$$$$$$s,  ,s               
+                              s$$$$$$$$$"$$$$$$""""$$$$$$"$$$$$,             
+                              s$$$$$$$$$$s""$$$$ssssss"$$$$$$$$"             
+                             s$$$$$$$$$$'         `"""ss"$"$s""              
+                             s$$$$$$$$$$,              `"""""$  .s$$s        
+                             s$$$$$$$$$$$$s,...               `s$$'  `       
+                         `ssss$$$$$$$$$$$$$$$$$$$$####s.     .$$"$.   , s-   
+                           `""""$$$$$$$$$$$$$$$$$$$$#####$$$$$$"     $.$'    
+                                 "$$$$$$$$$$$$$$$$$$$$$####s""     .$$$|     
+                                  "$$$$$$$$$$$$$$$$$$$$$$$$##s    .$$" $    
+                                   $$""$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"   `    
+                                  $$"  "$"$$$$$$$$$$$$$$$$$$$$S""""'         
+                             ,   ,"     '  $$$$$$$$$$$$$$$$####s             
+                             $.          .s$$$$$$$$$$$$$$$$$####"            
+                 ,           "$s.   ..ssS$$$$$$$$$$$$$$$$$$$####"            
+                 $           .$$$S$$$$$$$$$$$$$$$$$$$$$$$$#####"             
+                 Ss     ..sS$$$$$$$$$$$$$$$$$$$$$$$$$$$######""              
+                  "$$sS$$$$$$$$$$$$$$$$$$$$$$$$$$$########"                  
+           ,      s$$$$$$$$$$$$$$$$$$$$$$$$#########""'                      
+           $    s$$$$$$$$$$$$$$$$$$$$$#######""'      s'         ,           
+           $$..$$$$$$$$$$$$$$$$$$######"'       ....,$$....    ,$            
+            "$$$$$$$$$$$$$$$######"' ,     .sS$$$$$$$$$$$$$$$$s$$            
+              $$$$$$$$$$$$#####"     $, .s$$$$$$$$$$$$$$$$$$$$$$$$s.         
+   )          $$$$$$$$$$$#####'      `$$$$$$$$$###########$$$$$$$$$$$.       
+  ((          $$$$$$$$$$$#####       $$$$$$$$###"       "####$$$$$$$$$$      
+  ) \         $$$$$$$$$$$$####.     $$$$$$###"             "###$$$$$$$$$   s'
+ (   )        $$$$$$$$$$$$$####.   $$$$$###"                ####$$$$$$$$s$$' 
+ )  ( (       $$"$$$$$$$$$$$#####.$$$$$###'                .###$$$$$$$$$$"   
+ (  )  )   _,$"   $$$$$$$$$$$$######.$$##'                .###$$$$$$$$$$     
+ ) (  ( \.         "$$$$$$$$$$$$$#######,,,.          ..####$$$$$$$$$$$"     
+(   )$ )  )        ,$$$$$$$$$$$$$$$$$$####################$$$$$$$$$$$"       
+(   ($$  ( \     _sS"  `"$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$S$$,       
+ )  )$$$s ) )  .      .   `$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"'  `$$      
+  (   $$$Ss/  .$,    .$,,s$$$$$$##S$$$$$$$$$$$$$$$$$$$$$$$$S""        '      
+    \)_$$$$$$$$$$$$$$$$$$$$$$$##"  $$        `$$.        `$$.                
+        `"S$$$$$$$$$$$$$$$$$#"      $          `$          `$                
+            `"""""""""""""'         '           '           '             -IU 2022 24-02-
+
+                                                                                                                                                                                                         -->
 
 <!-- Validate js -->
 <!--
