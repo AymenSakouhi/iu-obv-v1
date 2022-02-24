@@ -1448,7 +1448,7 @@ function checkingFields() {
         document.getElementById("submit").disabled = false;
         return false;
     }
-    else if ($('#Degree').find(":selected").text().startsWith('S') || $('#studyProgram').find(":selected").text().startsWith('D')){
+    else if ($('#Degree').find(":selected").text().startsWith('S') || $('#studyProgram').find(":selected").text().startsWith('S')){
         validatefilledIn();
         $("#myModalStudyProgramme").modal();
         document.getElementById("submit").disabled = false;
