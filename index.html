@@ -3512,17 +3512,21 @@
 
                     <div class="row">
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <!-- <div class="col-md-12 col-sm-12 col-xs-12">
 
                             <h2>YOUR SUMMARY</h2>
 
+                        </div> -->
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h2>YOUR SUMMARY <i class="fa fa-info-circle"></i> </h2>  
                         </div>
 
                     </div>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
+                        <!-- <div class="col-md-5 col-sm-5 col-xs-12">
 
                             <label>Degree Level</label>
 
@@ -3532,13 +3536,20 @@
 
                             <input class="degree" type="text" name="" value="" placeholder="">
 
+                        </div> -->
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label>Degree Level</label>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label class="degree"> <strong>Select one</strong></label>
                         </div>
 
                     </div>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
+                        <!-- <div class="col-md-5 col-sm-5 col-xs-12">
 
                             <label>Study programme</label>
 
@@ -3548,13 +3559,20 @@
 
                             <input class="study-programme" type="text" name="" value="" placeholder="">
 
+                        </div> -->
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label>Study programme</label>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12"  translate="no">
+                            <label class="study-programme"> <strong>Select one</strong></label>
                         </div>
 
                     </div>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
+                        <!-- <div class="col-md-5 col-sm-5 col-xs-12">
 
                             <label>Study Model</label>
 
@@ -3564,6 +3582,13 @@
 
                             <input class="campus" id="campus1" style="margin-bottom: 2px;font-weight: bolder" type="text" name="" value="" placeholder="">
 
+                        </div> -->
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label>Study Model</label>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label class="campus" id="campus1"> <strong>Select one</strong></label>
                         </div>
 
                         <!--<div class="left col-md-7 col-sm-7 col-xs-12 hide" id="semesterOnCampusOnly" style="color: #8E9592;margin-bottom: 2px">
@@ -3580,7 +3605,7 @@
 
                     </div>
 
-                    <div class="row siteRow">
+                    <div class="row siteRow hide">
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3602,7 +3627,7 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row hide">
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3620,7 +3645,7 @@
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
+                        <!-- <div class="col-md-5 col-sm-5 col-xs-12">
 
                             <label class="labelStudyStart">study start</label>
 
@@ -3630,6 +3655,18 @@
 
                             <input class="study-start" type="text" name="" value="" placeholder="">
 
+                        </div> -->
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+
+                            <label class="labelStudyStart">study start</label>
+                    
+                        </div>
+                    
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                    
+                            <label class="study-start"><strong>Select one</strong></label>
+                    
                         </div>
 
                     </div>
@@ -3752,7 +3789,33 @@
 
                     </div>
 
-                    <div class="row total-table">
+                    <div class="row total-table" style="padding-top: 0%; padding-bottom: 0%;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                            <label style="line-height: 25px" class="labelMonthlyPrice">Monthly Price With Scholarship</label>
+                        </div>
+
+                        <div class="price-before col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                            <label class="" style="padding-top: 0%; padding-bottom: 0%;"><strong>Your monthly price will be displayed here after all fields have been completed</strong></label>
+                        </div>
+                    
+                        <div class="price-after col-md-12 col-sm-12 col-xs-12 hide">
+                            <div class="" style="padding-top: 0%; padding-bottom: 0%;">
+                                <span class="monthlyPriceBefore crossed">0000</span>
+                                <p style="font-weight: bold; font-size: 38px;"><span class="monthlyPrice">0000</span> € </p>
+                            </div>
+
+                            <div class="right" style="text-align: right; color: #8E9592;padding-top: 0%; padding-bottom: 0%;">
+
+                                <span class="totalBeforeDiscount crossed ">0000</span> 
+                                <span class="discountPrice">0000</span> € in total
+
+                            </div>
+                        </div>
+                    
+                    
+                    </div>
+
+                    <!-- <div class="row total-table">
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3774,7 +3837,7 @@
 
                                 <span class="totalBeforeDiscount crossed ">0000</span> <span class="discountPrice">0000</span> € in total
 
-<!--                                <span class="admissionFee toHide" style="font-size: 12px"><br>(incl. 1.000€ one-off admission fee)</span>-->
+                                <!--  <span class="admissionFee toHide" style="font-size: 12px"><br>(incl. 1.000€ one-off admission fee)</span>-->
 
                                 <span class="admissionFee toHide"><br>(excl. 1000€ one-time campus registration fee)</span>
 
@@ -3792,7 +3855,7 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
                     <div class="row statements text-justify hide" id="statement1"  style="color: #8E9592;margin: 0;padding:0;font-size: 12px">
 
@@ -3832,17 +3895,21 @@
 
          <div class="row">
 
-             <div class="col-md-12 col-sm-12 col-xs-12">
+             <!-- <div class="col-md-12 col-sm-12 col-xs-12">
 
                  <h2>YOUR SUMMARY</h2>
 
-             </div>
+             </div> -->
+
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <h2>YOUR SUMMARY <i class="fa fa-info-circle"></i> </h2>  
+            </div>
 
          </div>
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12">
+             <!-- <div class="col-md-5 col-sm-5 col-xs-12">
 
                  <label>Degree Level</label>
 
@@ -3852,13 +3919,20 @@
 
                  <input class="degree" type="text" name="" value="" placeholder="">
 
-             </div>
+             </div> -->
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Degree Level</label>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label class="degree"> <strong>Select one</strong></label>
+            </div>
 
          </div>
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12">
+             <!-- <div class="col-md-5 col-sm-5 col-xs-12">
 
                  <label>Study programme</label>
 
@@ -3868,13 +3942,20 @@
 
                  <input class="study-programme" type="text" name="" value="" placeholder="">
 
-             </div>
+             </div> -->
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Study programme</label>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12"  translate="no">
+                <label class="study-programme"> <strong>Select one</strong></label>
+            </div>
 
          </div>
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12" >
+             <!-- <div class="col-md-5 col-sm-5 col-xs-12" >
 
                  <label>Study Model</label>
 
@@ -3884,9 +3965,14 @@
 
                  <input class="campus" id="campus2" style="font-weight: bolder" type="text" name="" value="" placeholder="">
 
-             </div>
+             </div> -->
 
-
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Study Model</label>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label class="campus" id="campus2"> <strong>Select one</strong></label>
+            </div>
 
              <div class="left col-md-7 col-sm-7 col-xs-12 hide" id="semesterVariable2" style="color: #8E9592;margin-bottom: 2px">
 
@@ -3896,7 +3982,7 @@
 
          </div>
 
-         <div class="row siteRow">
+         <div class="row siteRow hide">
 
              <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3936,7 +4022,7 @@
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12">
+             <!-- <div class="col-md-5 col-sm-5 col-xs-12">
 
                  <label class="labelStudyStart">study start</label>
 
@@ -3946,7 +4032,19 @@
 
                  <input class="study-start" type="text" name="" value="" placeholder="">
 
-             </div>
+             </div> -->
+
+             <div class="col-md-12 col-sm-12 col-xs-12">
+
+                <label class="labelStudyStart">study start</label>
+        
+            </div>
+        
+            <div class="col-md-12 col-sm-12 col-xs-12">
+        
+                <label class="study-start"><strong>Select one</strong></label>
+        
+            </div>
 
          </div>
 
@@ -4068,7 +4166,33 @@
 
          </div>
 
-         <div class="row total-table">
+         <div class="row total-table" style="padding-top: 0%; padding-bottom: 0%;">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                <label style="line-height: 25px" class="labelMonthlyPrice">Monthly Price With Scholarship</label>
+            </div>
+
+            <div class="price-before col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                <label class="" style="padding-top: 0%; padding-bottom: 0%;"><strong>Your monthly price will be displayed here after all fields have been completed</strong></label>
+            </div>
+        
+            <div class="price-after col-md-12 col-sm-12 col-xs-12 hide">
+                <div class="" style="padding-top: 0%; padding-bottom: 0%;">
+                    <span class="monthlyPriceBefore crossed">0000</span>
+                    <p style="font-weight: bold; font-size: 38px;"><span class="monthlyPrice">0000</span> € </p>
+                </div>
+
+                <div class="right" style="text-align: right; color: #8E9592;padding-top: 0%; padding-bottom: 0%;">
+
+                    <span class="totalBeforeDiscount crossed ">0000</span> 
+                    <span class="discountPrice">0000</span> € in total
+
+                </div>
+            </div>
+        
+        
+        </div>
+
+         <!-- <div class="row total-table">
 
              <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -4104,7 +4228,7 @@
 
              </div>
 
-         </div>
+         </div> -->
 
          <div class="statements text-justify hide" id="statement2"  style="color: #8E9592;margin: 0;padding:0;font-size : 11px">
 
