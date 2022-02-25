@@ -10,6 +10,15 @@ let completed = true;
 //error function + labels
 let labelContent = ""
 
+const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+
 function EmptyFields() {
     labelContent = ""
     if($('#Degree').find(":selected").text().startsWith('S') || $('#studyProgram').find(":selected").text().startsWith('S')) {
@@ -1435,6 +1444,9 @@ function checkingFields() {
     let surNameCheck = document.getElementById('last-name').value;
 
 
+    
+
+
     if (!$('#studyProgram').find(":selected").val().match(/^\d/) && !$('#studyProgram').find(":selected").text().startsWith('S')){
         validatefilledIn();
         $("#TranslationModal").modal();
@@ -1523,7 +1535,11 @@ function checkingFields() {
             $("#datePickerCheck").modal();
             document.getElementById("submit").disabled = false;
             return false;
-    }  else {
+    } if ($('#referrerFirstName').val() !== "" && $('#referrerLastName').val() !== "" && !validateEmail($('#referrerEmail').val())) {
+        $("#referrerEmailModal").modal();
+        document.getElementById("submit").disabled = false;
+        return false;
+    }    else {
         return true
     }
 
