@@ -432,11 +432,19 @@ function removeBadHonnefLocation() {
 
 function removeBadHonnefBasedIntake(curIntake) {
   let curIntakeIndex = 0;
+  let intakeIndex = 2;
 
   const isIndexOf = (element) => element === curIntake;
   curIntakeIndex = allIntakes.findIndex(isIndexOf); //to find out what's the index of the curIntake in the allintakes array
-
-  if(curIntakeIndex > 3 && NanBadHonnef.find( ({name}) => name === $("#studyProgram :selected").text())) {
+  //curIntakeIndex = allIntakes.findIndex(isIndexOf);
+  
+  NanBadHonnef.find( ({name, tillIntake}) => {
+    if (name === $("#studyProgram :selected").text())  {
+      const isIndexOfTillIntake = (element) => element === tillIntake.replace(/\s+/g,'').toLowerCase();
+      intakeIndex = allIntakes.findIndex(isIndexOfTillIntake)
+    }
+  })
+  if(curIntakeIndex > intakeIndex && NanBadHonnef.find( ({name}) => name === $("#studyProgram :selected").text())) {
     $("#badHonnefLocation").addClass("hide");
   } else {
     $("#badHonnefLocation").removeClass("hide");
