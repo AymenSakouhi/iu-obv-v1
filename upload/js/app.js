@@ -14,11 +14,11 @@ if (t.degree === "Bachelor"){
 
 
 function getOppInfo() {
-    fetch('https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/obw/'+result , {
+    fetch('https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v2/application/obw/'+result , {
         method : 'GET',
         headers: {
-            //Authorization: "TPPDVgSNCvp4TY5y",
-            Authorization: "74UgeuBcRZjX6akV",
+            Authorization: "TPPDVgSNCvp4TY5y",
+            //Authorization: "74UgeuBcRZjX6akV",
             'Content-Type' : 'application/json'
         }
     }).then(res => {

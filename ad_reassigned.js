@@ -4,7 +4,7 @@ let result = captured ? captured : 'myDefaultValue';
 console.log(result);
 
 
-$("#contractIframe").attr("src", "https://api.careerpartner.eu/centraldataservice-api/lara/api/v1/application/contract/"+result+"/stream");
+$("#contractIframe").attr("src", "https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v1/application/contract/"+result+"/stream");
 
 
 //old version here of the download button
@@ -25,8 +25,8 @@ function getOppInfo() {
     fetch('https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/obw/'+result , {
         method : 'GET',
         headers: {
-            //Authorization: "TPPDVgSNCvp4TY5y",
-            Authorization: "74UgeuBcRZjX6akV",
+            Authorization: "TPPDVgSNCvp4TY5y",
+            //Authorization: "74UgeuBcRZjX6akV",
             'Content-Type' : 'application/json'
         }
     }).then(res => {
@@ -60,11 +60,11 @@ function getOppInfo() {
 
 function signContract() {
     document.getElementById("accept").disabled = true;
-    fetch('https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/'+result+'/sign' , {
+    fetch('https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v2/application/'+result+'/sign' , {
         method : 'POST',
         headers: {
-            //Authorization: "TPPDVgSNCvp4TY5y",
-            Authorization: "74UgeuBcRZjX6akV",
+            Authorization: "TPPDVgSNCvp4TY5y",
+            //Authorization: "74UgeuBcRZjX6akV",
             'Content-Type' : 'application/json'
         },
     }).then(res => {

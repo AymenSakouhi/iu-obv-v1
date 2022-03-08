@@ -515,7 +515,7 @@ $(document).ready(function () {
       function (sn) {
         $.ajax({
           url:
-            "https://api.careerpartner.eu/centraldataservice-api/lara/api/v1/application/vouchers/" +
+            "https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v1/application/vouchers/" +
             value +
             "/validate",
           type: "post",
@@ -559,7 +559,7 @@ function checkAgentVoucher() {
   }
   $.ajax({
     url:
-      "https://api.careerpartner.eu/centraldataservice-api/lara/api/v1/application/vouchers/" +
+      "https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v1/application/vouchers/" +
       value +
       "/validate",
     type: "post",
@@ -2021,12 +2021,12 @@ function activate() {
     console.log(t);
 
     fetch(
-      "https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/obw",
+      "https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v2/application/obw",
       {
         method: "POST",
         headers: {
-          //Authorization: "TPPDVgSNCvp4TY5y",
-          Authorization: "74UgeuBcRZjX6akV",
+          Authorization: "TPPDVgSNCvp4TY5y",
+          //Authorization: "74UgeuBcRZjX6akV",
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -2112,7 +2112,7 @@ function activate() {
           console.log(i);
           data.append("upload", files.files[i]);
           fetch(
-            "https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/file/" +
+            "https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v2/file/" +
               obj.key +
               "/file-upload?type=application",
             {
