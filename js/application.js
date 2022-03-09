@@ -416,7 +416,9 @@ NanBadHonnef = [
   },
 ];
 
-function removeBadHonnefLocation() {
+function removeBadHonnefBasedIntake(curIntake) {
+  let curIntakeIndex = 0;
+  let intakeIndex = 2;
   if (
     mT.find(
       ({ name, studyLocation }) =>
@@ -424,19 +426,16 @@ function removeBadHonnefLocation() {
         studyLocation === "OnlyBerlin"
     )
   ) {
+    //hiding because onlyBerlin was found when searching in the course attributes
     $("#badHonnefLocation").addClass("hide");
+    return 0;
   } else {
+    //not hiding badhonnef because no onlyBerlin found when searching in course attribute
     $("#badHonnefLocation").removeClass("hide");
   }
-}
-
-function removeBadHonnefBasedIntake(curIntake) {
-  let curIntakeIndex = 0;
-  let intakeIndex = 2;
 
   const isIndexOf = (element) => element === curIntake;
   curIntakeIndex = allIntakes.findIndex(isIndexOf); //to find out what's the index of the curIntake in the allintakes array
-  //curIntakeIndex = allIntakes.findIndex(isIndexOf);
   
   NanBadHonnef.find( ({name, tillIntake}) => {
     if (name === $("#studyProgram :selected").text())  {
@@ -444,14 +443,17 @@ function removeBadHonnefBasedIntake(curIntake) {
       intakeIndex = allIntakes.findIndex(isIndexOfTillIntake)
     }
   })
-  if(curIntakeIndex > intakeIndex && NanBadHonnef.find( ({name}) => name === $("#studyProgram :selected").text())) {
+  if(curIntakeIndex > intakeIndex && NanBadHonnef.find( ({name}) => name === $("#studyProgram :selected").text()) && !mT.find(
+    ({ name, studyLocation }) =>
+      name === $("#studyProgram :selected").text() &&
+      studyLocation === "OnlyBerlin"
+  )) {
     $("#badHonnefLocation").addClass("hide");
   } else {
     $("#badHonnefLocation").removeClass("hide");
   }
 }
 
-// $("input[name='studyLocation']").change(
 
 //intake variables
 let currentProgramme = "";
@@ -3252,8 +3254,6 @@ document.getElementById("studyProgram").addEventListener("change", function () {
 
   checkLocation();
 
-  removeBadHonnefLocation();
-
   if (
     $("#studyProgram :selected").text() === "B.A. Aviation Management - 180" ||
     $("#studyProgram :selected").text() === "B.A. Hospitality Management - 180"
@@ -3696,7 +3696,6 @@ $("#studyOnCampus").click(function () {
     locationSite = "4";
     $("#berlin").trigger("click");
 
-    removeBadHonnefLocation();
   }, 100);
 });
 
