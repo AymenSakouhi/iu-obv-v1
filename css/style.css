@@ -209,6 +209,7 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 .order-summary{margin:165px 0 0 0%; position:sticky; right:0px; top:0px; padding:20px; border:1px solid #A5ABA6; border-radius:10px; background:#fff;}
 .order-summary h2{font-size:16px; line-height:20px; color:#000; font-weight:700; text-transform:uppercase; margin:0 0 30px;}
 .order-summary label{font-size:15px; line-height:44px; color:#595D5E; font-weight:400;}
+.order-summary label.summary-selected{color:#000000; font-weight:bold;}
 .order-summary p{font-size:15px; line-height:44px; color:#000000; font-weight:400;}
 .order-summary input[type="text"],.order-summary input[type="date"]{height:44px; padding:0 10px; margin-bottom:10px;background: #FFFFFF}
 .total-table{border-top:1px solid #A5ABA6; padding:10px 0px 5px;}

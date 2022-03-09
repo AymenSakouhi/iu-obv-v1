@@ -51,7 +51,7 @@ function EmptyFields() {
   ) {
     labelContent += "~locationSectionEmpty";
   }
-  if ($(".study-start").val() === "") {
+  if ($(".study-start").innerHTML() === "") {
     labelContent += "~startDataOnlineSectionEmpty";
   }
   if ($("input[name=gender]:checked").length === 0) {
@@ -91,7 +91,7 @@ function EmptyFields() {
   ) {
     labelContent += "~workExperienceForMasterEmpty";
   }
-  if ($(".study-start").val() === "") {
+  if ($(".study-start").innerHTML() === "") {
     labelContent += "~submitWithoutStartDateEmpty";
   }
 
@@ -156,7 +156,7 @@ function scrollTo() {
         block: "center",
         inline: "nearest",
       });
-  } else if ($(".study-start").val() === "") {
+  } else if ($(".study-start").innerHTML() === "") {
     document
       .getElementById("datepicker")
       .scrollIntoView({
@@ -273,7 +273,7 @@ function scrollTo() {
         block: "center",
         inline: "nearest",
       });
-  } else if ($(".study-start").val() === "") {
+  } else if ($(".study-start").innerHTML() === "") {
     document
       .getElementById("datepicker")
       .scrollIntoView({
@@ -1662,7 +1662,7 @@ function validatefilledIn() {
     }
   }
 
-  if ($(".study-start").val() === "") {
+  if ($(".study-start").innerHTML() === "") {
     $("#datepicker").attr("style", "border: 2px solid red !important");
     setTimeout(function () {
       $("#datepicker").attr("style", "border: none !important");
@@ -1803,7 +1803,7 @@ function checkingFields() {
     $("#myModalSite").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if ($(".study-start").val() === "") {
+  } else if ($(".study-start").innerHTML() === "") {
     validatefilledIn();
     $("#datePickerCheck").modal();
     $(".ui-state-default.ui-state-active").attr(
@@ -1867,7 +1867,7 @@ function checkingFields() {
     $("#eligibilityModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if ($(".study-start").val() === "") {
+  } else if ($(".study-start").innerHTML() === "") {
     validatefilledIn();
     $("#datePickerCheck").modal();
     document.getElementById("submit").disabled = false;
@@ -1906,7 +1906,7 @@ function activate() {
     let city = document.getElementById("city").value;
     let country = document.getElementById("country").value;
     let studyStartDate =
-      document.getElementsByClassName("study-start")[0].value;
+      document.getElementsByClassName("study-start")[0].innerHTML;
     let fullNumber =
       document.getElementsByClassName("iti__selected-dial-code")[0].innerText +
       document.getElementById("phone").value;
@@ -2200,7 +2200,8 @@ function findOutAndChange(x, y) {
     //setTimeout(PriceChange, 1000);
   } else if (x === "datepicker") {
     for (let i = 0; i < D2.length; i++) {
-      D2[i].value = D1.value;
+      D2[i].innerHTML = D1.value;
+      $(D2[i]).addClass("summary-selected");
     }
   } else if (y === "study-model") {
     // $( "#graduationFee" ).removeClass( "hide" )
@@ -2236,13 +2237,16 @@ function findOutAndChange(x, y) {
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Bachelor") {
         D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
       } else {
         D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
       }
     }
   } else if(y === 'campus' || y==='campusSite') {
     for (let i = 0; i < D2.length; i++) {
         D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
     }
 
   } else if (x === "winterintake" || x === "winterintake2") {
@@ -2343,6 +2347,13 @@ function checkLocation() {
     setTimeout(function () {
       $("#datepicker").show();
       $("#intakes").hide();
+
+      let startSummary = document.getElementsByClassName("study-start");
+      for (let i = 0; i < startSummary.length; i++) {
+        startSummary[i].innerHTML = "Select one";
+        $(startSummary[i]).removeClass("summary-selected");
+      }
+
     }, 100);
 
     //document.getElementById('study-on-campus').disabled = true;
@@ -2371,6 +2382,12 @@ function checkLocation() {
       $("#rowLocTwo").addClass("hide");
       $("#rowLocThree").addClass("hide");
       $("#rowLocFour").addClass("hide");
+
+      let locSummary = document.getElementsByClassName("campus");
+      for (let i = 0; i < locSummary.length; i++) {
+        locSummary[i].innerHTML = "Online";
+        $(locSummary[i]).addClass("summary-selected");
+      }
 
       // $( "#semesterOnCampusOnly" ).addClass( "hide" )
       // $( "#semesterVariable" ).addClass( "hide" )
@@ -2411,14 +2428,14 @@ function checkLocation() {
     $(".labelMonthlyPrice").text("Monthly Price");
     $(".labelMonthlyPrice").css("line-height", "44px");
 
-    $("#campus1").css(
-      "background",
-      "url(./images/on-campus.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/on-campus.png) 95% center no-repeat"
-    );
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/on-campus.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/on-campus.png) 95% center no-repeat"
+    // );
 
     $("#rowLocOne").addClass("hide");
     $("#rowLocTwo").removeClass("hide");
@@ -2438,14 +2455,20 @@ function checkLocation() {
     $("#site").hide();
     $(".siteRow").hide();
 
-    $("#campus1").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
+    let startSummary = document.getElementsByClassName("study-start");
+    for (let i = 0; i < startSummary.length; i++) {
+      startSummary[i].innerHTML = "Select one";
+      $(startSummary[i]).removeClass("summary-selected");
+    }
+
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
 
     $("div").find("label[for=monthstwo]").show();
     $("div").find("label[for=monthsthree]").show();
@@ -3142,6 +3165,9 @@ function PriceChange() {
       }
     }
   }
+  $(".price-before").addClass("hide");
+  $(".price-after").removeClass("hide");
+
 }
 
 let htmlFragment =
@@ -3174,19 +3200,19 @@ function changeDegreeVal() {
   $("#something").addClass("study-online");
 
   //$("#something").css("background-color","#F5F4F3");
-  $("#campus1").css(
-    "background",
-    "url(./images/online.png) 95% center no-repeat"
-  );
-  $("#campus2").css(
-    "background",
-    "url(./images/online.png) 95% center no-repeat"
-  );
+  // $("#campus1").css(
+  //   "background",
+  //   "url(./images/online.png) 95% center no-repeat"
+  // );
+  // $("#campus2").css(
+  //   "background",
+  //   "url(./images/online.png) 95% center no-repeat"
+  // );
 
   //checkLocation()
 
-  $("#campus1").css("background", "url()");
-  $("#campus2").css("background", "url()");
+  // $("#campus1").css("background", "url()");
+  // $("#campus2").css("background", "url()");
 
   //time model showing up
   $("div").find("label[for=monthstwo]").show();
@@ -3249,6 +3275,7 @@ function changeDegreeVal() {
 
     PriceChange();
   }
+  $(".study-programme").addClass("summary-selected");
 
   $(".ui-state-default.ui-state-active").attr(
     "style",
@@ -3515,6 +3542,7 @@ function checkIntakeStart() {
       document.getElementsByClassName("study-start")[1].innerHTML = "2022/07/01";
     }
   }
+  $(".study-start").addClass("summary-selected");
 }
 
 function starting() {
@@ -3553,7 +3581,7 @@ function starting() {
     item.innerHTML = "0000";
   });
   document.querySelectorAll(".study-start").forEach((item) => {
-    item.value = "";
+    item.innerHTML = "";
   });
 
   if (mtCheck.includes($("#studyProgram :selected").text())) {
@@ -3672,7 +3700,7 @@ $("input[name='studyLocation']").change(function () {
       });
       document.querySelectorAll(".study-start").forEach((item) => {
         //item.value = $( "#datepicker" ).val()
-        item.value = "";
+        item.innerHTML = "";
       });
     }, 100);
 
