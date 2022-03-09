@@ -3581,7 +3581,7 @@ function starting() {
     item.innerHTML = "0000";
   });
   document.querySelectorAll(".study-start").forEach((item) => {
-    item.innerHTML = "";
+    item.innerHTML = "Select one";
   });
 
   if (mtCheck.includes($("#studyProgram :selected").text())) {
@@ -3700,7 +3700,7 @@ $("input[name='studyLocation']").change(function () {
       });
       document.querySelectorAll(".study-start").forEach((item) => {
         //item.value = $( "#datepicker" ).val()
-        item.innerHTML = "";
+        item.innerHTML = "Select one";
       });
     }, 100);
 
