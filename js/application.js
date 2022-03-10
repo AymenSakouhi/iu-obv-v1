@@ -304,7 +304,7 @@ function errorPush(label) {
 NanBadHonnef = [
   {
     name: "M.A. International Management - 60",
-    tillIntake: "Apr 22",
+    tillIntake: "Jul 22",
   },
   {
     name: "M.Eng. Engineering Management - 60",
