@@ -307,6 +307,10 @@ NanBadHonnef = [
     tillIntake: "Apr 22",
   },
   {
+    name: "M.Eng. Engineering Management - 60",
+    tillIntake: "Apr 22",
+  },
+  {
     name: "M.Sc. Computer Science - 120",
     tillIntake: "Apr 22",
   },
@@ -332,6 +336,10 @@ NanBadHonnef = [
   },
   {
     name: "M.A. International Management - Specialisation Finance & Accounting - 120",
+    tillIntake: "Jul 22",
+  },
+  {
+    name: "M.A. International Management - Specialisation AI & Robotics - 120",
     tillIntake: "Jul 22",
   },
   {
