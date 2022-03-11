@@ -1396,7 +1396,9 @@ let mT = [
   },
   {
     name: "B.Sc. Applied Artificial Intelligence - 180",
-    careId: "10008073_FI_AI",
+    careId: "10008523",
+    careIdCs: "10008523_CS_AAI",
+    intake: "Oct 22, Oct 23",
     //needs to be there
   },
   {
@@ -1412,7 +1414,9 @@ let mT = [
   },
   {
     name: "B.Eng. Robotics - 180",
-    careId: "10007964_FI",
+    careId: "10008527",
+    careIdCs: "10008527_CS_ROB",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23",
   },
   /*{
         "name" : 'B.Eng. Engineering - 180',
@@ -1562,7 +1566,6 @@ let mT = [
 
 //online only
 mtCheckOnline = [
-  "B.Eng. Robotics - 180",
   "B.A. Digital Business - 180",
   "B.A. Entrepreneurship - 180",
   "M.Sc. Artificial Intelligence - 60",
@@ -1572,7 +1575,6 @@ mtCheckOnline = [
   "M.A. Management - Specialisation Leadership - 60",
   "M.A. Information Technology Management - 60",
   "M.A. Information Technology Management - 120",
-  "B.Sc. Applied Artificial Intelligence - 180",
   "M.Sc. Data Management - 60",
   "M.Sc. Data Management - 120",
   "B.A. International Healthcare Management - 180",
