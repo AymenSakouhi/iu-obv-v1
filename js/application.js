@@ -304,7 +304,7 @@ function errorPush(label) {
 NanBadHonnef = [
   {
     name: "M.A. International Management - 60",
-    tillIntake: "Jul 22",
+    tillIntake: "Jul 22, Oct 22, Jan 23, Apr 23",
   },
   {
     name: "M.Eng. Engineering Management - 60",
@@ -312,7 +312,7 @@ NanBadHonnef = [
   },
   {
     name: "M.Sc. Computer Science - 120",
-    tillIntake: "Apr 22",
+    tillIntake: "Oct 22, Jan 23, Oct 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -1146,7 +1146,7 @@ let mT = [
     careId: "10007953_FI",
     //"careIdCs" : '10007953_CS'
     careIdCs: "10008367",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.Sc. Data Science - 180",
@@ -1167,7 +1167,7 @@ let mT = [
     careId: "10007941_FI",
     //"careIdCs" : '10007952'
     careIdCs: "10008373",
-    intake: "Oct 21, Apr 22, Oct 22, Apr 23, Oct 23",
+    intake: "Oct 22, Jan 23, Oct 23",
     intake2: "Apr 22, Oct 22, Apr 23, Oct 23",
   },
 
@@ -1410,7 +1410,7 @@ let mT = [
     careId: "10008001_FI",
     //"careIdCs" : '10008001_CS'
     careIdCs: "10008368",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.Eng. Robotics - 180",
@@ -1427,7 +1427,7 @@ let mT = [
     careId: "10008000_FI",
     //"careIdCs" : '10008000_CS'
     careIdCs: "10008370",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.A. International Management - 180",
@@ -1494,7 +1494,7 @@ let mT = [
     st_careId: "70",
     //"careIdCs" : '10008044_CS'
     careIdCs: "10008376",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Jul 22, Oct 22, Jan 23, Apr 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -3220,6 +3220,9 @@ function changeDegreeVal() {
     )
       .find(":selected")
       .text();
+
+    document.getElementById('studyProgram').dispatchEvent(new CustomEvent('change'));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
@@ -3248,6 +3251,9 @@ function changeDegreeVal() {
     )
       .find(":selected")
       .text();
+
+    document.getElementById('studyProgram').dispatchEvent(new CustomEvent('change'));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
@@ -3327,16 +3333,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 4, 16) });
   } else if (
     $("#studyProgram :selected").text() ===
-      "M.A. Human Resource Management - 60" ||
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
+      "M.A. Human Resource Management - 60"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 6, 15));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 6, 15) });
-  } else if (
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 7, 1));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 7, 1) });
   } else if (
     $("#studyProgram :selected").text() === "M.A. Project Management - 60"
   ) {
@@ -3348,10 +3348,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("setDate", new Date(2022, 5, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 5, 1) });
   } else {
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
+    $('#datepicker').datepicker("setDate", +10 )
+    $('#datepicker').datepicker("option",{ minDate: +10})
+    $('#datepicker').datepicker("setDate", +10 )
+    $('#datepicker').datepicker("option",{ minDate: +10})
   }
 
   $(".ui-state-default.ui-state-active").attr(
@@ -3361,11 +3361,11 @@ document.getElementById("studyProgram").addEventListener("change", function () {
 
   //here
 
-  /*setTimeout(function () {
+  setTimeout(function () {
         document.querySelectorAll('.study-start').forEach(item => {
             item.value = $( "#datepicker" ).val()
         })
-    },100)*/
+    },100)
 
   if ($("#studyProgram :selected").text().includes("60")) {
     starting();
