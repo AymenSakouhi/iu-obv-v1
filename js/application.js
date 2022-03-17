@@ -3220,6 +3220,9 @@ function changeDegreeVal() {
     )
       .find(":selected")
       .text();
+
+    document.getElementById('studyProgram').dispatchEvent(new CustomEvent('change'));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
@@ -3248,6 +3251,9 @@ function changeDegreeVal() {
     )
       .find(":selected")
       .text();
+
+    document.getElementById('studyProgram').dispatchEvent(new CustomEvent('change'));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
@@ -3327,16 +3333,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 4, 16) });
   } else if (
     $("#studyProgram :selected").text() ===
-      "M.A. Human Resource Management - 60" ||
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
+      "M.A. Human Resource Management - 60"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 6, 15));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 6, 15) });
-  } else if (
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 7, 1));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 7, 1) });
   } else if (
     $("#studyProgram :selected").text() === "M.A. Project Management - 60"
   ) {
@@ -3348,10 +3348,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("setDate", new Date(2022, 5, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 5, 1) });
   } else {
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
+    $('#datepicker').datepicker("setDate", +10 )
+    $('#datepicker').datepicker("option",{ minDate: +10})
+    $('#datepicker').datepicker("setDate", +10 )
+    $('#datepicker').datepicker("option",{ minDate: +10})
   }
 
   $(".ui-state-default.ui-state-active").attr(
@@ -3361,11 +3361,11 @@ document.getElementById("studyProgram").addEventListener("change", function () {
 
   //here
 
-  /*setTimeout(function () {
+  setTimeout(function () {
         document.querySelectorAll('.study-start').forEach(item => {
             item.value = $( "#datepicker" ).val()
         })
-    },100)*/
+    },100)
 
   if ($("#studyProgram :selected").text().includes("60")) {
     starting();
