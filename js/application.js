@@ -1414,7 +1414,7 @@ let mT = [
   },
   {
     name: "B.Eng. Robotics - 180",
-    careId: "10008527",
+    careId: "10007964_FI",
     careIdCs: "10008527_CS_ROB",
     intake: "Oct 22, Jan 23, Apr 23, Jul 23",
   },
