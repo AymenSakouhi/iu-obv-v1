@@ -398,7 +398,7 @@ NanBadHonnef = [
     tillIntake: "Jul 22",
   },
   {
-    name: "M.A. International Management - Specialisation Finance & Accounting - 120",
+    name: "M.A. Management - Specialisation Finance & Accounting - 60",
     tillIntake: "Jul 22",
   },
   {
@@ -1254,7 +1254,7 @@ let mT = [
   },
   {
     name: "B.Sc. Applied Artificial Intelligence - 180",
-    careId: "10008523",
+    careId: "10008073_FI_AI",
     careIdCs: "10008523_CS_AAI",
     intake: "Oct 22, Oct 23",
     //needs to be there
