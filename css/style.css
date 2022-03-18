@@ -216,7 +216,7 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 .totalprice h5{margin-top:0px; font-size: 10px; line-height: 24px; font-weight: 400; color:#8E9592;}
 .totalprice h5 span{font-size: 31px; line-height: 24px; font-weight: 700; color:#1D1D1F;}
 .finalPrice{font-size: 31px; line-height: 24px; font-weight: 700; color:#1D1D1F;}
-.crossed{text-decoration: line-through red;}
+.crossed{text-decoration: line-through; text-decoration-color: red;}
 .order-summary input[type="text"].degree{background:url(../images/master.png) 95% center no-repeat;}
 /*
 .order-summary input[type="text"].study-programme{background:url(../images/mba.png) 95% center no-repeat;}
