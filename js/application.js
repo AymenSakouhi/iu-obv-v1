@@ -1843,12 +1843,14 @@ function findOutAndChange(x, y) {
     } else if(x === 'datepicker') {
         for (let i = 0; i < D2.length; i++) {
             D2[i].value = D1.value;
+            D2[i].innerText = D1.value;
         }
     }else if(y === 'study-model') {
         // $( "#graduationFee" ).removeClass( "hide" )
         // $( "#graduationFee2" ).removeClass( "hide" )
         for (let i = 0; i < D2.length; i++) {
             D2[i].value = D1.value;
+            D2[i].innerHTML = D1.value;
             PriceChange();
         }
         if ($("input[name='timemodel']:checked").length !== 0){
@@ -1880,10 +1882,10 @@ function findOutAndChange(x, y) {
     else if(x === 'Degree') {
         for (let i = 0; i < D2.length; i++) {
             if (D1.value === 'Bachelor') {
-
+                D2[i].value = D1.value;
                 D2[i].innerHTML = D1.value;
             } else {
-
+                D2[i].value = D1.value;
                 D2[i].innerHTML = D1.value;
             }
         }
@@ -1995,6 +1997,7 @@ function checkLocation() {
         //document.getElementById('study-on-campus').checked = true;
         document.querySelectorAll(".campus").forEach(item => {
             item.value = 'Study online'
+            item.innerText = 'Study online'
 
         })
         //document.getElementById("something").value = 'Study online'
@@ -2528,6 +2531,7 @@ function changeDegreeVal(){
     //document.getElementById('study-on-campus').checked = true;
     document.querySelectorAll(".campus").forEach(item => {
         item.value = 'Study online'
+        item.innerText = 'Study online'
 
     })
     //document.getElementById("something").value = 'Study online'
