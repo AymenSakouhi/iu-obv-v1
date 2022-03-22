@@ -307,6 +307,7 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 .radiobtn input[type="radio"]:checked + label h5 span, .radiobtn input[type="checkbox"]:checked + label h5 span{padding:0 5px !important;}
 .radiobtn label::after, .radiobtn label::before{display:none;}
 #campusLocation{margin-left:-15px; margin-right:-15px;}
+
 .radiobtn label h5 span{padding:0 5px !important;}
 .content input[type="tel"]{width:100% !important;}
 .formblock span{margin-bottom:10px; display:inline-block;}
