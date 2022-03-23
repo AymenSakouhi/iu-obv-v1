@@ -304,11 +304,15 @@ function errorPush(label) {
 NanBadHonnef = [
   {
     name: "M.A. International Management - 60",
+    tillIntake: "Jul 22, Oct 22, Jan 23, Apr 23",
+  },
+  {
+    name: "M.Eng. Engineering Management - 60",
     tillIntake: "Apr 22",
   },
   {
     name: "M.Sc. Computer Science - 120",
-    tillIntake: "Apr 22",
+    tillIntake: "Oct 22, Jan 23, Oct 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -332,6 +336,10 @@ NanBadHonnef = [
   },
   {
     name: "M.A. International Management - Specialisation Finance & Accounting - 120",
+    tillIntake: "Jul 22",
+  },
+  {
+    name: "M.A. International Management - Specialisation AI & Robotics - 120",
     tillIntake: "Jul 22",
   },
   {
@@ -407,16 +415,26 @@ NanBadHonnef = [
     tillIntake: "Jul 22",
   },
   {
-    name: "M.A. International Management - Specialisation Finance & Accounting - 120",
+    name: "M.A. Management - Specialisation Finance & Accounting - 60",
     tillIntake: "Jul 22",
   },
   {
     name: "M.A. Management - Specialisation International Marketing - 60",
     tillIntake: "Jul 22",
   },
+  {
+    name: "M.A. Marketing Management - 120 ECTS",
+    tillIntake: "Apr 22",
+  },
+  {
+    name: "M.A. Marketing Management - 60 ECTS",
+    tillIntake: "Apr 22",
+  },
 ];
 
-function removeBadHonnefLocation() {
+function removeBadHonnefBasedIntake(curIntake) {
+  let curIntakeIndex = 0;
+  let intakeIndex = 2;
   if (
     mT.find(
       ({ name, studyLocation }) =>
@@ -424,19 +442,16 @@ function removeBadHonnefLocation() {
         studyLocation === "OnlyBerlin"
     )
   ) {
+    //hiding because onlyBerlin was found when searching in the course attributes
     $("#badHonnefLocation").addClass("hide");
+    return 0;
   } else {
+    //not hiding badhonnef because no onlyBerlin found when searching in course attribute
     $("#badHonnefLocation").removeClass("hide");
   }
-}
-
-function removeBadHonnefBasedIntake(curIntake) {
-  let curIntakeIndex = 0;
-  let intakeIndex = 2;
 
   const isIndexOf = (element) => element === curIntake;
   curIntakeIndex = allIntakes.findIndex(isIndexOf); //to find out what's the index of the curIntake in the allintakes array
-  //curIntakeIndex = allIntakes.findIndex(isIndexOf);
   
   NanBadHonnef.find( ({name, tillIntake}) => {
     if (name === $("#studyProgram :selected").text())  {
@@ -444,14 +459,17 @@ function removeBadHonnefBasedIntake(curIntake) {
       intakeIndex = allIntakes.findIndex(isIndexOfTillIntake)
     }
   })
-  if(curIntakeIndex > intakeIndex && NanBadHonnef.find( ({name}) => name === $("#studyProgram :selected").text())) {
+  if(curIntakeIndex > intakeIndex && NanBadHonnef.find( ({name}) => name === $("#studyProgram :selected").text()) && !mT.find(
+    ({ name, studyLocation }) =>
+      name === $("#studyProgram :selected").text() &&
+      studyLocation === "OnlyBerlin"
+  )) {
     $("#badHonnefLocation").addClass("hide");
   } else {
     $("#badHonnefLocation").removeClass("hide");
   }
 }
 
-// $("input[name='studyLocation']").change(
 
 //intake variables
 let currentProgramme = "";
@@ -1142,7 +1160,7 @@ let mT = [
     careId: "10007953_FI",
     //"careIdCs" : '10007953_CS'
     careIdCs: "10008367",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.Sc. Data Science - 180",
@@ -1163,7 +1181,7 @@ let mT = [
     careId: "10007941_FI",
     //"careIdCs" : '10007952'
     careIdCs: "10008373",
-    intake: "Oct 21, Apr 22, Oct 22, Apr 23, Oct 23",
+    intake: "Oct 22, Jan 23, Oct 23",
     intake2: "Apr 22, Oct 22, Apr 23, Oct 23",
   },
 
@@ -1393,22 +1411,28 @@ let mT = [
   {
     name: "B.Sc. Applied Artificial Intelligence - 180",
     careId: "10008073_FI_AI",
+    careIdCs: "10008523_CS_AAI",
+    intake: "Oct 22, Oct 23",
     //needs to be there
   },
   {
     name: "B.A. Entrepreneurship - 180",
     careId: "10008062_FI",
+    careIdCs: "10008526_CS_ENT",
+    intake: "Oct 22",
   },
   {
     name: "B.Sc. Business & IT - 180",
     careId: "10008001_FI",
     //"careIdCs" : '10008001_CS'
     careIdCs: "10008368",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.Eng. Robotics - 180",
     careId: "10007964_FI",
+    careIdCs: "10008527_CS_ROB",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23",
   },
   /*{
         "name" : 'B.Eng. Engineering - 180',
@@ -1419,7 +1443,7 @@ let mT = [
     careId: "10008000_FI",
     //"careIdCs" : '10008000_CS'
     careIdCs: "10008370",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.A. International Management - 180",
@@ -1443,10 +1467,16 @@ let mT = [
   {
     name: "M.A. Marketing Management - 60",
     careId: "10007977_FI",
+    careIdCs: "10008540_CS_MM",
+    intake: "Oct 22",
+    studyLocation: "OnlyBerlin",
   },
   {
     name: "M.A. Marketing Management - 120",
     careId: "10007976_FI",
+    careIdCs: "10008539_CS_MM",
+    intake: "Oct 22",
+    studyLocation: "OnlyBerlin",
   },
   {
     name: "M.A. Information Technology Management - 60",
@@ -1486,7 +1516,7 @@ let mT = [
     st_careId: "70",
     //"careIdCs" : '10008044_CS'
     careIdCs: "10008376",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Jul 22, Oct 22, Jan 23, Apr 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -1558,17 +1588,12 @@ let mT = [
 
 //online only
 mtCheckOnline = [
-  "B.Eng. Robotics - 180",
   "B.A. Digital Business - 180",
-  "B.A. Entrepreneurship - 180",
   "M.Sc. Artificial Intelligence - 60",
   "M.Sc. Artificial Intelligence - 120",
-  "M.A. Marketing Management - 60",
-  "M.A. Marketing Management - 120",
   "M.A. Management - Specialisation Leadership - 60",
   "M.A. Information Technology Management - 60",
   "M.A. Information Technology Management - 120",
-  "B.Sc. Applied Artificial Intelligence - 180",
   "M.Sc. Data Management - 60",
   "M.Sc. Data Management - 120",
   "B.A. International Healthcare Management - 180",
@@ -2294,6 +2319,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
+        removeBadHonnefBasedIntake('apr23')
     checkIntakeStart();
   } else if (x === "winterintake4") {
     document.getElementsByClassName("intake")[0].value = "2022-10-01";
@@ -3248,6 +3274,9 @@ function changeDegreeVal() {
     )
       .find(":selected")
       .text();
+
+    document.getElementById('studyProgram').dispatchEvent(new CustomEvent('change'));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
@@ -3276,6 +3305,9 @@ function changeDegreeVal() {
     )
       .find(":selected")
       .text();
+
+    document.getElementById('studyProgram').dispatchEvent(new CustomEvent('change'));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
@@ -3293,8 +3325,6 @@ document.getElementById("studyProgram").addEventListener("change", function () {
   checkIpAndChange();
 
   checkLocation();
-
-  removeBadHonnefLocation();
 
   if (
     $("#studyProgram :selected").text() === "B.A. Aviation Management - 180" ||
@@ -3358,16 +3388,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 4, 16) });
   } else if (
     $("#studyProgram :selected").text() ===
-      "M.A. Human Resource Management - 60" ||
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
+      "M.A. Human Resource Management - 60"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 6, 15));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 6, 15) });
-  } else if (
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 7, 1));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 7, 1) });
   } else if (
     $("#studyProgram :selected").text() === "M.A. Project Management - 60"
   ) {
@@ -3379,10 +3403,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("setDate", new Date(2022, 5, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 5, 1) });
   } else {
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
+    $('#datepicker').datepicker("setDate", +10 )
+    $('#datepicker').datepicker("option",{ minDate: +10})
+    $('#datepicker').datepicker("setDate", +10 )
+    $('#datepicker').datepicker("option",{ minDate: +10})
   }
 
   $(".ui-state-default.ui-state-active").attr(
@@ -3392,11 +3416,11 @@ document.getElementById("studyProgram").addEventListener("change", function () {
 
   //here
 
-  /*setTimeout(function () {
+  setTimeout(function () {
         document.querySelectorAll('.study-start').forEach(item => {
             item.value = $( "#datepicker" ).val()
         })
-    },100)*/
+    },100)
 
   if ($("#studyProgram :selected").text().includes("60")) {
     starting();
@@ -3739,7 +3763,6 @@ $("#studyOnCampus").click(function () {
     locationSite = "4";
     $("#berlin").trigger("click");
 
-    removeBadHonnefLocation();
   }, 100);
 });
 
