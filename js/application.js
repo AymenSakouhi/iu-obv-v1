@@ -2200,19 +2200,22 @@ function findOutAndChange(x, y) {
     //setTimeout(PriceChange, 1000);
   } else if (x === "datepicker") {
     for (let i = 0; i < D2.length; i++) {
+      D2[i].value = D1.value;
       D2[i].innerHTML = D1.value;
+      // D2[i].innerText = D1.value;
       $(D2[i]).addClass("summary-selected");
     }
-  } else if (y === "study-model") {
-    // $( "#graduationFee" ).removeClass( "hide" )
-    // $( "#graduationFee2" ).removeClass( "hide" )
-    for (let i = 0; i < D2.length; i++) {
-      D2[i].value = D1.value;
-      PriceChange();
-    }
-    if ($("input[name='timemodel']:checked").length !== 0) {
-      step1();
-    }
+  } else if(y === 'study-model') {
+        // $( "#graduationFee" ).removeClass( "hide" )
+        // $( "#graduationFee2" ).removeClass( "hide" )
+        for (let i = 0; i < D2.length; i++) {
+            D2[i].value = D1.value;
+            D2[i].innerHTML = D1.value;
+            PriceChange();
+        }
+        if ($("input[name='timemodel']:checked").length !== 0){
+            step1();
+        }
   } else if (y === "gender") {
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Male") {
@@ -2236,9 +2239,11 @@ function findOutAndChange(x, y) {
   } else if (x === "Degree") {
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Bachelor") {
+        D2[i].value = D1.value;
         D2[i].innerHTML = D1.value;
         $(D2[i]).addClass("summary-selected");
       } else {
+        D2[i].value = D1.value;
         D2[i].innerHTML = D1.value;
         $(D2[i]).addClass("summary-selected");
       }
@@ -2353,14 +2358,15 @@ function checkLocation() {
         startSummary[i].innerHTML = "Select one";
         $(startSummary[i]).removeClass("summary-selected");
       }
-
     }, 100);
 
     //document.getElementById('study-on-campus').disabled = true;
     //document.getElementById('study-on-campus').checked = true;
-    document.querySelectorAll(".campus").forEach((item) => {
-      item.value = "Study online";
-    });
+    document.querySelectorAll(".campus").forEach(item => {
+        item.value = 'Study online'
+        item.innerText = 'Study online'
+
+    })
     //document.getElementById("something").value = 'Study online'
     $("#h5Here").html(htmlFragment + "Study online");
     //$("#something").css("background","url(../images/online.png) 95% center no-repeat");

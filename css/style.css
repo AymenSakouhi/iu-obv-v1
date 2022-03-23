@@ -208,8 +208,8 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 
 .order-summary{margin:165px 0 0 0%; position:sticky; right:0px; top:0px; padding:20px; border:1px solid #A5ABA6; border-radius:10px; background:#fff;}
 .order-summary h2{font-size:16px; line-height:20px; color:#000; font-weight:700; text-transform:uppercase; margin:0 0 30px;}
-.order-summary label{font-size:15px; line-height:44px; color:#595D5E; font-weight:400;}
-.order-summary label.summary-selected{color:#000000; font-weight:bold;}
+.order-summary label{font-size:15px; line-height:35px; color:#595D5E; font-weight:400;margin: 0;}
+.order-summary strong{color:#000000;}
 .order-summary p{font-size:15px; line-height:44px; color:#000000; font-weight:400;}
 .order-summary input[type="text"],.order-summary input[type="date"]{height:44px; padding:0 10px; margin-bottom:10px;background: #FFFFFF}
 .total-table{border-top:1px solid #A5ABA6; padding:10px 0px 5px;}
@@ -307,6 +307,7 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 .radiobtn input[type="radio"]:checked + label h5 span, .radiobtn input[type="checkbox"]:checked + label h5 span{padding:0 5px !important;}
 .radiobtn label::after, .radiobtn label::before{display:none;}
 #campusLocation{margin-left:-15px; margin-right:-15px;}
+
 .radiobtn label h5 span{padding:0 5px !important;}
 .content input[type="tel"]{width:100% !important;}
 .formblock span{margin-bottom:10px; display:inline-block;}
@@ -319,5 +320,6 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 #timeModalsSection .radiobtn.tm .mobile-view:checked + label h5{color:#fff;}
 #timeModalsSection .radiobtn input[type="radio"]:checked + label h5 span{color:#fff;}
 .iu-online-frm #timeModalsSection .radiobtn input[type="radio"]:checked + label h6{color:#fff;}
+.bld{font-weight: bold !important;color: #000 !important;}
 
 
