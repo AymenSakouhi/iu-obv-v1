@@ -51,7 +51,7 @@ function EmptyFields() {
   ) {
     labelContent += "~locationSectionEmpty";
   }
-  if ($(".study-start").innerHTML() === "") {
+  if ($(".study-start").val() === "") {
     labelContent += "~startDataOnlineSectionEmpty";
   }
   if ($("input[name=gender]:checked").length === 0) {
@@ -91,7 +91,7 @@ function EmptyFields() {
   ) {
     labelContent += "~workExperienceForMasterEmpty";
   }
-  if ($(".study-start").innerHTML() === "") {
+  if ($(".study-start").val() === "") {
     labelContent += "~submitWithoutStartDateEmpty";
   }
 
@@ -156,7 +156,7 @@ function scrollTo() {
         block: "center",
         inline: "nearest",
       });
-  } else if ($(".study-start").innerHTML() === "") {
+  } else if ($(".study-start").val() === "") {
     document
       .getElementById("datepicker")
       .scrollIntoView({
@@ -273,7 +273,7 @@ function scrollTo() {
         block: "center",
         inline: "nearest",
       });
-  } else if ($(".study-start").innerHTML() === "") {
+  } else if ($(".study-start").val() === "") {
     document
       .getElementById("datepicker")
       .scrollIntoView({
@@ -1687,7 +1687,7 @@ function validatefilledIn() {
     }
   }
 
-  if ($(".study-start").innerHTML() === "") {
+  if ($(".study-start").val() === "") {
     $("#datepicker").attr("style", "border: 2px solid red !important");
     setTimeout(function () {
       $("#datepicker").attr("style", "border: none !important");
@@ -1828,7 +1828,7 @@ function checkingFields() {
     $("#myModalSite").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if ($(".study-start").innerHTML() === "") {
+  } else if ($(".study-start").val() === "") {
     validatefilledIn();
     $("#datePickerCheck").modal();
     $(".ui-state-default.ui-state-active").attr(
@@ -1892,7 +1892,7 @@ function checkingFields() {
     $("#eligibilityModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if ($(".study-start").innerHTML() === "") {
+  } else if ($(".study-start").val() === "") {
     validatefilledIn();
     $("#datePickerCheck").modal();
     document.getElementById("submit").disabled = false;
