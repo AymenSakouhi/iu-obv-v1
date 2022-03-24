@@ -1121,25 +1121,31 @@ document.getElementById("country").addEventListener("change", function () {
   PriceChange();
 });
 
-document.querySelectorAll(".degree").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".study-programme").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".campus").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".study-model").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".study-start").forEach((item) => {
-  item.disabled = true;
-});
+// document.querySelectorAll(".degree").forEach(item => {
+//     item.disabled = true;
 
-document.querySelectorAll(".campusSite").forEach((item) => {
-  item.disabled = true;
-});
+// })
+// document.querySelectorAll(".study-programme").forEach(item => {
+//     item.disabled = true;
+
+// })
+// document.querySelectorAll(".campus").forEach(item => {
+//     item.disabled = true;
+
+// })
+// document.querySelectorAll(".study-model").forEach(item => {
+//     item.disabled = true;
+
+// })
+// document.querySelectorAll(".study-start").forEach(item => {
+//     item.disabled = true;
+
+// })
+
+// document.querySelectorAll(".campusSite").forEach(item => {
+//     item.disabled = true;
+
+// })
 
 document.querySelectorAll(".finalPrice").forEach((item) => {
   item.innerHTML = "0000";
@@ -1925,17 +1931,15 @@ function activate() {
     let city = document.getElementById("city").value;
     let country = document.getElementById("country").value;
     let studyStartDate =
-      document.getElementsByClassName("study-start")[0].value;
+      document.getElementsByClassName("study-start")[0].innerHTML;
     let fullNumber =
       document.getElementsByClassName("iti__selected-dial-code")[0].innerText +
       document.getElementById("phone").value;
     let mobileNumber = document.getElementById("phone").value;
     let email = document.getElementById("e-mail").value;
     let studyProgram = document.getElementById("studyProgram").value;
-    let englishLevel = document.getElementsByClassName("EnglishLevelSummary")[0]
-      .value;
-    let budgetPerMonth =
-      document.getElementsByClassName("budgetSummary")[0].value;
+    let englishLevel = document.getElementsByClassName("EnglishLevelSummary")[0].value;
+    let budgetPerMonth = document.getElementsByClassName("budgetSummary")[0].value;
     let campsite = document.getElementsByClassName("campusSite")[0].value;
 
     let workExperience = 10;
@@ -2222,17 +2226,21 @@ function findOutAndChange(x, y) {
   } else if (x === "datepicker") {
     for (let i = 0; i < D2.length; i++) {
       D2[i].value = D1.value;
+      D2[i].innerHTML = D1.value;
+      // D2[i].innerText = D1.value;
+      $(D2[i]).addClass("summary-selected");
     }
-  } else if (y === "study-model") {
-    // $( "#graduationFee" ).removeClass( "hide" )
-    // $( "#graduationFee2" ).removeClass( "hide" )
-    for (let i = 0; i < D2.length; i++) {
-      D2[i].value = D1.value;
-      PriceChange();
-    }
-    if ($("input[name='timemodel']:checked").length !== 0) {
-      step1();
-    }
+  } else if(y === 'study-model') {
+        // $( "#graduationFee" ).removeClass( "hide" )
+        // $( "#graduationFee2" ).removeClass( "hide" )
+        for (let i = 0; i < D2.length; i++) {
+            D2[i].value = D1.value;
+            D2[i].innerHTML = D1.value;
+            PriceChange();
+        }
+        if ($("input[name='timemodel']:checked").length !== 0){
+            step1();
+        }
   } else if (y === "gender") {
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Male") {
@@ -2257,10 +2265,20 @@ function findOutAndChange(x, y) {
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Bachelor") {
         D2[i].value = D1.value;
+        D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
       } else {
         D2[i].value = D1.value;
+        D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
       }
     }
+  } else if(y === 'campus' || y==='campusSite') {
+    for (let i = 0; i < D2.length; i++) {
+        D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
+    }
+
   } else if (x === "winterintake" || x === "winterintake2") {
     //intakes here
     document.getElementsByClassName("intake")[0].value = "2022-01-01";
@@ -2360,13 +2378,21 @@ function checkLocation() {
     setTimeout(function () {
       $("#datepicker").show();
       $("#intakes").hide();
+
+      let startSummary = document.getElementsByClassName("study-start");
+      for (let i = 0; i < startSummary.length; i++) {
+        startSummary[i].innerHTML = "Select one";
+        $(startSummary[i]).removeClass("summary-selected");
+      }
     }, 100);
 
     //document.getElementById('study-on-campus').disabled = true;
     //document.getElementById('study-on-campus').checked = true;
-    document.querySelectorAll(".campus").forEach((item) => {
-      item.value = "Study online";
-    });
+    document.querySelectorAll(".campus").forEach(item => {
+        item.value = 'Study online'
+        item.innerText = 'Study online'
+
+    })
     //document.getElementById("something").value = 'Study online'
     $("#h5Here").html(htmlFragment + "Study online");
     //$("#something").css("background","url(../images/online.png) 95% center no-repeat");
@@ -2374,20 +2400,26 @@ function checkLocation() {
     $("#something").addClass("study-online");
 
     //$("#something").css("background-color","#F5F4F3");
-    $("#campus1").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
 
     setTimeout(function () {
       $("#rowLocOne").removeClass("hide");
       $("#rowLocTwo").addClass("hide");
       $("#rowLocThree").addClass("hide");
       $("#rowLocFour").addClass("hide");
+
+      let locSummary = document.getElementsByClassName("campus");
+      for (let i = 0; i < locSummary.length; i++) {
+        locSummary[i].innerHTML = "Online";
+        $(locSummary[i]).addClass("summary-selected");
+      }
 
       // $( "#semesterOnCampusOnly" ).addClass( "hide" )
       // $( "#semesterVariable" ).addClass( "hide" )
@@ -2428,14 +2460,14 @@ function checkLocation() {
     $(".labelMonthlyPrice").text("Monthly Price");
     $(".labelMonthlyPrice").css("line-height", "44px");
 
-    $("#campus1").css(
-      "background",
-      "url(./images/on-campus.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/on-campus.png) 95% center no-repeat"
-    );
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/on-campus.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/on-campus.png) 95% center no-repeat"
+    // );
 
     $("#rowLocOne").addClass("hide");
     $("#rowLocTwo").removeClass("hide");
@@ -2455,14 +2487,20 @@ function checkLocation() {
     $("#site").hide();
     $(".siteRow").hide();
 
-    $("#campus1").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
+    let startSummary = document.getElementsByClassName("study-start");
+    for (let i = 0; i < startSummary.length; i++) {
+      startSummary[i].innerHTML = "Select one";
+      $(startSummary[i]).removeClass("summary-selected");
+    }
+
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
 
     $("div").find("label[for=monthstwo]").show();
     $("div").find("label[for=monthsthree]").show();
@@ -3159,6 +3197,9 @@ function PriceChange() {
       }
     }
   }
+  $(".price-before").addClass("hide");
+  $(".price-after").removeClass("hide");
+
 }
 
 let htmlFragment =
@@ -3191,19 +3232,19 @@ function changeDegreeVal() {
   $("#something").addClass("study-online");
 
   //$("#something").css("background-color","#F5F4F3");
-  $("#campus1").css(
-    "background",
-    "url(./images/online.png) 95% center no-repeat"
-  );
-  $("#campus2").css(
-    "background",
-    "url(./images/online.png) 95% center no-repeat"
-  );
+  // $("#campus1").css(
+  //   "background",
+  //   "url(./images/online.png) 95% center no-repeat"
+  // );
+  // $("#campus2").css(
+  //   "background",
+  //   "url(./images/online.png) 95% center no-repeat"
+  // );
 
   //checkLocation()
 
-  $("#campus1").css("background", "url()");
-  $("#campus2").css("background", "url()");
+  // $("#campus1").css("background", "url()");
+  // $("#campus2").css("background", "url()");
 
   //time model showing up
   $("div").find("label[for=monthstwo]").show();
@@ -3223,12 +3264,12 @@ function changeDegreeVal() {
     document.getElementById("monthstwo").value = "18";
     document.getElementById("monthsthree").value = "24";
 
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3254,12 +3295,12 @@ function changeDegreeVal() {
     document.getElementById("monthstwo").value = "48";
     document.getElementById("monthsthree").value = "72";
 
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3272,6 +3313,7 @@ function changeDegreeVal() {
 
     PriceChange();
   }
+  $(".study-programme").addClass("summary-selected");
 
   $(".ui-state-default.ui-state-active").attr(
     "style",
@@ -3391,12 +3433,12 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.getElementById("monthstwo").value = "18";
     document.getElementById("monthsthree").value = "24";
 
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3411,12 +3453,12 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.getElementById("monthsone").value = "24";
     document.getElementById("monthstwo").value = "36";
     document.getElementById("monthsthree").value = "48";
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3431,12 +3473,12 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.getElementById("monthsone").value = "18";
     document.getElementById("monthstwo").value = "24";
     document.getElementById("monthsthree").value = "36";
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3444,12 +3486,12 @@ document.getElementById("studyProgram").addEventListener("change", function () {
   } else {
     starting();
     //because all the rest is bachelor
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3462,74 +3504,75 @@ function checkIntakeStart() {
     case "October 2021": {
       //$('#datepicker').datepicker("setDate", new Date(2021,9,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2021/10/01";
-      document.getElementsByClassName("study-start")[1].value = "2021/10/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2021/10/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2021/10/01";
 
       break;
     }
     case "October 2022": {
       //$('#datepicker').datepicker("setDate", new Date(2021,9,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/10/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/10/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2022/10/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2022/10/01";
 
       break;
     }
     case "January 2022": {
       //$('#datepicker').datepicker("setDate", new Date(2022,0,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/01/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/01/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2022/01/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2022/01/01";
 
       break;
     }
     case "April 2022": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/04/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/04/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2022/04/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2022/04/01";
 
       break;
     }
     case "April 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/04/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/04/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2023/04/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2023/04/01";
 
       break;
     }
     case "October 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/10/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/10/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2023/10/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2023/10/01";
 
       break;
     }
     case "January 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/01/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/01/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2023/01/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2023/01/01";
 
       break;
     }
     case "July 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/07/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/07/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2023/07/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2023/07/01";
 
       break;
     }
     default: {
       //$('#datepicker').datepicker("setDate", new Date(2022,5,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/07/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/07/01";
+      document.getElementsByClassName("study-start")[0].innerHTML = "2022/07/01";
+      document.getElementsByClassName("study-start")[1].innerHTML = "2022/07/01";
     }
   }
+  $(".study-start").addClass("summary-selected");
 }
 
 function starting() {
@@ -3568,7 +3611,7 @@ function starting() {
     item.innerHTML = "0000";
   });
   document.querySelectorAll(".study-start").forEach((item) => {
-    item.value = "";
+    item.innerHTML = "Select one";
   });
 
   if (mtCheck.includes($("#studyProgram :selected").text())) {
@@ -3687,7 +3730,7 @@ $("input[name='studyLocation']").change(function () {
       });
       document.querySelectorAll(".study-start").forEach((item) => {
         //item.value = $( "#datepicker" ).val()
-        item.value = "";
+        item.innerHTML = "Select one";
       });
     }, 100);
 
