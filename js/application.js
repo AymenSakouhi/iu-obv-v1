@@ -1930,6 +1930,7 @@ function activate() {
     let postcode = document.getElementById("postcode").value;
     let city = document.getElementById("city").value;
     let country = document.getElementById("country").value;
+    let nationality = document.getElementById("nationality").value;
     let studyStartDate =
       document.getElementsByClassName("study-start")[0].innerHTML;
     let fullNumber =
@@ -2027,6 +2028,7 @@ function activate() {
       postcode: postcode,
       city: city,
       country: country,
+      nationality: nationality,
       mobileNumber: fullNumber,
       email: email,
       studyProgram: studyProgram,
@@ -2078,7 +2080,7 @@ function activate() {
           gender: gender,
           firstName: myName,
           lastName: surName,
-          nationality: country,
+          nationality: nationality,
           dateOfBirth: dateOfBirth,
           placeOfBirth: country,
           startDate: startDate,
