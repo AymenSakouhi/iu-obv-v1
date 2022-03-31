@@ -297,7 +297,6 @@ function errorPush(label) {
       },
     });
     console.log("error sent");
-    console.log(label);
   }
 }
 
@@ -556,7 +555,6 @@ $(document).ready(function () {
           }),
           dataType: "json",
           success: function (data) {
-            console.info(data);
             voucherVar = value;
           },
           error: function () {
@@ -576,11 +574,9 @@ function checkAgentVoucher() {
   let preVoucher = voucherVar;
   if (value.startsWith("AGENT")) {
     voucherVar = value;
-    console.log("AGENT VOUCHER INSERTED");
     return voucherVar;
   } else {
     voucherVar = preVoucher;
-    console.log("back to old voucher");
     return voucherVar;
   }
   $.ajax({
@@ -1969,9 +1965,6 @@ function activate() {
       //if (files.files.length === 0 ){
       completed = true;
       currentPage = 3;
-
-      //console.log('without files cs program')
-      console.log("without files cs program or with files as well");
       //}
     }
 
@@ -2147,10 +2140,8 @@ function activate() {
       })
       .then(() => {
         t.key = obj.key;
-        console.log(obj.key);
 
         for (let i = 0; i < $(".file-row").length; i++) {
-          console.log(i);
           data.append("upload", files.files[i]);
           fetch(
             "https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/file/" +
@@ -2164,7 +2155,6 @@ function activate() {
             if (!res.ok) {
               throw Error("error getting the API to POST");
             }
-            console.log(res);
           });
         }
         localStorage.setItem("allData", JSON.stringify(t));
@@ -2208,8 +2198,6 @@ function activate() {
             diploma: diplom,
           },
         });
-        console.log(t.businessUnit);
-        console.log(t.completed);
         setTimeout(function () {
           window.location.href = "./upload/index.html?key=" + t.key;
         }, 5000);
@@ -3705,17 +3693,13 @@ $("input[name='studyLocation']").change(function () {
         if (currentProgramme.hasOwnProperty("intake")) {
           ProgrammeIntakes = [];
           difference = [];
-          console.log("new stuff");
           currentProgramme.intake.split(", ").forEach(function (e, incre, t) {
             ProgrammeIntakes.push(e.replace(" ", "").toLowerCase());
             $(`#${ProgrammeIntakes[incre]}`).removeClass("hide");
-            console.log(`#${ProgrammeIntakes[incre]}`);
           });
           difference = allIntakes.filter((x) => !ProgrammeIntakes.includes(x));
-          console.log("=========");
           difference.forEach(function (e, incre, t) {
             $(`#${difference[incre]}`).addClass("hide");
-            console.log(`#${difference[incre]}`);
           });
         }
       }
@@ -3798,17 +3782,13 @@ $("input[name='site']").change(function () {
         if (currentProgramme.hasOwnProperty("intake2")) {
           ProgrammeIntakes = [];
           difference = [];
-          console.log("new stuff");
           currentProgramme.intake2.split(", ").forEach(function (e, incre, t) {
             ProgrammeIntakes.push(e.replace(" ", "").toLowerCase());
             $(`#${ProgrammeIntakes[incre]}`).removeClass("hide");
-            console.log(`#${ProgrammeIntakes[incre]}`);
           });
           difference = allIntakes.filter((x) => !ProgrammeIntakes.includes(x));
-          console.log("=========");
           difference.forEach(function (e, incre, t) {
             $(`#${difference[incre]}`).addClass("hide");
-            console.log(`#${difference[incre]}`);
           });
         }
       }
@@ -3820,17 +3800,13 @@ $("input[name='site']").change(function () {
         if (currentProgramme.hasOwnProperty("intake")) {
           ProgrammeIntakes = [];
           difference = [];
-          console.log("new stuff");
           currentProgramme.intake.split(", ").forEach(function (e, incre, t) {
             ProgrammeIntakes.push(e.replace(" ", "").toLowerCase());
             $(`#${ProgrammeIntakes[incre]}`).removeClass("hide");
-            console.log(`#${ProgrammeIntakes[incre]}`);
           });
           difference = allIntakes.filter((x) => !ProgrammeIntakes.includes(x));
-          console.log("=========");
           difference.forEach(function (e, incre, t) {
             $(`#${difference[incre]}`).addClass("hide");
-            console.log(`#${difference[incre]}`);
           });
         }
       }
