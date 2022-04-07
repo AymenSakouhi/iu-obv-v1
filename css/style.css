@@ -249,7 +249,7 @@ label.accept input[type="checkbox"]{margin-right:5px; vertical-align:middle;}
 .ui-datepicker-prev .ui-icon-circle-triangle-w{background-position:-98px -3px; margin-top:0px !important; margin-left:0px !important;}
 .ui-datepicker-next .ui-icon-circle-triangle-e{background-position:-35px -3px; margin-top:0px !important; margin-left:0px !important;}
 .iti.iti--allow-dropdown.iti--separate-dial-code{width:100% !important;}
-.iti--separate-dial-code .iti__selected-flag{border:#A5ABA6 solid 1px !important; height:49px !important;}
+.iti--separate-dial-code .iti__selected-flag{border:#A5ABA6 solid 1px !important; height:49px !important; width: 70px !important;}
 .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container{float:left; position:static;}
 #phone{padding:0 0 0 15px !important; float: right; width: 75% !important;}
 
