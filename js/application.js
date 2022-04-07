@@ -21,7 +21,6 @@ const validateEmail = (email) => {
 function EmptyFields() {
   labelContent = "";
   if (
-    $("#Degree").find(":selected").text().startsWith("S") ||
     $("#studyProgram").find(":selected").text().startsWith("S")
   ) {
     labelContent += "~DegreeFieldEmpty~studyProgramFieldEmpty";
@@ -102,11 +101,10 @@ function EmptyFields() {
 
 function scrollTo() {
   if (
-    $("#Degree").find(":selected").text().startsWith("S") ||
     $("#studyProgram").find(":selected").text().startsWith("S")
   ) {
     document
-      .getElementById("Degree")
+      .getElementById("studyProgram")
       .scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -515,7 +513,7 @@ $("#timeAfter20Days").text(formatDate(dateRandom));
 //$(".ui-state-default.ui-state-active").delay(1000).css("color", "black")
 
 function workExperience() {
-  if ($("#Degree").find(":selected").text().startsWith("M")) {
+  if ($('input[name="degree_type"]:checked').val() === "Master") {
     return true;
   } else {
     return false;
@@ -1653,23 +1651,22 @@ function validatefilledIn() {
     $("#studyProgram").css("border-color", "green");
   }
 
-  if ($("#Degree").val() === null) {
-    for (let i = 0; i < 2; i++) {
-      if ($("input[name=degree_type]:checked").length === 0) {
-        arr3[i].style.borderColor = "red";
-        setTimeout(function () {
-          arr3[i].style.borderColor = "";
-        }, 3000);
-      } else {
-        arr3[i].style.borderColor = "green";
-      }
+  for (let i = 0; i < 2; i++) {
+    if ($("input[name=degree_type]:checked").length === 0) {
+      arr3[i].style.borderColor = "red";
+      setTimeout(function () {
+        arr3[i].style.borderColor = "";
+      }, 3000);
+    } else {
+      arr3[i].style.borderColor = "green";
     }
   }
+  // if ($("#Degree").val() === null) {
+  // }
 
   if (
     !mtCheckOnline.includes($("#studyProgram").find(":selected").text()) &&
     !(
-      $("#Degree").find(":selected").text().startsWith("S") ||
       $("#studyProgram").find(":selected").text().startsWith("S")
     )
   ) {
@@ -1783,7 +1780,6 @@ function checkingFields() {
     document.getElementById("submit").disabled = false;
     return false;
   } else if (
-    $("#Degree").find(":selected").text().startsWith("S") ||
     $("#studyProgram").find(":selected").text().startsWith("S")
   ) {
     validatefilledIn();
@@ -1920,7 +1916,8 @@ function activate() {
       return 0;
     }
     $(".loading").toggleClass("hide");
-    let degree = document.getElementById("Degree").value;
+
+    let degree = $('input[name="degree_type"]:checked').val();
     let myName = document.getElementById("first-name").value;
     let surName = document.getElementById("last-name").value;
     let street = document.getElementById("street").value;
@@ -2254,6 +2251,8 @@ function findOutAndChange(x, y) {
       }
     }
   } else if (x === "Degree") {
+    
+    D1 = $('input[name="degree_type"]:checked').val();
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Bachelor") {
         D2[i].value = D1.value;
@@ -3198,7 +3197,8 @@ let htmlFragment =
   '<svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 0C5.59476 0 0 5.59476 0 12.5C0 19.4052 5.59476 25 12.5 25C19.4052 25 25 19.4052 25 12.5C25 5.59476 19.4052 0 12.5 0ZM22.2379 7.66129H18.0796C17.626 5.42339 16.8649 3.51815 15.9022 2.1623C18.6744 3.07964 20.9526 5.08065 22.2379 7.66129ZM16.9355 12.5C16.9355 13.6542 16.8548 14.7278 16.7188 15.7258H8.28125C8.14516 14.7278 8.06452 13.6542 8.06452 12.5C8.06452 11.3458 8.14516 10.2722 8.28125 9.27419H16.7188C16.8548 10.2722 16.9355 11.3458 16.9355 12.5ZM12.5 1.6129C13.8558 1.6129 15.5948 3.83569 16.4365 7.66129H8.56351C9.40524 3.83569 11.1442 1.6129 12.5 1.6129ZM9.09778 2.1623C8.14012 3.5131 7.37399 5.41835 6.92036 7.66129H2.7621C4.04738 5.08065 6.3256 3.07964 9.09778 2.1623ZM1.6129 12.5C1.6129 11.376 1.78427 10.2923 2.10181 9.27419H6.66331C6.53226 10.3075 6.45161 11.381 6.45161 12.5C6.45161 13.619 6.52722 14.6925 6.66331 15.7258H2.10181C1.78427 14.7077 1.6129 13.624 1.6129 12.5ZM2.7621 17.3387H6.92036C7.37399 19.5766 8.13508 21.4819 9.09778 22.8377C6.3256 21.9204 4.04738 19.9194 2.7621 17.3387ZM12.5 23.3871C11.1442 23.3871 9.40524 21.1643 8.56351 17.3387H16.4365C15.5948 21.1643 13.8558 23.3871 12.5 23.3871ZM15.9022 22.8377C16.8599 21.4869 17.626 19.5817 18.0796 17.3387H22.2379C20.9526 19.9194 18.6744 21.9204 15.9022 22.8377ZM18.3367 15.7258C18.4677 14.6925 18.5484 13.619 18.5484 12.5C18.5484 11.381 18.4728 10.3075 18.3367 9.27419H22.8982C23.2157 10.2923 23.3871 11.376 23.3871 12.5C23.3871 13.624 23.2157 14.7077 22.8982 15.7258H18.3367Z" fill="black"/></svg>';
 
 function changeDegreeVal() {
-  if ($("#Degree :selected").text().includes("Master")) {
+  if ($('input[name="degree_type"]:checked').val() === "Master") {
+
     $("#rowLocOne").removeClass("hide");
     $("#rowLocTwo").addClass("hide");
     $("#rowLocThree").addClass("hide");
@@ -3242,7 +3242,7 @@ function changeDegreeVal() {
   $("div").find("label[for=monthstwo]").show();
   $("div").find("label[for=monthsthree]").show();
 
-  if (document.getElementById("Degree").value == "Master") {
+  if ($('input[name="degree_type"]:checked').val() === "Master") {
     fullOut("M");
     starting();
     $(".siteRow").hide();
@@ -3627,7 +3627,6 @@ function starting() {
 document.querySelectorAll(".models").forEach((item) => {
   item.addEventListener("click", (event) => {
     if (
-      $("#Degree").find(":selected").text().startsWith("S") &&
       $("#studyProgram").find(":selected").text().startsWith("S")
     ) {
       validatefilledIn();
@@ -3846,7 +3845,6 @@ if ($(window).width() < 400) {
 /* -- 02.02.2022 -- */
 
 function findOutAndClick(x, y) {
-  $("#" + y).val(x);
   if (y === "Degree") {
     findOutAndChange("Degree", "degree");
     changeDegreeVal();
