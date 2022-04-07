@@ -251,7 +251,7 @@ function scrollTo() {
     $("#budget").val() == ""
   ) {
     document
-      .getElementById("0-75-eur")
+      .getElementById("budget")
       .scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -2250,9 +2250,7 @@ function findOutAndChange(x, y) {
         D2[i].value = false;
       }
     }
-  } else if (x === "Degree") {
-    
-    D1 = $('input[name="degree_type"]:checked').val();
+  } else if (y === "degree") {
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Bachelor") {
         D2[i].value = D1.value;
@@ -3845,10 +3843,13 @@ if ($(window).width() < 400) {
 /* -- 02.02.2022 -- */
 
 function findOutAndClick(x, y) {
-  if (y === "Degree") {
-    findOutAndChange("Degree", "degree");
+  if (x === "Bachelor") {
+    findOutAndChange("degreeTypeBachelor", "degree");
     changeDegreeVal();
-  }
+} else {
+  findOutAndChange("degreeTypeMaster", "degree");
+  changeDegreeVal();
+}
 }
 
 setTimeout(() => { 
