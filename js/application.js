@@ -2074,7 +2074,7 @@ function activate() {
           lastName: surName,
           nationality: nationality,
           dateOfBirth: dateOfBirth,
-          placeOfBirth: country,
+          placeOfBirth: nationality,
           startDate: startDate,
           countryOfBirth: country,
           email: email,
