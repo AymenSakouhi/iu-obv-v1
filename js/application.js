@@ -2127,7 +2127,7 @@ function activate() {
           monthlyFee: finalPrice,
           graduationFee: 0,
           voucherId: voucherVar,
-          paymentInterval: null,
+          paymentInterval: 1,
           directDebit: directDebit,
           accountOwner: null,
           accountBank: null,
