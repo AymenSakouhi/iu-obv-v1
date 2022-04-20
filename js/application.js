@@ -279,6 +279,14 @@ function scrollTo() {
         block: "center",
         inline: "nearest",
       });
+  } else if($("#voucher").val().toLowerCase().includes("agent")) {
+    document
+      .getElementById("voucher")
+      .scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest",
+      });
   }
 }
 
