@@ -533,6 +533,13 @@ $(document).ready(function () {
   $("#voucher").keyup(function () {
     let email = document.getElementById("e-mail").value;
     let value = $(this).val();
+
+    if(value.toLowerCase().includes("agent")) {
+      $("#agent-voucher").removeClass("hide");
+    } else {
+      $("#agent-voucher").addClass("hide");
+    }
+
     clearTimeout(ajaxRequest);
     ajaxRequest = setTimeout(
       function (sn) {
@@ -1758,6 +1765,18 @@ function validatefilledIn() {
   } else {
     $("#workexperience").css("border-color", "green");
   }
+
+  if ($("#voucher").val().toLowerCase().includes("agent")) {
+    $("#voucher")
+      .css("border-color", "red")
+      .addClass("field-error")
+      .removeClass("field-valid");
+  } else {
+    $("#voucher")
+      .css("border-color", "green")
+      .removeClass("field-error")
+      .addClass("field-valid");
+  }
 }
 
 function checkingFields() {
@@ -1892,6 +1911,14 @@ function checkingFields() {
     document.getElementById("submit").disabled = false;
     return false;
   }
+  
+  if($("#voucher").val().toLowerCase().includes("agent")) {
+    validatefilledIn();
+    document.getElementById("submit").disabled = false;
+    $("#inputVoucher").modal();
+    return false;
+  }
+
   if (
     $("#referrerFirstName").val() !== "" &&
     $("#referrerLastName").val() !== "" &&
