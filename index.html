@@ -127,11 +127,15 @@
 
 
     <!-- End Google Tag Manager -->
-
+    
 
     <script>
 
-
+        dataLayer.push({
+                'unit': 'em',
+                'pageCategory': "obw",
+                'userCountry': geoplugin_countryCode()
+            });
 
         dataLayer.push({
 
@@ -5554,13 +5558,6 @@ $(document).ready(function () {
 });
 </script>
  -->
-
- <script>
-    dataLayer.push({
-        'event': 'pageview',
-        'eventData': {"unit":"em","pageCategory":"obw","userCountry":geoplugin_countryCode(),"userCountryName":geoplugin_countryName()}
-    });
-</script>
 
 </body>
 </html>
