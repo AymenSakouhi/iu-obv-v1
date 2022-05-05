@@ -1139,14 +1139,14 @@ let mT = [
     name: "B.A. Management - 240",
     careId: "10008630_FI"
   },
-  {
+  /*{
     name: "B.A. Human Resource Management - 180",
     careId: "10008709_FI"
   },
   {
     name: "B.A. Marketing - 180",
     careId: "10008708_FI"
-  },
+  },*/
   {
     name: "B.Sc. Industrial and Organisational Psychology - 180",
     careId: "10008626_FI"
@@ -1581,7 +1581,6 @@ let mT = [
 //online only
 mtCheckOnline = [
   "B.A. Digital Business - 180",
-  "B.A. Management - 240",
   "M.Sc. Artificial Intelligence - 60",
   "M.A. Management - Specialisation Leadership - 60",
   "M.A. Information Technology Management - 60",
@@ -1601,6 +1600,11 @@ mtCheckOnline = [
   "B.Eng. Engineering - 180",
   "M.A. Project Management - 60",
   "M.A. Project Management - 120",
+  "B.A. Management - 240",
+  "B.A. Human Resource Management - 180",
+  "B.A. Marketing - 180",
+  "B.Sc. Industrial and Organisational Psychology - 180"
+
 ];
 
 function fullOut(dip) {
