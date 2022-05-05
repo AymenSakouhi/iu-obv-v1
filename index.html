@@ -4834,6 +4834,39 @@ function closeNav() {
 
       } );
 
+      $('#datepicker').swipe({
+        swipeRight:function(){
+            $('#ui-datepicker-div').find("[data-handler='prev']").click();
+        },
+        swipeLeft:function(){
+            $('#ui-datepicker-div').find("[data-handler='next']").click();
+        }
+    })
+
+
+//     $("#datepicker").on("swipeleft", function(){
+//     $("#datepicker table").first().animate({
+//       marginLeft: "-100%"
+//     },{
+//       duration: "fast",
+//       complete: function () {
+//         $.datepicker._adjustDate("#datepicker", +1, "M" );
+//       }
+//     });
+//   });
+
+//     $("#datepicker").on("swiperight", function(){
+//         console.log("right")
+//         $("#datepicker table").first().animate({
+//             marginLeft: "100%"
+//         },{
+//             duration: "fast",
+//             complete: function () {
+//                 $.datepicker._adjustDate("#datepicker", -1, "M" );
+//             }
+//         });
+//     });
+
 
 
 
