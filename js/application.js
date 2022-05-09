@@ -1943,7 +1943,9 @@ function activate() {
     let country = document.getElementById("country").value;
     let nationality = document.getElementById("nationality").value;
     let studyStartDate =
-      document.getElementsByClassName("study-start")[0].innerHTML;
+      //document.getElementsByClassName("study-start")[0].innerHTML;
+      //document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('.');
+      document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('-');
     let fullNumber =
       document.getElementsByClassName("iti__selected-dial-code")[0].innerText +
       document.getElementById("phone").value;
@@ -3495,8 +3497,6 @@ function changeDegreeVal() {
 } // });
 
 document.getElementById("studyProgram").addEventListener("change", function () {
-  console.log('1')
-  
   checkIpAndChange();
 
   checkLocation();
