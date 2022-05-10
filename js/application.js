@@ -3530,23 +3530,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("option", { minDate: new Date(2023, 2, 1) });
   } else if (
     $("#studyProgram :selected").text() ===
-      "B.A. International Healthcare Management - 180" ||
-    $("#studyProgram :selected").text() ===
-      "M.A. International Healthcare Management - 120"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 3, 1));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 3, 1) });
-  } else if (
-    $("#studyProgram :selected").text() ===
     "M.A. International Healthcare Management - 60"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 8, 30));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 8, 30) });
-  } else if (
-    $("#studyProgram :selected").text() === "B.Sc. Software Development - 180"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 3, 15));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 3, 15) });
   } else if (
     $("#studyProgram :selected").text() ===
     "M.A. Digital Innovation & Intrapreneurship - 60"
