@@ -1,7 +1,7 @@
 let voucherVar = null;
 let businessUnit = "fi";
 let obwVersion = "obw21";
-let agbVersion = "2.8";
+let agbVersion = "3.0";
 let directDebit = null;
 let locationSite = "3";
 let currentPage = 3;
@@ -20,10 +20,7 @@ const validateEmail = (email) => {
 
 function EmptyFields() {
   labelContent = "";
-  if (
-    $("#Degree").find(":selected").text().startsWith("S") ||
-    $("#studyProgram").find(":selected").text().startsWith("S")
-  ) {
+  if ($("#studyProgram").find(":selected").text().startsWith("S")) {
     labelContent += "~DegreeFieldEmpty~studyProgramFieldEmpty";
   }
 
@@ -51,7 +48,7 @@ function EmptyFields() {
   ) {
     labelContent += "~locationSectionEmpty";
   }
-  if ($(".study-start").val() === "") {
+  if ($(".study-start").val() === "" || $(".study-start").first().text() === "Select one") {
     labelContent += "~startDataOnlineSectionEmpty";
   }
   if ($("input[name=gender]:checked").length === 0) {
@@ -91,7 +88,7 @@ function EmptyFields() {
   ) {
     labelContent += "~workExperienceForMasterEmpty";
   }
-  if ($(".study-start").val() === "") {
+  if ($(".study-start").val() === "" || $(".study-start").first().text() === "Select one") {
     labelContent += "~submitWithoutStartDateEmpty";
   }
 
@@ -101,164 +98,129 @@ function EmptyFields() {
 }
 
 function scrollTo() {
-  if (
-    $("#Degree").find(":selected").text().startsWith("S") ||
-    $("#studyProgram").find(":selected").text().startsWith("S")
-  ) {
-    document
-      .getElementById("Degree")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+  if ($("#studyProgram").find(":selected").text().startsWith("S")) {
+    document.getElementById("studyProgram").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (
     !mtCheckOnline.includes($("#studyProgram").find(":selected").text()) &&
     $("input[name=studyLocation]:checked").length === 0
   ) {
-    document
-      .getElementById("studyProgram")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("studyProgram").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if ($("input[name=timemodel]:checked").length === 0) {
-    document
-      .getElementById("timeModalsSection")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("timeModalsSection").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (
     !mtCheckOnline.includes($("#studyProgram").find(":selected").text()) &&
     $("input[name=intake]:checked").length === 0 &&
     $('input[name="studyLocation"]:checked').val() === "Study on campus"
   ) {
-    document
-      .getElementById("intakes")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("intakes").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (
     !mtCheckOnline.includes($("#studyProgram").find(":selected").text()) &&
     $("input[name=intake]:checked").length > 0 &&
     $("input[name=studyLocation]:checked").length > 0 &&
     $("input[name=site]:checked").length === 0
   ) {
-    document
-      .getElementById("site")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
-  } else if ($(".study-start").val() === "") {
-    document
-      .getElementById("datepicker")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("site").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
+  } else if ($(".study-start").val() === "" || $(".study-start").first().text() === "Select one") {
+    document.getElementById("datepicker").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if ($("input[name=gender]:checked").length === 0) {
-    document
-      .getElementById("gender")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("gender").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (document.getElementById("first-name").value == "") {
-    document
-      .getElementById("first-name")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("first-name").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (document.getElementById("last-name").value == "") {
-    document
-      .getElementById("last-name")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("last-name").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (document.getElementById("street").value === "") {
-    document
-      .getElementById("street")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("street").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (document.getElementById("e-mail").value === "") {
-    document
-      .getElementById("e-mail")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("e-mail").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (document.getElementById("date-of-birth").value === "") {
-    document
-      .getElementById("date-of-birth")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("date-of-birth").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   } else if (document.getElementById("city").value === "") {
-    document
-      .getElementById("city")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("city").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   }
   //else if ($('input[name=school]:checked').length === 0) {
   else if (
     $("#yes").find(":selected").text().startsWith("C") ||
     $("#yes").val() == ""
   ) {
-    document
-      .getElementById("yes")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("yes").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   }
   //else if($('input[name=enlgishlevel]:checked').length === 0) {
   else if (
     $("#enlgishlevel").find(":selected").text().startsWith("C") ||
     $("#enlgishlevel").val() == ""
   ) {
-    document
-      .getElementById("2")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("2").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   }
   //else if($('input[name=budget]:checked').length === 0) {
   else if (
     $("#budget").find(":selected").text().startsWith("C") ||
     $("#budget").val() == ""
   ) {
-    document
-      .getElementById("0-75-eur")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("budget").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   }
   //else if($('input[name=workexperience]:checked').length === 0 && workExperience()) {
   else if (
@@ -266,21 +228,23 @@ function scrollTo() {
       $("#workexperience").val() == "") &&
     workExperience()
   ) {
-    document
-      .getElementById("we3")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
-  } else if ($(".study-start").val() === "") {
-    document
-      .getElementById("datepicker")
-      .scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "nearest",
-      });
+    document.getElementById("we3").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
+  } else if ($(".study-start").val() === "" || $(".study-start").first().text() === "Select one") {
+    document.getElementById("datepicker").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
+  } else if ($("#voucher").val().toLowerCase().includes("agent")) {
+    document.getElementById("voucher").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
   }
 }
 
@@ -297,18 +261,21 @@ function errorPush(label) {
       },
     });
     console.log("error sent");
-    console.log(label);
   }
 }
 
 NanBadHonnef = [
   {
     name: "M.A. International Management - 60",
+    tillIntake: "Jul 22, Oct 22, Jan 23, Apr 23",
+  },
+  {
+    name: "M.Eng. Engineering Management - 60",
     tillIntake: "Apr 22",
   },
   {
     name: "M.Sc. Computer Science - 120",
-    tillIntake: "Apr 22",
+    tillIntake: "Oct 22, Jan 23, Oct 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -332,6 +299,10 @@ NanBadHonnef = [
   },
   {
     name: "M.A. International Management - Specialisation Finance & Accounting - 120",
+    tillIntake: "Jul 22",
+  },
+  {
+    name: "M.A. International Management - Specialisation AI & Robotics - 120",
     tillIntake: "Jul 22",
   },
   {
@@ -407,18 +378,57 @@ NanBadHonnef = [
     tillIntake: "Jul 22",
   },
   {
-    name: "M.A. International Management - Specialisation Finance & Accounting - 120",
+    name: "M.A. Management - Specialisation Finance & Accounting - 60",
     tillIntake: "Jul 22",
   },
   {
     name: "M.A. Management - Specialisation International Marketing - 60",
     tillIntake: "Jul 22",
   },
+  {
+    name: "M.A. Marketing Management - 120 ECTS",
+    tillIntake: "Apr 22",
+  },
+  {
+    name: "M.A. Marketing Management - 60 ECTS",
+    tillIntake: "Apr 22",
+  },
 ];
 
-function removeBadHonnefLocation() {
+function removeBadHonnefBasedIntake(curIntake) {
+  let curIntakeIndex = 0;
+  let intakeIndex = 2;
   if (
     mT.find(
+      ({ name, studyLocation }) =>
+        name === $("#studyProgram :selected").text() &&
+        studyLocation === "OnlyBerlin"
+    )
+  ) {
+    //hiding because onlyBerlin was found when searching in the course attributes
+    $("#badHonnefLocation").addClass("hide");
+    return 0;
+  } else {
+    //not hiding badhonnef because no onlyBerlin found when searching in course attribute
+    $("#badHonnefLocation").removeClass("hide");
+  }
+
+  const isIndexOf = (element) => element === curIntake;
+  curIntakeIndex = allIntakes.findIndex(isIndexOf); //to find out what's the index of the curIntake in the allintakes array
+
+  NanBadHonnef.find(({ name, tillIntake }) => {
+    if (name === $("#studyProgram :selected").text()) {
+      const isIndexOfTillIntake = (element) =>
+        element === tillIntake.replace(/\s+/g, "").toLowerCase();
+      intakeIndex = allIntakes.findIndex(isIndexOfTillIntake);
+    }
+  });
+  if (
+    curIntakeIndex > intakeIndex &&
+    NanBadHonnef.find(
+      ({ name }) => name === $("#studyProgram :selected").text()
+    ) &&
+    !mT.find(
       ({ name, studyLocation }) =>
         name === $("#studyProgram :selected").text() &&
         studyLocation === "OnlyBerlin"
@@ -429,21 +439,6 @@ function removeBadHonnefLocation() {
     $("#badHonnefLocation").removeClass("hide");
   }
 }
-
-function removeBadHonnefBasedIntake(curIntake) {
-  let curIntakeIndex = 0;
-
-  const isIndexOf = (element) => element === curIntake;
-  curIntakeIndex = allIntakes.findIndex(isIndexOf); //to find out what's the index of the curIntake in the allintakes array
-
-  if(curIntakeIndex > 3 && NanBadHonnef.find( ({name}) => name === $("#studyProgram :selected").text())) {
-    $("#badHonnefLocation").addClass("hide");
-  } else {
-    $("#badHonnefLocation").removeClass("hide");
-  }
-}
-
-// $("input[name='studyLocation']").change(
 
 //intake variables
 let currentProgramme = "";
@@ -490,7 +485,7 @@ $("#timeAfter20Days").text(formatDate(dateRandom));
 //$(".ui-state-default.ui-state-active").delay(1000).css("color", "black")
 
 function workExperience() {
-  if ($("#Degree").find(":selected").text().startsWith("M")) {
+  if ($('input[name="degree_type"]:checked').val() === "Master") {
     return true;
   } else {
     return false;
@@ -510,6 +505,13 @@ $(document).ready(function () {
   $("#voucher").keyup(function () {
     let email = document.getElementById("e-mail").value;
     let value = $(this).val();
+
+    if (value.toLowerCase().includes("agent")) {
+      $("#agent-voucher").removeClass("hide");
+    } else {
+      $("#agent-voucher").addClass("hide");
+    }
+
     clearTimeout(ajaxRequest);
     ajaxRequest = setTimeout(
       function (sn) {
@@ -530,7 +532,6 @@ $(document).ready(function () {
           }),
           dataType: "json",
           success: function (data) {
-            console.info(data);
             voucherVar = value;
           },
           error: function () {
@@ -550,11 +551,9 @@ function checkAgentVoucher() {
   let preVoucher = voucherVar;
   if (value.startsWith("AGENT")) {
     voucherVar = value;
-    console.log("AGENT VOUCHER INSERTED");
     return voucherVar;
   } else {
     voucherVar = preVoucher;
-    console.log("back to old voucher");
     return voucherVar;
   }
   $.ajax({
@@ -883,7 +882,7 @@ let tabc1 = [
   { name: "Iceland", code: "IS", tier: 1 },
   { name: "India", code: "IN", tier: 2 },
   { name: "Indonesia", code: "ID", tier: 2 },
-  { name: "Iran, Islamic Republic Of", code: "IR", tier: 2 },
+  { name: "Iran, Islamic Republic of", code: "IR", tier: 2 },
   { name: "Iraq", code: "IQ", tier: 2 },
   { name: "Ireland", code: "IE", tier: 1 },
   { name: "Isle of Man", code: "IM", tier: 2 },
@@ -1095,25 +1094,31 @@ document.getElementById("country").addEventListener("change", function () {
   PriceChange();
 });
 
-document.querySelectorAll(".degree").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".study-programme").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".campus").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".study-model").forEach((item) => {
-  item.disabled = true;
-});
-document.querySelectorAll(".study-start").forEach((item) => {
-  item.disabled = true;
-});
+// document.querySelectorAll(".degree").forEach(item => {
+//     item.disabled = true;
 
-document.querySelectorAll(".campusSite").forEach((item) => {
-  item.disabled = true;
-});
+// })
+// document.querySelectorAll(".study-programme").forEach(item => {
+//     item.disabled = true;
+
+// })
+// document.querySelectorAll(".campus").forEach(item => {
+//     item.disabled = true;
+
+// })
+// document.querySelectorAll(".study-model").forEach(item => {
+//     item.disabled = true;
+
+// })
+// document.querySelectorAll(".study-start").forEach(item => {
+//     item.disabled = true;
+
+// })
+
+// document.querySelectorAll(".campusSite").forEach(item => {
+//     item.disabled = true;
+
+// })
 
 document.querySelectorAll(".finalPrice").forEach((item) => {
   item.innerHTML = "0000";
@@ -1128,7 +1133,23 @@ let mT = [
     careId: "10007953_FI",
     //"careIdCs" : '10007953_CS'
     careIdCs: "10008367",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
+  },
+  {
+    name: "B.A. Management - 240",
+    careId: "10008630_FI"
+  },
+  /*{
+    name: "B.A. Human Resource Management - 180",
+    careId: "10008709_FI"
+  },
+  {
+    name: "B.A. Marketing - 180",
+    careId: "10008708_FI"
+  },*/
+  {
+    name: "B.Sc. Industrial and Organisational Psychology - 180",
+    careId: "10008626_FI"
   },
   {
     name: "B.Sc. Data Science - 180",
@@ -1143,13 +1164,16 @@ let mT = [
   {
     name: "M.Sc. Artificial Intelligence - 120",
     careId: "10007857",
+    careIdCs: "10008529_CS_AI",
+    intake: "Oct 22, Apr 23, Oct 23",
+    studyLocation: "OnlyBerlin",
   },
   {
     name: "M.Sc. Computer Science - 120",
     careId: "10007941_FI",
     //"careIdCs" : '10007952'
     careIdCs: "10008373",
-    intake: "Oct 21, Apr 22, Oct 22, Apr 23, Oct 23",
+    intake: "Oct 22, Jan 23, Oct 23",
     intake2: "Apr 22, Oct 22, Apr 23, Oct 23",
   },
 
@@ -1379,22 +1403,28 @@ let mT = [
   {
     name: "B.Sc. Applied Artificial Intelligence - 180",
     careId: "10008073_FI_AI",
+    careIdCs: "10008523_CS_AAI",
+    intake: "Oct 22, Oct 23",
     //needs to be there
   },
   {
     name: "B.A. Entrepreneurship - 180",
     careId: "10008062_FI",
+    careIdCs: "10008526_CS_ENT",
+    intake: "Oct 22",
   },
   {
     name: "B.Sc. Business & IT - 180",
     careId: "10008001_FI",
     //"careIdCs" : '10008001_CS'
     careIdCs: "10008368",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.Eng. Robotics - 180",
     careId: "10007964_FI",
+    careIdCs: "10008527_CS_ROB",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23",
   },
   /*{
         "name" : 'B.Eng. Engineering - 180',
@@ -1405,7 +1435,7 @@ let mT = [
     careId: "10008000_FI",
     //"careIdCs" : '10008000_CS'
     careIdCs: "10008370",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
   },
   {
     name: "B.A. International Management - 180",
@@ -1429,10 +1459,16 @@ let mT = [
   {
     name: "M.A. Marketing Management - 60",
     careId: "10007977_FI",
+    careIdCs: "10008540_CS_MM",
+    intake: "Oct 22",
+    studyLocation: "OnlyBerlin",
   },
   {
     name: "M.A. Marketing Management - 120",
     careId: "10007976_FI",
+    careIdCs: "10008539_CS_MM",
+    intake: "Oct 22",
+    studyLocation: "OnlyBerlin",
   },
   {
     name: "M.A. Information Technology Management - 60",
@@ -1472,7 +1508,7 @@ let mT = [
     st_careId: "70",
     //"careIdCs" : '10008044_CS'
     careIdCs: "10008376",
-    intake: "Apr 22, Jul 22, Oct 22",
+    intake: "Jul 22, Oct 22, Jan 23, Apr 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -1544,17 +1580,11 @@ let mT = [
 
 //online only
 mtCheckOnline = [
-  "B.Eng. Robotics - 180",
   "B.A. Digital Business - 180",
-  "B.A. Entrepreneurship - 180",
   "M.Sc. Artificial Intelligence - 60",
-  "M.Sc. Artificial Intelligence - 120",
-  "M.A. Marketing Management - 60",
-  "M.A. Marketing Management - 120",
   "M.A. Management - Specialisation Leadership - 60",
   "M.A. Information Technology Management - 60",
   "M.A. Information Technology Management - 120",
-  "B.Sc. Applied Artificial Intelligence - 180",
   "M.Sc. Data Management - 60",
   "M.Sc. Data Management - 120",
   "B.A. International Healthcare Management - 180",
@@ -1570,6 +1600,11 @@ mtCheckOnline = [
   "B.Eng. Engineering - 180",
   "M.A. Project Management - 60",
   "M.A. Project Management - 120",
+  "B.A. Management - 240",
+  "B.A. Human Resource Management - 180",
+  "B.A. Marketing - 180",
+  "B.Sc. Industrial and Organisational Psychology - 180"
+
 ];
 
 function fullOut(dip) {
@@ -1616,25 +1651,22 @@ function validatefilledIn() {
     $("#studyProgram").css("border-color", "green");
   }
 
-  if ($("#Degree").val() === null) {
-    for (let i = 0; i < 2; i++) {
-      if ($("input[name=degree_type]:checked").length === 0) {
-        arr3[i].style.borderColor = "red";
-        setTimeout(function () {
-          arr3[i].style.borderColor = "";
-        }, 3000);
-      } else {
-        arr3[i].style.borderColor = "green";
-      }
+  for (let i = 0; i < 2; i++) {
+    if ($("input[name=degree_type]:checked").length === 0) {
+      arr3[i].style.borderColor = "red";
+      setTimeout(function () {
+        arr3[i].style.borderColor = "";
+      }, 3000);
+    } else {
+      arr3[i].style.borderColor = "green";
     }
   }
+  // if ($("#Degree").val() === null) {
+  // }
 
   if (
     !mtCheckOnline.includes($("#studyProgram").find(":selected").text()) &&
-    !(
-      $("#Degree").find(":selected").text().startsWith("S") ||
-      $("#studyProgram").find(":selected").text().startsWith("S")
-    )
+    !$("#studyProgram").find(":selected").text().startsWith("S")
   ) {
     for (let i = 0; i < 3; i++) {
       if ($("input[name=studyLocation]:checked").length === 0) {
@@ -1648,7 +1680,7 @@ function validatefilledIn() {
     }
   }
 
-  if ($(".study-start").val() === "") {
+  if ($(".study-start").val() === "" || $(".study-start").first().text() === "Select one") {
     $("#datepicker").attr("style", "border: 2px solid red !important");
     setTimeout(function () {
       $("#datepicker").attr("style", "border: none !important");
@@ -1724,6 +1756,18 @@ function validatefilledIn() {
   } else {
     $("#workexperience").css("border-color", "green");
   }
+
+  if ($("#voucher").val().toLowerCase().includes("agent")) {
+    $("#voucher")
+      .css("border-color", "red")
+      .addClass("field-error")
+      .removeClass("field-valid");
+  } else {
+    $("#voucher")
+      .css("border-color", "green")
+      .removeClass("field-error")
+      .addClass("field-valid");
+  }
 }
 
 function checkingFields() {
@@ -1745,10 +1789,7 @@ function checkingFields() {
     $("#myModalStudyProgramme").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if (
-    $("#Degree").find(":selected").text().startsWith("S") ||
-    $("#studyProgram").find(":selected").text().startsWith("S")
-  ) {
+  } else if ($("#studyProgram").find(":selected").text().startsWith("S")) {
     validatefilledIn();
     $("#myModalStudyProgramme").modal();
     document.getElementById("submit").disabled = false;
@@ -1789,7 +1830,7 @@ function checkingFields() {
     $("#myModalSite").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if ($(".study-start").val() === "") {
+  } else if ($(".study-start").val() === "" || $(".study-start").first().text() === "Select one") {
     validatefilledIn();
     $("#datePickerCheck").modal();
     $(".ui-state-default.ui-state-active").attr(
@@ -1853,12 +1894,20 @@ function checkingFields() {
     $("#eligibilityModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if ($(".study-start").val() === "") {
+  } else if ($(".study-start").val() === "" || $(".study-start").first().text() === "Select one") {
     validatefilledIn();
     $("#datePickerCheck").modal();
     document.getElementById("submit").disabled = false;
     return false;
   }
+
+  if ($("#voucher").val().toLowerCase().includes("agent")) {
+    validatefilledIn();
+    document.getElementById("submit").disabled = false;
+    $("#inputVoucher").modal();
+    return false;
+  }
+
   if (
     $("#referrerFirstName").val() !== "" &&
     $("#referrerLastName").val() !== "" &&
@@ -1883,7 +1932,8 @@ function activate() {
       return 0;
     }
     $(".loading").toggleClass("hide");
-    let degree = document.getElementById("Degree").value;
+
+    let degree = $('input[name="degree_type"]:checked').val();
     let myName = document.getElementById("first-name").value;
     let surName = document.getElementById("last-name").value;
     let street = document.getElementById("street").value;
@@ -1891,8 +1941,11 @@ function activate() {
     let postcode = document.getElementById("postcode").value;
     let city = document.getElementById("city").value;
     let country = document.getElementById("country").value;
+    let nationality = document.getElementById("nationality").value;
     let studyStartDate =
-      document.getElementsByClassName("study-start")[0].value;
+      //document.getElementsByClassName("study-start")[0].innerHTML;
+      //document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('.');
+      document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('-');
     let fullNumber =
       document.getElementsByClassName("iti__selected-dial-code")[0].innerText +
       document.getElementById("phone").value;
@@ -1929,9 +1982,6 @@ function activate() {
       //if (files.files.length === 0 ){
       completed = true;
       currentPage = 3;
-
-      //console.log('without files cs program')
-      console.log("without files cs program or with files as well");
       //}
     }
 
@@ -1990,6 +2040,7 @@ function activate() {
       postcode: postcode,
       city: city,
       country: country,
+      nationality: nationality,
       mobileNumber: fullNumber,
       email: email,
       studyProgram: studyProgram,
@@ -2041,11 +2092,11 @@ function activate() {
           gender: gender,
           firstName: myName,
           lastName: surName,
-          nationality: country,
+          nationality: nationality,
           dateOfBirth: dateOfBirth,
-          placeOfBirth: country,
+          placeOfBirth: nationality,
           startDate: startDate,
-          countryOfBirth: country,
+          countryOfBirth: nationality,
           email: email,
           phone: fullNumber,
           street: street,
@@ -2106,10 +2157,8 @@ function activate() {
       })
       .then(() => {
         t.key = obj.key;
-        console.log(obj.key);
 
         for (let i = 0; i < $(".file-row").length; i++) {
-          console.log(i);
           data.append("upload", files.files[i]);
           fetch(
             "https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v2/file/" +
@@ -2123,7 +2172,6 @@ function activate() {
             if (!res.ok) {
               throw Error("error getting the API to POST");
             }
-            console.log(res);
           });
         }
         localStorage.setItem("allData", JSON.stringify(t));
@@ -2167,8 +2215,6 @@ function activate() {
             diploma: diplom,
           },
         });
-        console.log(t.businessUnit);
-        console.log(t.completed);
         setTimeout(function () {
           window.location.href = "./upload/index.html?key=" + t.key;
         }, 5000);
@@ -2189,12 +2235,16 @@ function findOutAndChange(x, y) {
   } else if (x === "datepicker") {
     for (let i = 0; i < D2.length; i++) {
       D2[i].value = D1.value;
+      D2[i].innerHTML = D1.value;
+      // D2[i].innerText = D1.value;
+      $(D2[i]).addClass("summary-selected");
     }
   } else if (y === "study-model") {
     // $( "#graduationFee" ).removeClass( "hide" )
     // $( "#graduationFee2" ).removeClass( "hide" )
     for (let i = 0; i < D2.length; i++) {
       D2[i].value = D1.value;
+      D2[i].innerHTML = D1.value;
       PriceChange();
     }
     if ($("input[name='timemodel']:checked").length !== 0) {
@@ -2220,13 +2270,22 @@ function findOutAndChange(x, y) {
         D2[i].value = false;
       }
     }
-  } else if (x === "Degree") {
+  } else if (y === "degree") {
     for (let i = 0; i < D2.length; i++) {
       if (D1.value === "Bachelor") {
         D2[i].value = D1.value;
+        D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
       } else {
         D2[i].value = D1.value;
+        D2[i].innerHTML = D1.value;
+        $(D2[i]).addClass("summary-selected");
       }
+    }
+  } else if (y === "campus" || y === "campusSite") {
+    for (let i = 0; i < D2.length; i++) {
+      D2[i].innerHTML = D1.value;
+      $(D2[i]).addClass("summary-selected");
     }
   } else if (x === "winterintake" || x === "winterintake2") {
     //intakes here
@@ -2235,7 +2294,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
-        removeBadHonnefBasedIntake('jan22')
+    removeBadHonnefBasedIntake("jan22");
     checkIntakeStart();
   } else if (x === "summerintake" || x === "summerintake") {
     document.getElementsByClassName("intake")[0].value = "2022-04-01";
@@ -2243,7 +2302,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
-        removeBadHonnefBasedIntake('apr22')
+    removeBadHonnefBasedIntake("apr22");
     checkIntakeStart();
   } else if (x === "summerintake" || x === "summerintake2") {
     document.getElementsByClassName("intake")[0].value = "2022-07-01";
@@ -2251,7 +2310,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
-        removeBadHonnefBasedIntake('jul22')
+    removeBadHonnefBasedIntake("jul22");
     checkIntakeStart();
   } else if (x === "winterintake3") {
     //oct22
@@ -2260,7 +2319,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
-    removeBadHonnefBasedIntake('oct22')
+    removeBadHonnefBasedIntake("oct22");
     checkIntakeStart();
   } else if (x === "summerintake3") {
     document.getElementsByClassName("intake")[0].value = "2023-04-01";
@@ -2268,6 +2327,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
+    removeBadHonnefBasedIntake("apr23");
     checkIntakeStart();
   } else if (x === "winterintake4") {
     document.getElementsByClassName("intake")[0].value = "2022-10-01";
@@ -2275,7 +2335,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
-        removeBadHonnefBasedIntake('oct22')
+    removeBadHonnefBasedIntake("oct22");
     checkIntakeStart();
   } else if (x === "winterintakejan23") {
     document.getElementsByClassName("intake")[0].value = "2023-01-01";
@@ -2283,7 +2343,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
-        removeBadHonnefBasedIntake('jan23')
+    removeBadHonnefBasedIntake("jan23");
     checkIntakeStart();
   } else if (x === "summerintakejul23") {
     document.getElementsByClassName("intake")[0].value = "2023-07-01";
@@ -2291,7 +2351,7 @@ function findOutAndChange(x, y) {
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
-        removeBadHonnefBasedIntake('jul23')
+    removeBadHonnefBasedIntake("jul23");
     checkIntakeStart();
   } else {
     for (let i = 0; i < D2.length; i++) {
@@ -2326,12 +2386,19 @@ function checkLocation() {
     setTimeout(function () {
       $("#datepicker").show();
       $("#intakes").hide();
+
+      let startSummary = document.getElementsByClassName("study-start");
+      for (let i = 0; i < startSummary.length; i++) {
+        startSummary[i].innerHTML = "Select one";
+        $(startSummary[i]).removeClass("summary-selected");
+      }
     }, 100);
 
     //document.getElementById('study-on-campus').disabled = true;
     //document.getElementById('study-on-campus').checked = true;
     document.querySelectorAll(".campus").forEach((item) => {
       item.value = "Study online";
+      item.innerText = "Study online";
     });
     //document.getElementById("something").value = 'Study online'
     $("#h5Here").html(htmlFragment + "Study online");
@@ -2340,20 +2407,26 @@ function checkLocation() {
     $("#something").addClass("study-online");
 
     //$("#something").css("background-color","#F5F4F3");
-    $("#campus1").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
 
     setTimeout(function () {
       $("#rowLocOne").removeClass("hide");
       $("#rowLocTwo").addClass("hide");
       $("#rowLocThree").addClass("hide");
       $("#rowLocFour").addClass("hide");
+
+      let locSummary = document.getElementsByClassName("campus");
+      for (let i = 0; i < locSummary.length; i++) {
+        locSummary[i].innerHTML = "Online";
+        $(locSummary[i]).addClass("summary-selected");
+      }
 
       // $( "#semesterOnCampusOnly" ).addClass( "hide" )
       // $( "#semesterVariable" ).addClass( "hide" )
@@ -2394,14 +2467,14 @@ function checkLocation() {
     $(".labelMonthlyPrice").text("Monthly Price");
     $(".labelMonthlyPrice").css("line-height", "44px");
 
-    $("#campus1").css(
-      "background",
-      "url(./images/on-campus.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/on-campus.png) 95% center no-repeat"
-    );
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/on-campus.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/on-campus.png) 95% center no-repeat"
+    // );
 
     $("#rowLocOne").addClass("hide");
     $("#rowLocTwo").removeClass("hide");
@@ -2421,14 +2494,20 @@ function checkLocation() {
     $("#site").hide();
     $(".siteRow").hide();
 
-    $("#campus1").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
-    $("#campus2").css(
-      "background",
-      "url(./images/online.png) 95% center no-repeat"
-    );
+    let startSummary = document.getElementsByClassName("study-start");
+    for (let i = 0; i < startSummary.length; i++) {
+      startSummary[i].innerHTML = "Select one";
+      $(startSummary[i]).removeClass("summary-selected");
+    }
+
+    // $("#campus1").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
+    // $("#campus2").css(
+    //   "background",
+    //   "url(./images/online.png) 95% center no-repeat"
+    // );
 
     $("div").find("label[for=monthstwo]").show();
     $("div").find("label[for=monthsthree]").show();
@@ -2436,6 +2515,8 @@ function checkLocation() {
 }
 
 function PriceChange() {
+
+
   let x = 0;
 
   if (
@@ -2792,6 +2873,87 @@ function PriceChange() {
               Math.ceil((parseFloat(x) / 18).toFixed(1));
           }
         }
+      } else if ($("#studyProgram :selected").text().includes("240")) {
+        //verifyStudyModel()
+        switch (document.getElementsByClassName("study-model")[0].value) {
+          case "48": {
+            document.getElementsByClassName("finalPrice")[0].innerHTML =
+              "31344";
+            document.getElementsByClassName("finalPrice")[1].innerHTML =
+              "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[0].innerHTML = "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[1].innerHTML = "31344";
+            document.getElementsByClassName("monthlyPriceBefore")[0].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPriceBefore")[1].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            x = parseFloat("31344");
+            document.getElementsByClassName("discountPrice")[0].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("discountPrice")[1].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[0].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[1].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+            break;
+          }
+          case "72": {
+            document.getElementsByClassName("finalPrice")[0].innerHTML =
+              "36000";
+            document.getElementsByClassName("finalPrice")[1].innerHTML =
+              "36000";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[0].innerHTML = "36000";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[1].innerHTML = "36000";
+            document.getElementsByClassName("monthlyPriceBefore")[0].innerHTML =
+              Math.ceil((parseFloat("36000") / 72).toFixed(1));
+            document.getElementsByClassName("monthlyPriceBefore")[1].innerHTML =
+              Math.ceil((parseFloat("36000") / 72).toFixed(1));
+            x = parseFloat("36000");
+            document.getElementsByClassName("discountPrice")[0].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("discountPrice")[1].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[0].innerHTML =
+              Math.ceil((parseFloat(x) / 72).toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[1].innerHTML =
+              Math.ceil((parseFloat(x) / 72).toFixed(1));
+            break;
+          }
+          default: {
+            document.getElementsByClassName("finalPrice")[0].innerHTML =
+              "31344";
+            document.getElementsByClassName("finalPrice")[1].innerHTML =
+              "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[0].innerHTML = "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[1].innerHTML = "31344";
+            document.getElementsByClassName("monthlyPriceBefore")[0].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPriceBefore")[1].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            x = parseFloat("31344");
+            document.getElementsByClassName("discountPrice")[0].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("discountPrice")[1].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[0].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[1].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+          }
+        }
       }
 
       break;
@@ -3123,15 +3285,99 @@ function PriceChange() {
           }
         }
       }
+      else if ($("#studyProgram :selected").text().includes("240")) {
+        //verifyStudyModel()
+        switch (document.getElementsByClassName("study-model")[0].value) {
+          case "48": {
+            document.getElementsByClassName("finalPrice")[0].innerHTML =
+              "31344";
+            document.getElementsByClassName("finalPrice")[1].innerHTML =
+              "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[0].innerHTML = "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[1].innerHTML = "31344";
+            document.getElementsByClassName("monthlyPriceBefore")[0].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPriceBefore")[1].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            x = parseFloat("31344") * disC;
+            document.getElementsByClassName("discountPrice")[0].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("discountPrice")[1].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[0].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[1].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+            break;
+          }
+          case "72": {
+            document.getElementsByClassName("finalPrice")[0].innerHTML =
+              "36000";
+            document.getElementsByClassName("finalPrice")[1].innerHTML =
+              "36000";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[0].innerHTML = "36000";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[1].innerHTML = "36000";
+            document.getElementsByClassName("monthlyPriceBefore")[0].innerHTML =
+              Math.ceil((parseFloat("36000") / 72).toFixed(1));
+            document.getElementsByClassName("monthlyPriceBefore")[1].innerHTML =
+              Math.ceil((parseFloat("36000") / 72).toFixed(1));
+            x = parseFloat("36000") * disC;
+            document.getElementsByClassName("discountPrice")[0].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("discountPrice")[1].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[0].innerHTML =
+              Math.ceil((parseFloat(x) / 72).toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[1].innerHTML =
+              Math.ceil((parseFloat(x) / 72).toFixed(1));
+            break;
+          }
+          default: {
+            document.getElementsByClassName("finalPrice")[0].innerHTML =
+              "31344";
+            document.getElementsByClassName("finalPrice")[1].innerHTML =
+              "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[0].innerHTML = "31344";
+            document.getElementsByClassName(
+              "totalBeforeDiscount"
+            )[1].innerHTML = "31344";
+            document.getElementsByClassName("monthlyPriceBefore")[0].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPriceBefore")[1].innerHTML =
+              Math.ceil((parseFloat("31344") / 48).toFixed(1));
+            x = parseFloat("31344") * disC;
+            document.getElementsByClassName("discountPrice")[0].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("discountPrice")[1].innerHTML =
+              Math.ceil(x.toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[0].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+            document.getElementsByClassName("monthlyPrice")[1].innerHTML =
+              Math.ceil((parseFloat(x) / 48).toFixed(1));
+          }
+        }
+      }
     }
   }
+  $(".price-before").addClass("hide");
+  $(".price-after").removeClass("hide");
 }
 
 let htmlFragment =
   '<svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 0C5.59476 0 0 5.59476 0 12.5C0 19.4052 5.59476 25 12.5 25C19.4052 25 25 19.4052 25 12.5C25 5.59476 19.4052 0 12.5 0ZM22.2379 7.66129H18.0796C17.626 5.42339 16.8649 3.51815 15.9022 2.1623C18.6744 3.07964 20.9526 5.08065 22.2379 7.66129ZM16.9355 12.5C16.9355 13.6542 16.8548 14.7278 16.7188 15.7258H8.28125C8.14516 14.7278 8.06452 13.6542 8.06452 12.5C8.06452 11.3458 8.14516 10.2722 8.28125 9.27419H16.7188C16.8548 10.2722 16.9355 11.3458 16.9355 12.5ZM12.5 1.6129C13.8558 1.6129 15.5948 3.83569 16.4365 7.66129H8.56351C9.40524 3.83569 11.1442 1.6129 12.5 1.6129ZM9.09778 2.1623C8.14012 3.5131 7.37399 5.41835 6.92036 7.66129H2.7621C4.04738 5.08065 6.3256 3.07964 9.09778 2.1623ZM1.6129 12.5C1.6129 11.376 1.78427 10.2923 2.10181 9.27419H6.66331C6.53226 10.3075 6.45161 11.381 6.45161 12.5C6.45161 13.619 6.52722 14.6925 6.66331 15.7258H2.10181C1.78427 14.7077 1.6129 13.624 1.6129 12.5ZM2.7621 17.3387H6.92036C7.37399 19.5766 8.13508 21.4819 9.09778 22.8377C6.3256 21.9204 4.04738 19.9194 2.7621 17.3387ZM12.5 23.3871C11.1442 23.3871 9.40524 21.1643 8.56351 17.3387H16.4365C15.5948 21.1643 13.8558 23.3871 12.5 23.3871ZM15.9022 22.8377C16.8599 21.4869 17.626 19.5817 18.0796 17.3387H22.2379C20.9526 19.9194 18.6744 21.9204 15.9022 22.8377ZM18.3367 15.7258C18.4677 14.6925 18.5484 13.619 18.5484 12.5C18.5484 11.381 18.4728 10.3075 18.3367 9.27419H22.8982C23.2157 10.2923 23.3871 11.376 23.3871 12.5C23.3871 13.624 23.2157 14.7077 22.8982 15.7258H18.3367Z" fill="black"/></svg>';
 
 function changeDegreeVal() {
-  if ($("#Degree :selected").text().includes("Master")) {
+  if ($('input[name="degree_type"]:checked').val() === "Master") {
     $("#rowLocOne").removeClass("hide");
     $("#rowLocTwo").addClass("hide");
     $("#rowLocThree").addClass("hide");
@@ -3157,25 +3403,25 @@ function changeDegreeVal() {
   $("#something").addClass("study-online");
 
   //$("#something").css("background-color","#F5F4F3");
-  $("#campus1").css(
-    "background",
-    "url(./images/online.png) 95% center no-repeat"
-  );
-  $("#campus2").css(
-    "background",
-    "url(./images/online.png) 95% center no-repeat"
-  );
+  // $("#campus1").css(
+  //   "background",
+  //   "url(./images/online.png) 95% center no-repeat"
+  // );
+  // $("#campus2").css(
+  //   "background",
+  //   "url(./images/online.png) 95% center no-repeat"
+  // );
 
   //checkLocation()
 
-  $("#campus1").css("background", "url()");
-  $("#campus2").css("background", "url()");
+  // $("#campus1").css("background", "url()");
+  // $("#campus2").css("background", "url()");
 
   //time model showing up
   $("div").find("label[for=monthstwo]").show();
   $("div").find("label[for=monthsthree]").show();
 
-  if (document.getElementById("Degree").value == "Master") {
+  if ($('input[name="degree_type"]:checked').val() === "Master") {
     fullOut("M");
     starting();
     $(".siteRow").hide();
@@ -3189,16 +3435,21 @@ function changeDegreeVal() {
     document.getElementById("monthstwo").value = "18";
     document.getElementById("monthsthree").value = "24";
 
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
+
+    document
+      .getElementById("studyProgram")
+      .dispatchEvent(new CustomEvent("change"));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
@@ -3217,21 +3468,27 @@ function changeDegreeVal() {
     document.getElementById("monthstwo").value = "48";
     document.getElementById("monthsthree").value = "72";
 
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
+
+    document
+      .getElementById("studyProgram")
+      .dispatchEvent(new CustomEvent("change"));
+
     document.getElementsByClassName("finalPrice")[0].classList.add("crossed");
     document.getElementsByClassName("finalPrice")[1].classList.add("crossed");
 
     PriceChange();
   }
+  $(".study-programme").addClass("summary-selected");
 
   $(".ui-state-default.ui-state-active").attr(
     "style",
@@ -3244,11 +3501,14 @@ document.getElementById("studyProgram").addEventListener("change", function () {
 
   checkLocation();
 
-  removeBadHonnefLocation();
-
   if (
-    $("#studyProgram :selected").text() === "B.A. Aviation Management - 180" ||
     $("#studyProgram :selected").text() === "B.A. Hospitality Management - 180"
+  ) {
+    $("#datepicker").datepicker("setDate", new Date(2022, 8, 1));
+    $("#datepicker").datepicker("option", { minDate: new Date(2022, 8, 1) });
+  }
+  if (
+    $("#studyProgram :selected").text() === "B.A. Aviation Management - 180"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 8, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 8, 1) });
@@ -3270,23 +3530,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("option", { minDate: new Date(2023, 2, 1) });
   } else if (
     $("#studyProgram :selected").text() ===
-      "B.A. International Healthcare Management - 180" ||
-    $("#studyProgram :selected").text() ===
-      "M.A. International Healthcare Management - 120"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 3, 1));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 3, 1) });
-  } else if (
-    $("#studyProgram :selected").text() ===
     "M.A. International Healthcare Management - 60"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 8, 30));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 8, 30) });
-  } else if (
-    $("#studyProgram :selected").text() === "B.Sc. Software Development - 180"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 3, 15));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 3, 15) });
   } else if (
     $("#studyProgram :selected").text() ===
     "M.A. Digital Innovation & Intrapreneurship - 60"
@@ -3308,16 +3555,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 4, 16) });
   } else if (
     $("#studyProgram :selected").text() ===
-      "M.A. Human Resource Management - 60" ||
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
+    "M.A. Human Resource Management - 60"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 6, 15));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 6, 15) });
-  } else if (
-    $("#studyProgram :selected").text() === "M.Sc. Artificial Intelligence - 60"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 7, 1));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 7, 1) });
   } else if (
     $("#studyProgram :selected").text() === "M.A. Project Management - 60"
   ) {
@@ -3328,11 +3569,27 @@ document.getElementById("studyProgram").addEventListener("change", function () {
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 5, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 5, 1) });
+  } else if (
+    $("#studyProgram :selected").text() === "B.A. Management - 240"
+  ) {
+    $("#datepicker").datepicker("setDate", new Date(2022, 9, 4));
+    $("#datepicker").datepicker("option", { minDate: new Date(2022, 9, 4) });
+  } else if (
+    $("#studyProgram :selected").text() === "B.A. Human Resource Management - 180"  ||
+    $("#studyProgram :selected").text() ===
+      "B.A. Marketing - 180"
+  ) {
+    $("#datepicker").datepicker("setDate", new Date(2023, 3, 3));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 3, 3) });
+  } else if (
+    $("#studyProgram :selected").text() === "B.Sc. Industrial and Organisational Psychology - 180") {
+    $("#datepicker").datepicker("setDate", new Date(2023, 1, 1));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 1, 1) });
   } else {
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
-    //$('#datepicker').datepicker("setDate", +20 )
-    //$('#datepicker').datepicker("option",{ minDate: +20})
+    $("#datepicker").datepicker("setDate", +5);
+    $("#datepicker").datepicker("option", { minDate: +5 });
+    $("#datepicker").datepicker("setDate", +5);
+    $("#datepicker").datepicker("option", { minDate: +5 });
   }
 
   $(".ui-state-default.ui-state-active").attr(
@@ -3342,11 +3599,11 @@ document.getElementById("studyProgram").addEventListener("change", function () {
 
   //here
 
-  /*setTimeout(function () {
-        document.querySelectorAll('.study-start').forEach(item => {
-            item.value = $( "#datepicker" ).val()
-        })
-    },100)*/
+  setTimeout(function () {
+    document.querySelectorAll(".study-start").forEach((item) => {
+      item.value = $("#datepicker").val();
+    });
+  }, 100);
 
   if ($("#studyProgram :selected").text().includes("60")) {
     starting();
@@ -3359,12 +3616,12 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.getElementById("monthstwo").value = "18";
     document.getElementById("monthsthree").value = "24";
 
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3379,12 +3636,12 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.getElementById("monthsone").value = "24";
     document.getElementById("monthstwo").value = "36";
     document.getElementById("monthsthree").value = "48";
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3399,25 +3656,59 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.getElementById("monthsone").value = "18";
     document.getElementById("monthstwo").value = "24";
     document.getElementById("monthsthree").value = "36";
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-  } else {
+  } else if ($("#studyProgram :selected").text().includes("240")) {
     starting();
-    //because all the rest is bachelor
-    document.getElementsByClassName("study-programme")[0].value = $(
+    document.getElementById("bgrInformation").innerHTML =
+      "Do you have a Highschool Diploma?";
+    document.getElementsByClassName("numMonth")[0].innerHTML = 48;
+    document.getElementsByClassName("numMonth")[1].innerHTML = 72;
+    document.getElementsByClassName("numMonth")[2].innerHTML = 0;
+    document.getElementById("monthsone").value = "48";
+    document.getElementById("monthstwo").value = "72";
+    document.getElementById("monthsthree").value = "0";
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
       .text();
-    document.getElementsByClassName("study-programme")[1].value = $(
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
+      "#studyProgram"
+    )
+      .find(":selected")
+      .text();
+    setTimeout(() => {
+        //to actually show only two time models
+    $("div").find("label[for=monthsthree]").hide();
+    $("#monthsone").trigger("click");
+    //the opposite way
+    //$("div").find("label[for=monthsthree]").show();
+    //$("#monthsone").trigger("click");
+     }, 120);
+  } else {
+    document.getElementsByClassName("numMonth")[0].innerHTML = 36;
+    document.getElementsByClassName("numMonth")[1].innerHTML = 48;
+    document.getElementsByClassName("numMonth")[2].innerHTML = 72;
+    document.getElementById("monthsone").value = "36";
+    document.getElementById("monthstwo").value = "48";
+    document.getElementById("monthsthree").value = "72";
+    starting();
+    //because all the rest is bachelor and 180 so we need to reinitilize the months time model
+    document.getElementsByClassName("study-programme")[0].innerHTML = $(
+      "#studyProgram"
+    )
+      .find(":selected")
+      .text();
+    document.getElementsByClassName("study-programme")[1].innerHTML = $(
       "#studyProgram"
     )
       .find(":selected")
@@ -3430,80 +3721,99 @@ function checkIntakeStart() {
     case "October 2021": {
       //$('#datepicker').datepicker("setDate", new Date(2021,9,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2021/10/01";
-      document.getElementsByClassName("study-start")[1].value = "2021/10/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2021/10/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2021/10/01";
 
       break;
     }
     case "October 2022": {
       //$('#datepicker').datepicker("setDate", new Date(2021,9,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/10/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/10/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2022/10/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2022/10/01";
 
       break;
     }
     case "January 2022": {
       //$('#datepicker').datepicker("setDate", new Date(2022,0,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/01/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/01/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2022/01/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2022/01/01";
 
       break;
     }
     case "April 2022": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/04/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/04/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2022/04/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2022/04/01";
 
       break;
     }
     case "April 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/04/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/04/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2023/04/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2023/04/01";
 
       break;
     }
     case "October 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/10/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/10/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2023/10/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2023/10/01";
 
       break;
     }
     case "January 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/01/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/01/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2023/01/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2023/01/01";
 
       break;
     }
     case "July 2023": {
       //$('#datepicker').datepicker("setDate", new Date(2022,3,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2023/07/01";
-      document.getElementsByClassName("study-start")[1].value = "2023/07/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2023/07/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2023/07/01";
 
       break;
     }
     default: {
       //$('#datepicker').datepicker("setDate", new Date(2022,5,1) )
 
-      document.getElementsByClassName("study-start")[0].value = "2022/07/01";
-      document.getElementsByClassName("study-start")[1].value = "2022/07/01";
+      document.getElementsByClassName("study-start")[0].innerHTML =
+        "2022/07/01";
+      document.getElementsByClassName("study-start")[1].innerHTML =
+        "2022/07/01";
     }
   }
+  $(".study-start").addClass("summary-selected");
 }
 
 function starting() {
   businessUnit = "fi";
   obwVersion = "obw21";
-  agbVersion = "2.8";
+  agbVersion = "3.0";
   directDebit = null;
   locationSite = "3";
   currentPage = 3;
@@ -3536,7 +3846,7 @@ function starting() {
     item.innerHTML = "0000";
   });
   document.querySelectorAll(".study-start").forEach((item) => {
-    item.value = "";
+    item.innerHTML = "Select one";
   });
 
   if (mtCheck.includes($("#studyProgram :selected").text())) {
@@ -3559,10 +3869,7 @@ function starting() {
 
 document.querySelectorAll(".models").forEach((item) => {
   item.addEventListener("click", (event) => {
-    if (
-      $("#Degree").find(":selected").text().startsWith("S") &&
-      $("#studyProgram").find(":selected").text().startsWith("S")
-    ) {
+    if ($("#studyProgram").find(":selected").text().startsWith("S")) {
       validatefilledIn();
       $(".tm label").css("border-color", "#FF0000");
       setTimeout(function () {
@@ -3626,17 +3933,13 @@ $("input[name='studyLocation']").change(function () {
         if (currentProgramme.hasOwnProperty("intake")) {
           ProgrammeIntakes = [];
           difference = [];
-          console.log("new stuff");
           currentProgramme.intake.split(", ").forEach(function (e, incre, t) {
             ProgrammeIntakes.push(e.replace(" ", "").toLowerCase());
             $(`#${ProgrammeIntakes[incre]}`).removeClass("hide");
-            console.log(`#${ProgrammeIntakes[incre]}`);
           });
           difference = allIntakes.filter((x) => !ProgrammeIntakes.includes(x));
-          console.log("=========");
           difference.forEach(function (e, incre, t) {
             $(`#${difference[incre]}`).addClass("hide");
-            console.log(`#${difference[incre]}`);
           });
         }
       }
@@ -3644,7 +3947,7 @@ $("input[name='studyLocation']").change(function () {
   } else {
     businessUnit = "fi";
     obwVersion = "obw21";
-    agbVersion = "2.8";
+    agbVersion = "3.0";
     directDebit = null;
     setTimeout(function () {
       $("input[name=site]:checked").prop("checked", false);
@@ -3655,7 +3958,7 @@ $("input[name='studyLocation']").change(function () {
       });
       document.querySelectorAll(".study-start").forEach((item) => {
         //item.value = $( "#datepicker" ).val()
-        item.value = "";
+        item.innerHTML = "Select one";
       });
     }, 100);
 
@@ -3687,8 +3990,6 @@ $("#studyOnCampus").click(function () {
     });
     locationSite = "4";
     $("#berlin").trigger("click");
-
-    removeBadHonnefLocation();
   }, 100);
 });
 
@@ -3720,17 +4021,13 @@ $("input[name='site']").change(function () {
         if (currentProgramme.hasOwnProperty("intake2")) {
           ProgrammeIntakes = [];
           difference = [];
-          console.log("new stuff");
           currentProgramme.intake2.split(", ").forEach(function (e, incre, t) {
             ProgrammeIntakes.push(e.replace(" ", "").toLowerCase());
             $(`#${ProgrammeIntakes[incre]}`).removeClass("hide");
-            console.log(`#${ProgrammeIntakes[incre]}`);
           });
           difference = allIntakes.filter((x) => !ProgrammeIntakes.includes(x));
-          console.log("=========");
           difference.forEach(function (e, incre, t) {
             $(`#${difference[incre]}`).addClass("hide");
-            console.log(`#${difference[incre]}`);
           });
         }
       }
@@ -3742,17 +4039,13 @@ $("input[name='site']").change(function () {
         if (currentProgramme.hasOwnProperty("intake")) {
           ProgrammeIntakes = [];
           difference = [];
-          console.log("new stuff");
           currentProgramme.intake.split(", ").forEach(function (e, incre, t) {
             ProgrammeIntakes.push(e.replace(" ", "").toLowerCase());
             $(`#${ProgrammeIntakes[incre]}`).removeClass("hide");
-            console.log(`#${ProgrammeIntakes[incre]}`);
           });
           difference = allIntakes.filter((x) => !ProgrammeIntakes.includes(x));
-          console.log("=========");
           difference.forEach(function (e, incre, t) {
             $(`#${difference[incre]}`).addClass("hide");
-            console.log(`#${difference[incre]}`);
           });
         }
       }
@@ -3792,16 +4085,15 @@ if ($(window).width() < 400) {
 /* -- 02.02.2022 -- */
 
 function findOutAndClick(x, y) {
-  $("#" + y).val(x);
-  if (y === "Degree") {
-    findOutAndChange("Degree", "degree");
+  if (x === "Bachelor") {
+    findOutAndChange("degreeTypeBachelor", "degree");
+    changeDegreeVal();
+  } else {
+    findOutAndChange("degreeTypeMaster", "degree");
     changeDegreeVal();
   }
 }
 
-setTimeout(() => { 
-    $('#degreeTypeBachelor').click()
- },1000)
-
-
-
+setTimeout(() => {
+  $("#degreeTypeBachelor").click();
+}, 1000);

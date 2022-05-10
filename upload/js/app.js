@@ -7,6 +7,16 @@ console.log(result);
 let t = JSON.parse(localStorage.getItem('allData'));
 console.log(t);
 
+let countryOfResidence = t.country;
+let phone = "+49 (0)3031198720";
+
+if(countryOfResidence === "IN") {
+    phone = "+27 800 014 934";
+} else if(countryOfResidence === "ZA") {
+    phone = "000 800 919 10 33";
+}
+$('#phone').html(phone);
+
 if (t.degree === "Bachelor"){
     $('.upload_proof_of_work_experience-cont').hide()
 }

@@ -100,7 +100,7 @@
 
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw==" crossorigin="anonymous"></script>-->
 
-
+<script type="text/javascript" src="https://try.abtasty.com/6bc6f48a60507004de27487bcf06bc06.js"></script>
 
     <!-- Google Tag Manager -->
 
@@ -126,41 +126,17 @@
 
 
 
-    <!-- End Google Tag Manager -->
-
-
-
-    <!-- Google Tag Manager -->
-
-
-
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-
-
-
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-
-
-
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-
-
-
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-
-
-
-    })(window,document,'script','dataLayer','GTM-M35C44B');</script>
-
-
-
-    <!-- End Google Tag Manager -->
-
-
+    <!-- End Google Tag Manager --> 
+    
+    <script language="JavaScript" src="https://ssl.geoplugin.net/javascript.gp?k=16ac59990f0f390e" type="text/javascript"></script>
 
     <script>
 
-
+        dataLayer.push({
+                'unit': 'em',
+                'pageCategory': "obw",
+                'userCountry': geoplugin_countryCode().toLowerCase()
+            });
 
         dataLayer.push({
 
@@ -894,7 +870,56 @@
 
                     <div class="modal-body">
 
-                        Please select a date that is at least after 20 days from now - example <span id="timeAfter20Days"></span>
+                        Please select a date that is at least after 5 days from now - example <span id="timeAfter20Days"></span>
+
+                    </div>
+
+
+
+                    <!-- Modal footer -->
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal" id="inputVoucher">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+
+
+                    <!-- Modal Header -->
+
+                    <div class="modal-header">
+
+                        <h4 class="modal-title">Please use the agency obv</h4>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                    </div>
+
+
+
+                    <!-- Modal body -->
+
+                    <div class="modal-body">
+
+                        Your code is no longer valid for this page. To put up the application properly, please visit: <br>
+                        <a rel="nofollow" href="https://iu-application.com/agencies/" target="_blank" style="color: #0043E0; text-decoration: underline;">
+                            https://iu-application.com/agencies/
+                        </a>
 
                     </div>
 
@@ -1518,7 +1543,7 @@
 
                                         <div class="radiobtn">
 
-                                            <input type="radio" id="degreeTypeBachelor" name="degree_type" value="Bachelor" onchange="findOutAndClick(this.value,'Degree')" />
+                                            <input type="radio" id="degreeTypeBachelor" name="degree_type" value="Bachelor" onchange="findOutAndClick(this.value,'degree')" />
 
                                             <label for="degreeTypeBachelor" class="cst-pl-0"><h5 class="text-center" style="display: flex;justify-content: center">
 
@@ -1540,7 +1565,7 @@
 
                                         <div class="radiobtn">
 
-                                            <input type="radio" id="degreeTypeMaster" name="degree_type" value="Master" onchange="findOutAndClick(this.value,'Degree')" />
+                                            <input type="radio" id="degreeTypeMaster" name="degree_type" value="Master" onchange="findOutAndClick(this.value,'degree')" />
 
                                             <label for="degreeTypeMaster" class="cst-pl-0" style="align-items: center">
 
@@ -1561,29 +1586,6 @@
                             </div>
 
                         </div>
-
-
-
-                        <!-- // this section display none -->
-
-                        <div class="col-md-6 col-sm-6 col-xs-12" translate="no" style="height: 0px; width: 0px;">
-
-                            <div class="form-group">
-
-                                <select name="Degree" id="Degree" onchange="findOutAndChange('Degree','degree')" style="height: 0px; width: 0px;">
-
-                                    <option value="" disabled selected>Select Degree Level*</option>
-
-                                    <option value="Bachelor">Bachelor</option>
-
-                                    <option value="Master">Master</option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
-
 
 
                         <div class="col-md-12 col-sm-12 col-xs-12" translate="no">
@@ -1646,7 +1648,7 @@
 
                             <div class="form-group mb-38">
 
-                                <div class="message-info"><i class="fas fa-exclamation-circle"></i>The programme you selected is available on the following study models
+                                <div class="message-info"><i class="fas fa-exclamation-circle"></i>The programme you selected is available in the following study models
 
                                 </div>
 
@@ -1699,7 +1701,7 @@
 
                             <div class="form-group mb-38">
 
-                                <div class="message-info"><i class="fas fa-exclamation-circle"></i>The programme you selected is available on the following study models
+                                <div class="message-info"><i class="fas fa-exclamation-circle"></i>The programme you selected is available in the following study models
 
                                 </div>
 
@@ -1788,7 +1790,7 @@
 
                                     <input type="radio" id="monthsone" class="models" name="timemodel" value="36 months" onchange="findOutAndChange(this.id,'study-model')" required/>
 
-                                    <label for="monthsone" class="mobile-view"><h6>Full time</h6><h5><span class="numMonth">36</span> months</h5></label>
+                                    <label for="monthsone" class="mobile-view"><h6>Full Time</h6><h5><span class="numMonth">36</span> months</h5></label>
 
                                 </div>
 
@@ -1844,7 +1846,7 @@
 
                             <div id="intakes" class="toHide">
 
-                                <div class="col-md-6 col-sm-12 col-xs-12" id="apr22">
+                                <!-- <div class="col-md-6 col-sm-12 col-xs-12" id="apr22">
 
                                     <div class="form-group">
 
@@ -1872,7 +1874,7 @@
 
                                     </div>
 
-                                </div>
+                                </div> -->
 
                                 <div class="col-md-6 col-sm-12 col-xs-12" id="jul22">
 
@@ -2094,7 +2096,7 @@
 
                                             <label for="berlin" class="pl-0"><h5 class="text-center" style="display: flex;justify-content: center">
 
-                                                <span style="padding: 0px 20px">
+                                                <span class="raster-icon" style="padding: 0px 20px">
 
                                                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
@@ -2136,7 +2138,7 @@
 
                                             <label for="badHonnef" class="pl-0"><h5 class="text-center" style="display: flex;justify-content: center">
 
-                                                <span style="padding: 0px 20px">
+                                                <span class="raster-icon" style="padding: 0px 20px">
 
                                                     <img src="images/village.png" alt="">
 
@@ -2163,6 +2165,10 @@
                 <div class="formblock">
 
                     <h3 class="formstep-title"><span class="number">2</span> Personal information</h3>
+
+                    <div style="padding-bottom: 10px;">
+                        <p>Your data will be transfered securely.</p>
+                    </div>
 
                     <div class="row" id="gender">
 
@@ -2274,7 +2280,7 @@
 
                             <div class="form-group">
 
-                                <input type="text" name="" value="" id="e-mail" placeholder="E-mail*" required>
+                                <input type="text" name="" value="" id="e-mail" placeholder="E-mail*" inputmode="email" required>
 
                             </div>
 
@@ -2296,19 +2302,19 @@
 
                     <div class="row">
 
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-3 col-sm-3 col-xs-12">
 
                             <label>Date of Birth <span class="required-mark">*</span></label>
 
                             <div class="form-group" id="dateHere">
 
-                                <input name="" value="" type="text" onfocus="changeBirthDate()" id="date-of-birth" placeholder="Date of Birth*" required>
+                                <input name="" value="" type="text" onfocus="changeBirthDate()" id="date-of-birth" placeholder="DD/MM/YYYY*" required>
 
                             </div>
 
                         </div>
 
-                        <div class="col-md-4 col-sm-4 col-xs-8">
+                        <div class="col-md-5 col-sm-5 col-xs-8">
 
                             <label>Street <span class="required-mark">*</span></label>
 
@@ -2332,23 +2338,19 @@
 
                         </div>
 
-                    </div>
-
-                    <div class="row">
-
                         <div class="col-md-2 col-sm-2 col-xs-4">
 
                             <label>Postcode <span class="required-mark">*</span></label>
 
                             <div class="form-group">
 
-                                <input type="text" name="" value="" id="postcode" placeholder="Postcode*" required>
+                                <input type="text" name="" value="" id="postcode" placeholder="Postcode*" inputmode="numeric" required>
 
                             </div>
 
                         </div>
 
-                        <div class="col-md-4 col-sm-4 col-xs-8">
+                        <div class="col-md-2 col-sm-2 col-xs-8">
 
                             <label>City <span class="required-mark">*</span></label>
 
@@ -2360,15 +2362,15 @@
 
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-md-5 col-sm-5 col-xs-12">
 
-                            <label>Country <span class="required-mark">*</span></label>
+                            <label>Nationality<span class="required-mark">*</span></label>
 
                             <div class="form-group">
 
-                                <select id="country" name="country">
+                                <select id="nationality" name="nationality">
 
-                                    <option>Country*</option>
+                                    <option>Nationality*</option>
 
                                         <option value="AF">Afghanistan</option>
 
@@ -2874,6 +2876,523 @@
 
                             </div>
 
+                        
+                        </div>
+
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+
+                                    <label>Country of Residence <span class="required-mark">*</span></label>
+
+                                    <div class="form-group">
+
+                                        <select id="country" name="country">
+
+                                            <option>Country*</option>
+
+                                                <option value="AF">Afghanistan</option>
+
+                                                <option value="AX">Åland Islands</option>
+
+                                                <option value="AL">Albania</option>
+
+                                                <option value="DZ">Algeria</option>
+
+                                                <option value="AS">American Samoa</option>
+
+                                                <option value="AD">Andorra</option>
+
+                                                <option value="AO">Angola</option>
+
+                                                <option value="AI">Anguilla</option>
+
+                                                <option value="AQ">Antarctica</option>
+
+                                                <option value="AG">Antigua and Barbuda</option>
+
+                                                <option value="AR">Argentina</option>
+
+                                                <option value="AM">Armenia</option>
+
+                                                <option value="AW">Aruba</option>
+
+                                                <option value="AU">Australia</option>
+
+                                                <option value="AT">Austria</option>
+
+                                                <option value="AZ">Azerbaijan</option>
+
+                                                <option value="BS">Bahamas</option>
+
+                                                <option value="BH">Bahrain</option>
+
+                                                <option value="BD">Bangladesh</option>
+
+                                                <option value="BB">Barbados</option>
+
+                                                <option value="BY">Belarus</option>
+
+                                                <option value="BE">Belgium</option>
+
+                                                <option value="BZ">Belize</option>
+
+                                                <option value="BJ">Benin</option>
+
+                                                <option value="BM">Bermuda</option>
+
+                                                <option value="BT">Bhutan</option>
+
+                                                <option value="BO">Bolivia, Plurinational State of</option>
+
+                                                <option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+
+                                                <option value="BA">Bosnia and Herzegovina</option>
+
+                                                <option value="BW">Botswana</option>
+
+                                                <option value="BV">Bouvet Island</option>
+
+                                                <option value="BR">Brazil</option>
+
+                                                <option value="IO">British Indian Ocean Territory</option>
+
+                                                <option value="BN">Brunei Darussalam</option>
+
+                                                <option value="BG">Bulgaria</option>
+
+                                                <option value="BF">Burkina Faso</option>
+
+                                                <option value="BI">Burundi</option>
+
+                                                <option value="KH">Cambodia</option>
+
+                                                <option value="CM">Cameroon</option>
+
+                                                <option value="CA">Canada</option>
+
+                                                <option value="CV">Cape Verde</option>
+
+                                                <option value="KY">Cayman Islands</option>
+
+                                                <option value="CF">Central African Republic</option>
+
+                                                <option value="TD">Chad</option>
+
+                                                <option value="CL">Chile</option>
+
+                                                <option value="CN">China</option>
+
+                                                <option value="CX">Christmas Island</option>
+
+                                                <option value="CC">Cocos (Keeling) Islands</option>
+
+                                                <option value="CO">Colombia</option>
+
+                                                <option value="KM">Comoros</option>
+
+                                                <option value="CG">Congo</option>
+
+                                                <option value="CD">Congo, the Democratic Republic of the</option>
+
+                                                <option value="CK">Cook Islands</option>
+
+                                                <option value="CR">Costa Rica</option>
+
+                                                <option value="CI">Côte d'Ivoire</option>
+
+                                                <option value="HR">Croatia</option>
+
+                                                <option value="CU">Cuba</option>
+
+                                                <option value="CW">Curaçao</option>
+
+                                                <option value="CY">Cyprus</option>
+
+                                                <option value="CZ">Czech Republic</option>
+
+                                                <option value="DK">Denmark</option>
+
+                                                <option value="DJ">Djibouti</option>
+
+                                                <option value="DM">Dominica</option>
+
+                                                <option value="DO">Dominican Republic</option>
+
+                                                <option value="EC">Ecuador</option>
+
+                                                <option value="EG">Egypt</option>
+
+                                                <option value="SV">El Salvador</option>
+
+                                                <option value="GQ">Equatorial Guinea</option>
+
+                                                <option value="ER">Eritrea</option>
+
+                                                <option value="EE">Estonia</option>
+
+                                                <option value="ET">Ethiopia</option>
+
+                                                <option value="FK">Falkland Islands (Malvinas)</option>
+
+                                                <option value="FO">Faroe Islands</option>
+
+                                                <option value="FJ">Fiji</option>
+
+                                                <option value="FI">Finland</option>
+
+                                                <option value="FR">France</option>
+
+                                                <option value="GF">French Guiana</option>
+
+                                                <option value="PF">French Polynesia</option>
+
+                                                <option value="TF">French Southern Territories</option>
+
+                                                <option value="GA">Gabon</option>
+
+                                                <option value="GM">Gambia</option>
+
+                                                <option value="GE">Georgia</option>
+
+                                                <option value="DE" selected>Germany</option>
+
+                                                <option value="GH">Ghana</option>
+
+                                                <option value="GI">Gibraltar</option>
+
+                                                <option value="GR">Greece</option>
+
+                                                <option value="GL">Greenland</option>
+
+                                                <option value="GD">Grenada</option>
+
+                                                <option value="GP">Guadeloupe</option>
+
+                                                <option value="GU">Guam</option>
+
+                                                <option value="GT">Guatemala</option>
+
+                                                <option value="GG">Guernsey</option>
+
+                                                <option value="GN">Guinea</option>
+
+                                                <option value="GW">Guinea-Bissau</option>
+
+                                                <option value="GY">Guyana</option>
+
+                                                <option value="HT">Haiti</option>
+
+                                                <option value="HM">Heard Island and McDonald Islands</option>
+
+                                                <option value="VA">Holy See (Vatican City State)</option>
+
+                                                <option value="HN">Honduras</option>
+
+                                                <option value="HK">Hong Kong</option>
+
+                                                <option value="HU">Hungary</option>
+
+                                                <option value="IS">Iceland</option>
+
+                                                <option value="IN">India</option>
+
+                                                <option value="ID">Indonesia</option>
+
+                                                <option value="IR">Iran, Islamic Republic of</option>
+
+                                                <option value="IQ">Iraq</option>
+
+                                                <option value="IE">Ireland</option>
+
+                                                <option value="IM">Isle of Man</option>
+
+                                                <option value="IL">Israel</option>
+
+                                                <option value="IT">Italy</option>
+
+                                                <option value="JM">Jamaica</option>
+
+                                                <option value="JP">Japan</option>
+
+                                                <option value="JE">Jersey</option>
+
+                                                <option value="JO">Jordan</option>
+
+                                                <option value="KZ">Kazakhstan</option>
+
+                                                <option value="KE">Kenya</option>
+
+                                                <option value="KI">Kiribati</option>
+
+                                                <option value="KP">Korea, Democratic People's Republic of</option>
+
+                                                <option value="KR">Korea, Republic of</option>
+
+                                                <option value="XK">Kosovo</option>
+
+                                                <option value="KW">Kuwait</option>
+
+                                                <option value="KG">Kyrgyzstan</option>
+
+                                                <option value="LA">Lao People's Democratic Republic</option>
+
+                                                <option value="LV">Latvia</option>
+
+                                                <option value="LB">Lebanon</option>
+
+                                                <option value="LS">Lesotho</option>
+
+                                                <option value="LR">Liberia</option>
+
+                                                <option value="LY">Libya</option>
+
+                                                <option value="LI">Liechtenstein</option>
+
+                                                <option value="LT">Lithuania</option>
+
+                                                <option value="LU">Luxembourg</option>
+
+                                                <option value="MO">Macao</option>
+
+                                                <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+
+                                                <option value="MG">Madagascar</option>
+
+                                                <option value="MW">Malawi</option>
+
+                                                <option value="MY">Malaysia</option>
+
+                                                <option value="MV">Maldives</option>
+
+                                                <option value="ML">Mali</option>
+
+                                                <option value="MT">Malta</option>
+
+                                                <option value="MH">Marshall Islands</option>
+
+                                                <option value="MQ">Martinique</option>
+
+                                                <option value="MR">Mauritania</option>
+
+                                                <option value="MU">Mauritius</option>
+
+                                                <option value="YT">Mayotte</option>
+
+                                                <option value="MX">Mexico</option>
+
+                                                <option value="FM">Micronesia, Federated States of</option>
+
+                                                <option value="MD">Moldova, Republic of</option>
+
+                                                <option value="MC">Monaco</option>
+
+                                                <option value="MN">Mongolia</option>
+
+                                                <option value="ME">Montenegro</option>
+
+                                                <option value="MS">Montserrat</option>
+
+                                                <option value="MA">Morocco</option>
+
+                                                <option value="MZ">Mozambique</option>
+
+                                                <option value="MM">Myanmar</option>
+
+                                                <option value="NA">Namibia</option>
+
+                                                <option value="NR">Nauru</option>
+
+                                                <option value="NP">Nepal</option>
+
+                                                <option value="NL">Netherlands</option>
+
+                                                <option value="NC">New Caledonia</option>
+
+                                                <option value="NZ">New Zealand</option>
+
+                                                <option value="NI">Nicaragua</option>
+
+                                                <option value="NE">Niger</option>
+
+                                                <option value="NG">Nigeria</option>
+
+                                                <option value="NU">Niue</option>
+
+                                                <option value="NF">Norfolk Island</option>
+
+                                                <option value="MP">Northern Mariana Islands</option>
+
+                                                <option value="NO">Norway</option>
+
+                                                <option value="OM">Oman</option>
+
+                                                <option value="PK">Pakistan</option>
+
+                                                <option value="PW">Palau</option>
+
+                                                <option value="PS">Palestinian Territory, Occupied</option>
+
+                                                <option value="PA">Panama</option>
+
+                                                <option value="PG">Papua New Guinea</option>
+
+                                                <option value="PY">Paraguay</option>
+
+                                                <option value="PE">Peru</option>
+
+                                                <option value="PH">Philippines</option>
+
+                                                <option value="PN">Pitcairn</option>
+
+                                                <option value="PL">Poland</option>
+
+                                                <option value="PT">Portugal</option>
+
+                                                <option value="PR">Puerto Rico</option>
+
+                                                <option value="QA">Qatar</option>
+
+                                                <option value="RE">Réunion</option>
+
+                                                <option value="RO">Romania</option>
+
+                                                <option value="RU">Russian Federation</option>
+
+                                                <option value="RW">Rwanda</option>
+
+                                                <option value="BL">Saint Barthélemy</option>
+
+                                                <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+
+                                                <option value="KN">Saint Kitts and Nevis</option>
+
+                                                <option value="LC">Saint Lucia</option>
+
+                                                <option value="MF">Saint Martin (French part)</option>
+
+                                                <option value="PM">Saint Pierre and Miquelon</option>
+
+                                                <option value="VC">Saint Vincent and the Grenadines</option>
+
+                                                <option value="WS">Samoa</option>
+
+                                                <option value="SM">San Marino</option>
+
+                                                <option value="ST">Sao Tome and Principe</option>
+
+                                                <option value="SA">Saudi Arabia</option>
+
+                                                <option value="SN">Senegal</option>
+
+                                                <option value="RS">Serbia</option>
+
+                                                <option value="SC">Seychelles</option>
+
+                                                <option value="SL">Sierra Leone</option>
+
+                                                <option value="SG">Singapore</option>
+
+                                                <option value="SX">Sint Maarten (Dutch part)</option>
+
+                                                <option value="SK">Slovakia</option>
+
+                                                <option value="SI">Slovenia</option>
+
+                                                <option value="SB">Solomon Islands</option>
+
+                                                <option value="SO">Somalia</option>
+
+                                                <option value="ZA">South Africa</option>
+
+                                                <option value="GS">South Georgia and the South Sandwich Islands</option>
+
+                                                <option value="SS">South Sudan</option>
+
+                                                <option value="ES">Spain</option>
+
+                                                <option value="LK">Sri Lanka</option>
+
+                                                <option value="SD">Sudan</option>
+
+                                                <option value="SR">Suriname</option>
+
+                                                <option value="SJ">Svalbard and Jan Mayen</option>
+
+                                                <option value="SZ">Swaziland</option>
+
+                                                <option value="SE">Sweden</option>
+
+                                                <option value="CH">Switzerland</option>
+
+                                                <option value="SY">Syrian Arab Republic</option>
+
+                                                <option value="TW">Taiwan, Province of China</option>
+
+                                                <option value="TJ">Tajikistan</option>
+
+                                                <option value="TZ">Tanzania, United Republic of</option>
+
+                                                <option value="TH">Thailand</option>
+
+                                                <option value="TL">Timor-Leste</option>
+
+                                                <option value="TG">Togo</option>
+
+                                                <option value="TK">Tokelau</option>
+
+                                                <option value="TO">Tonga</option>
+
+                                                <option value="TT">Trinidad and Tobago</option>
+
+                                                <option value="TN">Tunisia</option>
+
+                                                <option value="TR">Turkey</option>
+
+                                                <option value="TM">Turkmenistan</option>
+
+                                                <option value="TC">Turks and Caicos Islands</option>
+
+                                                <option value="TV">Tuvalu</option>
+
+                                                <option value="UG">Uganda</option>
+
+                                                <option value="UA">Ukraine</option>
+
+                                                <option value="AE">United Arab Emirates</option>
+
+                                                <option value="GB">United Kingdom</option>
+
+                                                <option value="US">United States</option>
+
+                                                <option value="UM">United States Minor Outlying Islands</option>
+
+                                                <option value="UY">Uruguay</option>
+
+                                                <option value="UZ">Uzbekistan</option>
+
+                                                <option value="VU">Vanuatu</option>
+
+                                                <option value="VE">Venezuela, Bolivarian Republic of</option>
+
+                                                <option value="VN">Viet Nam</option>
+
+                                                <option value="VG">Virgin Islands, British</option>
+
+                                                <option value="VI">Virgin Islands, U.S.</option>
+
+                                                <option value="WF">Wallis and Futuna</option>
+
+                                                <option value="EH">Western Sahara</option>
+
+                                                <option value="YE">Yemen</option>
+
+                                                <option value="ZM">Zambia</option>
+
+                                                <option value="ZW">Zimbabwe</option>
+
+                                        </select>
+
+                                    </div>
+
                         </div>
 
                     </div>
@@ -3154,8 +3673,14 @@
 
                             </div>
 
-
-
+                            <div id="agent-voucher" class="hide">
+                                <p style="font-style: italic; font-weight: bold; color: red;">
+                                    Your code is no longer valid for this page. To put up the application properly, please visit:
+                                    <a rel="nofollow" href="https://iu-application.com/agencies/" target="_blank" style="color: #0043E0; text-decoration: underline;">
+                                        https://iu-application.com/agencies/
+                                    </a>
+                                </p>
+                            </div>
 
 
                         </div>
@@ -3252,7 +3777,7 @@
 
                                             <div class="form-group">
 
-                                                <input type="text" name="referrerEmail" id="referrerEmail" value="" placeholder="IU E-mail Address*">
+                                                <input type="text" name="referrerEmail" id="referrerEmail" value="" placeholder="IU E-mail Address*" inputmode="email">
 
                                             </div>
 
@@ -3536,6 +4061,7 @@
 
                             </label>-->
 
+                            <p>Your data will be transfered securely.</p>
                             <label class="accept"><input type="checkbox" style="vertical-align: text-top" name="" id="toCheck" value=""> I agree to receive updates by email from IU about events, research, and study programmes, in line with the IU
 
                                 <a rel="nofollow" href="https://www.iu.org/data-protection/" target="_blank" class="privacyPolicy">privacy policy</a>.</label>
@@ -3558,58 +4084,47 @@
 
                     <div class="row">
 
-                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <!-- <div class="col-md-12 col-sm-12 col-xs-12">
 
                             <h2>YOUR SUMMARY</h2>
 
+                        </div> -->
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h2>YOUR SUMMARY <i class="fa fa-info-circle"></i> </h2>  
                         </div>
 
                     </div>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
-
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <label>Degree Level</label>
-
                         </div>
-
-                        <div class="col-md-7 col-sm-7 col-xs-12">
-
-                            <input class="degree" type="text" name="" value="" placeholder="">
-
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label class="degree bld"> <strong>Select one</strong></label>
                         </div>
 
                     </div>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
-
-                            <label>Study programme</label>
-
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label>Study Programme</label>
                         </div>
-
-                        <div class="col-md-7 col-sm-7 col-xs-12"  translate="no">
-
-                            <input class="study-programme" type="text" name="" value="" placeholder="">
-
+                        <div class="col-md-12 col-sm-12 col-xs-12"  translate="no">
+                            <label class="study-programme bld"> <strong>Select one</strong></label>
                         </div>
 
                     </div>
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
-
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <label>Study Model</label>
-
                         </div>
-
-                        <div class="col-md-7 col-sm-7 col-xs-12">
-
-                            <input class="campus" id="campus1" style="margin-bottom: 2px;font-weight: bolder" type="text" name="" value="" placeholder="">
-
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <label class="campus bld" id="campus1"> <strong>Select one</strong></label>
                         </div>
 
                         <!--<div class="left col-md-7 col-sm-7 col-xs-12 hide" id="semesterOnCampusOnly" style="color: #8E9592;margin-bottom: 2px">
@@ -3626,7 +4141,7 @@
 
                     </div>
 
-                    <div class="row siteRow">
+                    <div class="row siteRow hide">
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3648,7 +4163,7 @@
 
                     </div>
 
-                    <div class="row">
+                    <div class="row hide">
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3666,16 +4181,16 @@
 
                     <div class="row">
 
-                        <div class="col-md-5 col-sm-5 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
 
                             <label class="labelStudyStart">study start</label>
-
+                    
                         </div>
-
-                        <div class="col-md-7 col-sm-7 col-xs-12">
-
-                            <input class="study-start" type="text" name="" value="" placeholder="">
-
+                    
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                    
+                            <label class="study-start bld"><strong>Select one</strong></label>
+                    
                         </div>
 
                     </div>
@@ -3798,7 +4313,35 @@
 
                     </div>
 
-                    <div class="row total-table">
+                    <div class="row total-table" style="padding-top: 2%; padding-bottom: 0%;">
+                        <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                            <label style="line-height: 25px" class="labelMonthlyPrice">Monthly Price With Scholarship</label>
+                        </div>
+
+                        <div class="price-before col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                            <label class="" style="padding-top: 0%; padding-bottom: 0%;"><strong>Your monthly price will be displayed here after all fields have been completed</strong></label>
+                        </div>
+                    
+                        <div class="price-after col-md-12 col-sm-12 col-xs-12 hide">
+                            <div class="" style="padding-top: 0%; padding-bottom: 0%;">
+                                <span class="monthlyPriceBefore crossed">0000</span>
+                                <p style="font-weight: bold; font-size: 38px;"><span class="monthlyPrice">0000</span> € </p>
+                            </div>
+
+                            <div class="right" style="text-align: right; color: #8E9592;padding-top: 0%; padding-bottom: 0%;">
+
+                                <span class="totalBeforeDiscount crossed ">0000</span> 
+                                <span class="discountPrice">0000</span> € in total
+
+
+                                <span class="admissionFee toHide"><br>(excl. 1000€ one-time campus registration fee)</span>
+                            </div>
+                        </div>
+                    
+                    
+                    </div>
+
+                    <!-- <div class="row total-table">
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3820,9 +4363,9 @@
 
                                 <span class="totalBeforeDiscount crossed ">0000</span> <span class="discountPrice">0000</span> € in total
 
-<!--                                <span class="admissionFee toHide" style="font-size: 12px"><br>(incl. 1.000€ one-off admission fee)</span>-->
+                                  <span class="admissionFee toHide" style="font-size: 12px"><br>(incl. 1.000€ one-off admission fee)</span> -->
 
-                                <span class="admissionFee toHide"><br>(excl. 1000€ one-time campus registration fee)</span>
+                                
 
                             </div>
 
@@ -3838,7 +4381,7 @@
 
                         </div>
 
-                    </div>
+                    </div> 
 
                     <div class="row statements text-justify hide" id="statement1"  style="color: #8E9592;margin: 0;padding:0;font-size: 12px">
 
@@ -3879,60 +4422,41 @@
          <div class="row">
 
              <div class="col-md-12 col-sm-12 col-xs-12">
-
-                 <h2>YOUR SUMMARY</h2>
-
-             </div>
+                <h2>YOUR SUMMARY <i class="fa fa-info-circle"></i> </h2>  
+            </div>
 
          </div>
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12">
-
-                 <label>Degree Level</label>
-
-             </div>
-
-             <div class="col-md-7 col-sm-7 col-xs-12">
-
-                 <input class="degree" type="text" name="" value="" placeholder="">
-
-             </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Degree Level</label>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label class="degree bld"> <strong>Select one</strong></label>
+            </div>
 
          </div>
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12">
-
-                 <label>Study programme</label>
-
-             </div>
-
-             <div class="col-md-7 col-sm-7 col-xs-12" translate="no">
-
-                 <input class="study-programme" type="text" name="" value="" placeholder="">
-
-             </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Study Programme</label>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12"  translate="no">
+                <label class="study-programme bld"> <strong>Select one</strong></label>
+            </div>
 
          </div>
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12" >
-
-                 <label>Study Model</label>
-
-             </div>
-
-             <div class="col-md-7 col-sm-7 col-xs-12">
-
-                 <input class="campus" id="campus2" style="font-weight: bolder" type="text" name="" value="" placeholder="">
-
-             </div>
-
-
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <label>Study Model</label>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <label class="campus bld" id="campus2"> <strong>Select one</strong></label>
+            </div>
 
              <div class="left col-md-7 col-sm-7 col-xs-12 hide" id="semesterVariable2" style="color: #8E9592;margin-bottom: 2px">
 
@@ -3942,7 +4466,7 @@
 
          </div>
 
-         <div class="row siteRow">
+         <div class="row siteRow hide">
 
              <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -3982,17 +4506,17 @@
 
          <div class="row">
 
-             <div class="col-md-5 col-sm-5 col-xs-12">
+             <div class="col-md-12 col-sm-12 col-xs-12">
 
-                 <label class="labelStudyStart">study start</label>
-
-             </div>
-
-             <div class="col-md-7 col-sm-7 col-xs-12">
-
-                 <input class="study-start" type="text" name="" value="" placeholder="">
-
-             </div>
+                <label class="labelStudyStart">study start</label>
+        
+            </div>
+        
+            <div class="col-md-12 col-sm-12 col-xs-12">
+        
+                <label class="study-start bld"><strong>Select one</strong></label>
+        
+            </div>
 
          </div>
 
@@ -4114,7 +4638,33 @@
 
          </div>
 
-         <div class="row total-table">
+         <div class="row total-table" style="padding-top: 2%; padding-bottom: 0%;">
+            <div class="col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                <label style="line-height: 25px" class="labelMonthlyPrice">Monthly Price With Scholarship</label>
+            </div>
+
+            <div class="price-before col-md-12 col-sm-12 col-xs-12" style="padding-top: 0%; padding-bottom: 0%;">
+                <label class="" style="padding-top: 0%; padding-bottom: 0%;"><strong>Your monthly price will be displayed here after all fields have been completed</strong></label>
+            </div>
+        
+            <div class="price-after col-md-12 col-sm-12 col-xs-12 hide">
+                <div class="" style="padding-top: 0%; padding-bottom: 0%;">
+                    <span class="monthlyPriceBefore crossed">0000</span>
+                    <p style="font-weight: bold; font-size: 38px;"><span class="monthlyPrice">0000</span> € </p>
+                </div>
+
+                <div class="right" style="text-align: right; color: #8E9592;padding-top: 0%; padding-bottom: 0%;">
+
+                    <span class="totalBeforeDiscount crossed ">0000</span> 
+                    <span class="discountPrice">0000</span> € in total
+
+                </div>
+            </div>
+        
+        
+        </div>
+
+         <!-- <div class="row total-table">
 
              <div class="col-md-5 col-sm-5 col-xs-12">
 
@@ -4150,7 +4700,7 @@
 
              </div>
 
-         </div>
+         </div> -->
 
          <div class="statements text-justify hide" id="statement2"  style="color: #8E9592;margin: 0;padding:0;font-size : 11px">
 
@@ -4202,7 +4752,7 @@ window.onscroll = function() {myFunction()};
 
 var header = document.getElementById("myHeader");
 
-var sticky = header.offsetTop;
+var sticky = header.offsetHeight;
 
 
 
@@ -4453,12 +5003,6 @@ function closeNav() {
       // });
 
   </script>
-
-
-
-
-
-<script language="JavaScript" src="https://ssl.geoplugin.net/javascript.gp?k=16ac59990f0f390e" type="text/javascript"></script>
 
 <script src="js/application.js"></script>
 
@@ -4858,6 +5402,18 @@ function closeNav() {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.js" integrity="sha512-llCHNP2CQS+o3EUK2QFehPlOngm8Oa7vkvdUpEFN71dVOf3yAj9yMoPdS5aYRTy8AEdVtqUBIsVThzUSggT0LQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="upload/js/jquery.dropzone.js" type="text/javascript"></script>
+
+<!-- Mouseflow is here -->
+
+<script type="text/javascript">
+    window._mfq = window._mfq || [];
+    (function() {
+      var mf = document.createElement("script");
+      mf.type = "text/javascript"; mf.defer = true;
+      mf.src = "//cdn.mouseflow.com/projects/fd0b8205-e013-4c08-bd21-b02daad69efd.js";
+      document.getElementsByTagName("head")[0].appendChild(mf);
+    })();
+  </script>
 
 <!--                                                                                                                                                                                                                                                                                                                                                                                                       
                                                       ░░░░                                                                                                                                              
