@@ -18,11 +18,11 @@ $("#contractIframe").attr("src", "https://api.careerpartner.eu/integration-centr
 
 
 $('#download2').click(function() {
-    window.location='https://api.careerpartner.eu/centraldataservice-api/lara/api/v1/application/contract/'+result;
+    window.location='https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v1/application/contract/'+result;
 });
 
 function getOppInfo() {
-    fetch('https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/obw/'+result , {
+    fetch('https://api.careerpartner.eu/integration-centraldataservice-api/lara/api/v2/application/obw/'+result , {
         method : 'GET',
         headers: {
             Authorization: "TPPDVgSNCvp4TY5y",
