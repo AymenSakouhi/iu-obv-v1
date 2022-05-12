@@ -2330,8 +2330,8 @@ function findOutAndChange(x, y) {
     removeBadHonnefBasedIntake("apr23");
     checkIntakeStart();
   } else if (x === "winterintake4") {
-    document.getElementsByClassName("intake")[0].value = "2022-10-01";
-    document.getElementsByClassName("intake")[1].value = "2022-10-01";
+    document.getElementsByClassName("intake")[0].value = "2023-10-01";
+    document.getElementsByClassName("intake")[1].value = "2023-10-01";
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
