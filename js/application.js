@@ -1314,49 +1314,49 @@ let mT = [
     careId: "120_FI",
     //"careIdCs" : '120'
     careIdCs: "10008378",
-    intake: "Oct 21, Apr 22, Oct 22",
+    intake: "Oct 21, Apr 22, Oct 22, Jan 23, Apr 23, Oct 23",
   },
   {
     name: "MBA - Master of Business Administration - 90",
     careId: "121_FI",
     //"careIdCs" : '121'
     careIdCs: "10008379",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Big Data Management - 90",
     careId: "121_FI_BDM",
     //"careIdCs" : '121_BDM'
     careIdCs: "10008379_BDM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation International Marketing - 90",
     careId: "121_FI_IM",
     //"careIdCs" : '121_IM'
     careIdCs: "10008379_IM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Finance & Accounting - 90",
     careId: "121_FI_FA",
     //"careIdCs" : '121_FA'
     careIdCs: "10008379_FA",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Engineering Management - 90",
     careId: "121_FI_EM",
     //"careIdCs" : '121_EM'
     careIdCs: "10008379_EM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation IT Management - 90",
     careId: "121_FI_ITM",
     //"careIdCs" : '121_ITM'
     careIdCs: "10008379_ITM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Health Care Management - 90",
