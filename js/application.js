@@ -462,7 +462,7 @@ let discMyStu90M = 0.843152;
 let discMyStu120M = 0.865815;*/
 
 let discMyStu180B = 0.598570747975226;
-let discMyStu60M = 0.708644222020018;
+let discMyStu60M = 0.6517154811715481;
 let discMyStu90M = 0.753095684803002;
 let discMyStu120M = 0.665703168426904;
 
