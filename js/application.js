@@ -528,7 +528,7 @@ $(document).ready(function () {
           },
           data: JSON.stringify({
             email: email, //"erickrichard56@gmail.com" for test MCFKENYA
-            unit: "fi",
+            unit: businessUnit,
           }),
           dataType: "json",
           success: function (data) {
@@ -570,6 +570,7 @@ function checkAgentVoucher() {
     data: JSON.stringify({
       email: email, //"erickrichard56@gmail.com" for test MCFKENYA
       unit: "fi",
+      graduation : 'Bachelor'
     }),
     dataType: "json",
     success: function (data) {
