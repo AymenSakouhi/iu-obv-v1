@@ -189,58 +189,11 @@
                         </div>
                         <div class="upload-section">
                             <h2 class="upload-title">Upload <span class="uploady">your</span> Documents</h2>
-                            <p>To enable you to study with us, let us help you attach all the correct documents under the right categories! For example: simply select the "Upload your CV" option to attach your CV, "Upload proof of English proficiency" for your English certificate, and so on. Remember, upload only one document per category. In case you have attached a wrong document to a category, then you can delete that file by clicking on the red symbol “X“. Once you have deleted the file, click the selected category one more time and upload the correct document. Before you click the "Upload your documents" button, please check if all your documents have been attached to the right categories. It's that simple!
-                                <br>
-                            <br><strong>Note:</strong> only jpeg, png, pdf, doc, docx – max. 14MB per Document</p>
-                            <div>
-                                <p class="toHighlight"><strong>Required!</strong></p>
-                            </div>
+
                             <div class="upload-box">
                                 <form id="uploadNewForm" action="./upload.php" name="uploadNewForm" method="post" enctype="multipart/form-data">
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-4 col-xs-12 upload_cv-cont">
-                                            <div class="upload-block">
-                                                <label for="upload_cv" class="custom-file-upload">
-                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload your CV
-                                                </label>
-                                                <div class="loader-img upload_cv-loader"></div>
-                                                <input id="upload_cv" name='upload_cv' type="file" style="display:none;">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4 col-xs-12 upload_proof_of_english_proficiency-cont">
-                                            <div class="upload-block">
-                                                <label for="upload_proof_of_english_proficiency" class="custom-file-upload">
-                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload proof of English proficiency
-                                                </label>
-                                                <div class="loader-img upload_proof_of_english_proficiency-loader"></div>
-                                                <input id="upload_proof_of_english_proficiency" name='upload_proof_of_english_proficiency' type="file" style="display:none;">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-4 col-xs-12 upload_Transcript_of_record-cont">
-                                            <div class="upload-block">
-                                                <label for="upload_Transcript_of_record" class="custom-file-upload">
-                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload your Transcript of record
-                                                </label>
-                                                <div class="loader-img upload_Transcript_of_record-loader"></div>
-                                                <input id="upload_Transcript_of_record" name='upload_Transcript_of_record' type="file" style="display:none;">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-12 col-md-12 col-xs-12">
-                                            <p class="toHighlight"><strong>Optional (based on the study programme):</strong></p>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-4 col-xs-12 upload_proof_of_work_experience-cont">
-                                            <div class="upload-block">
-                                                <label for="upload_proof_of_work_experience" class="custom-file-upload">
-                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload proof of work experience
-                                                </label>
-                                                <div class="loader-img upload_proof_of_work_experience-loader"></div>
-                                                <input id="upload_proof_of_work_experience" name='upload_proof_of_work_experience' type="file" style="display:none;">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-4 col-xs-12 upload_highest_academic_certificate-cont">
+                                        <div class="col-md-3 col-sm-3 col-xs-12 upload_highest_academic_certificate-cont">
                                             <div class="upload-block">
                                                 <label for="upload_highest_academic_certificate" class="custom-file-upload">
                                                     <i class="fa fa-upload" aria-hidden="true"></i> Upload highest academic certificate
@@ -249,9 +202,26 @@
                                                 <input id="upload_highest_academic_certificate" name='upload_highest_academic_certificate' type="file" style="display:none;">
                                             </div>
                                         </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12 upload_id-cont">
+                                            <div class="upload-block">
+                                                <label for="upload_id" class="custom-file-upload">
+                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload ID/Passport
+                                                </label>
+                                                <div class="loader-img upload_id-loader"></div>
+                                                <input id="upload_id" name='upload_id' type="file" style="display:none;">
+                                            </div>
+                                        </div>
 
-
-                                        <div class="col-md-4 col-sm-4 col-xs-12 upload_other_documents-cont">
+                                        <div class="col-md-3 col-sm-3 col-xs-12 upload_proof_of_english_proficiency-cont">
+                                            <div class="upload-block">
+                                                <label for="upload_proof_of_english_proficiency" class="custom-file-upload">
+                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload proof of English proficiency
+                                                </label>
+                                                <div class="loader-img upload_proof_of_english_proficiency-loader"></div>
+                                                <input id="upload_proof_of_english_proficiency" name='upload_proof_of_english_proficiency' type="file" style="display:none;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12 upload_other_documents-cont">
                                             <div class="upload-block">
                                                 <label for="upload_other_documents" class="custom-file-upload">
                                                     <i class="fa fa-upload" aria-hidden="true"></i> Upload other documents 
@@ -265,6 +235,35 @@
 
                                             </div>
                                         </div>
+
+                                        <div class="col-md-3 col-sm-3 col-xs-12 upload_cv-cont">
+                                            <div class="upload-block">
+                                                <label for="upload_cv" class="custom-file-upload">
+                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload your CV
+                                                </label>
+                                                <div class="loader-img upload_cv-loader"></div>
+                                                <input id="upload_cv" name='upload_cv' type="file" style="display:none;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12 upload_proof_of_work_experience-cont">
+                                            <div class="upload-block">
+                                                <label for="upload_proof_of_work_experience" class="custom-file-upload">
+                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload proof of work experience
+                                                </label>
+                                                <div class="loader-img upload_proof_of_work_experience-loader"></div>
+                                                <input id="upload_proof_of_work_experience" name='upload_proof_of_work_experience' type="file" style="display:none;">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12 upload_Transcript_of_record-cont">
+                                            <div class="upload-block">
+                                                <label for="upload_Transcript_of_record" class="custom-file-upload">
+                                                    <i class="fa fa-upload" aria-hidden="true"></i> Upload your Transcript of record
+                                                </label>
+                                                <div class="loader-img upload_Transcript_of_record-loader"></div>
+                                                <input id="upload_Transcript_of_record" name='upload_Transcript_of_record' type="file" style="display:none;">
+                                            </div>
+                                        </div>
+
                                     </div> 
                                     <div class="row"> 
                                         <div class="col-md-12 col-sm-12 col-xs-12 disable-div" id="pre-upload_cv" >
@@ -291,6 +290,15 @@
                                                 <div class="file-name"></div>
                                                 <div class="file-size"></div>
                                                 <div class="file-remove" data-id="upload_Transcript_of_record"><i class="fas fa-times"></i></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 disable-div" id="pre-upload_id" >
+                                            <div class="preview" style="color:black;">
+                                                <div class="progress-bar"></div>
+                                                <div class="file-name"></div>
+                                                <div class="file-size"></div>
+                                                <div class="file-remove" data-id="upload_id"><i class="fas fa-times"></i></div>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>
@@ -329,7 +337,10 @@
                                         </div>
                                     </div>  
                                 </form>               
-                            </div>                                
+                            </div>     
+                            <p>To enable you to study with us, let us help you attach all the correct documents under the right categories! For example: simply select the "Upload your CV" option to attach your CV, "Upload proof of English proficiency" for your English certificate, and so on. Remember, upload only one document per category. In case you have attached a wrong document to a category, then you can delete that file by clicking on the red symbol “X“. Once you have deleted the file, click the selected category one more time and upload the correct document. Before you click the "Upload your documents" button, please check if all your documents have been attached to the right categories. It's that simple!
+                                <br>
+                            <br><strong>Note:</strong> only jpeg, png, pdf, doc, docx – max. 14MB per Document</p>                           
                         </div>
                     </div>
                 </div>
@@ -585,16 +596,16 @@
         <script>
         let x = false;
         let sumUploadedFiles = 0;
-        let requiredInput = ['upload_cv','upload_proof_of_english_proficiency','upload_Transcript_of_record']
+        // let requiredInput = ['upload_cv','upload_proof_of_english_proficiency', 'upload_Transcript_of_record']
         function validation(){
             let s = 0;
             sumUploadedFiles = 0;
             jQuery('input[type="file"]').each(function(e, i) {
-                if( jQuery(this).val()  && requiredInput.includes(jQuery(this)[0].name) ){
+                if( jQuery(this).val() ){
                     s++
                 }
             });
-            if(s===3){
+            if(s >= 1){
                 jQuery('input[type="file"]').each(function(e, i) {
                     if( jQuery(this).val()){
                         sumUploadedFiles++
@@ -661,27 +672,7 @@
                 jQuery("#pre-"+ID).addClass('disable-div');
                 document.getElementById(ID).value = '';
                 if(!validation()){
-                    switch (ID) {
-
-                        case 'upload_Transcript_of_record' :
-                            alert('Please upload a document for \'Transcript of record\'')
-                            x = false;
-                            break;
-
-                        case 'upload_cv' :
-                            alert('Please upload a document in \'CV\'')
-                            x = false;
-                            break;
-
-                        case 'upload_proof_of_english_proficiency' :
-                            alert('Please upload a document in \'Proof of English Proficiency\'')
-                            x = false;
-                            break;
-
-                        default : console.log('not a required')
-
-
-                    }
+                    alert('Please upload at least 1 document')
                     jQuery('#upload-documents').attr('disabled', true);
                 }
             });
@@ -714,6 +705,8 @@
                         }
                         else if (jQuery(this).attr('id') === "upload_Transcript_of_record") {
                             uploadImage( jQuery(this).attr('id'), 'TranscriptOfRecords' );
+                        } else if(jQuery(this).attr('id') === "upload_id") {
+                            uploadImage( jQuery(this).attr('id'), 'Identification+document');
                         }
                         else
                         {
