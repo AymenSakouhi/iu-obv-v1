@@ -126,15 +126,16 @@
 
 
 
-    <!-- End Google Tag Manager -->
+    <!-- End Google Tag Manager --> 
     
+    <script language="JavaScript" src="https://ssl.geoplugin.net/javascript.gp?k=16ac59990f0f390e" type="text/javascript"></script>
 
     <script>
 
         dataLayer.push({
                 'unit': 'em',
                 'pageCategory': "obw",
-                'userCountry': geoplugin_countryCode()
+                'userCountry': geoplugin_countryCode().toLowerCase()
             });
 
         dataLayer.push({
@@ -1845,7 +1846,7 @@
 
                             <div id="intakes" class="toHide">
 
-                                <div class="col-md-6 col-sm-12 col-xs-12" id="apr22">
+                                <!-- <div class="col-md-6 col-sm-12 col-xs-12" id="apr22">
 
                                     <div class="form-group">
 
@@ -1873,7 +1874,7 @@
 
                                     </div>
 
-                                </div>
+                                </div> -->
 
                                 <div class="col-md-6 col-sm-12 col-xs-12" id="jul22">
 
@@ -2363,13 +2364,13 @@
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
-                            <label>Country of Residence<span class="required-mark">*</span></label>
+                            <label>Nationality<span class="required-mark">*</span></label>
 
                             <div class="form-group">
 
-                                <select id="country" name="country">
+                                <select id="nationality" name="nationality">
 
-                                    <option>Country*</option>
+                                    <option>Nationality*</option>
 
                                         <option value="AF">Afghanistan</option>
 
@@ -2880,13 +2881,13 @@
 
                         <div class="col-md-5 col-sm-5 col-xs-12">
 
-                                    <label>Nationality <span class="required-mark">*</span></label>
+                                    <label>Country of Residence <span class="required-mark">*</span></label>
 
                                     <div class="form-group">
 
-                                        <select id="nationality" name="nationalty">
+                                        <select id="country" name="country">
 
-                                            <option>Nationality*</option>
+                                            <option>Country*</option>
 
                                                 <option value="AF">Afghanistan</option>
 
@@ -5002,12 +5003,6 @@ function closeNav() {
       // });
 
   </script>
-
-
-
-
-
-<script language="JavaScript" src="https://ssl.geoplugin.net/javascript.gp?k=16ac59990f0f390e" type="text/javascript"></script>
 
 <script src="js/application.js"></script>
 

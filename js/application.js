@@ -462,7 +462,7 @@ let discMyStu90M = 0.843152;
 let discMyStu120M = 0.865815;*/
 
 let discMyStu180B = 0.598570747975226;
-let discMyStu60M = 0.708644222020018;
+let discMyStu60M = 0.6517154811715481;
 let discMyStu90M = 0.753095684803002;
 let discMyStu120M = 0.665703168426904;
 
@@ -528,7 +528,7 @@ $(document).ready(function () {
           },
           data: JSON.stringify({
             email: email, //"erickrichard56@gmail.com" for test MCFKENYA
-            unit: "fi",
+            unit: businessUnit,
           }),
           dataType: "json",
           success: function (data) {
@@ -570,6 +570,7 @@ function checkAgentVoucher() {
     data: JSON.stringify({
       email: email, //"erickrichard56@gmail.com" for test MCFKENYA
       unit: "fi",
+      graduation : 'Bachelor'
     }),
     dataType: "json",
     success: function (data) {
@@ -1314,49 +1315,49 @@ let mT = [
     careId: "120_FI",
     //"careIdCs" : '120'
     careIdCs: "10008378",
-    intake: "Oct 21, Apr 22, Oct 22",
+    intake: "Oct 21, Apr 22, Oct 22, Jan 23, Apr 23, Oct 23",
   },
   {
     name: "MBA - Master of Business Administration - 90",
     careId: "121_FI",
     //"careIdCs" : '121'
     careIdCs: "10008379",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Big Data Management - 90",
     careId: "121_FI_BDM",
     //"careIdCs" : '121_BDM'
     careIdCs: "10008379_BDM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation International Marketing - 90",
     careId: "121_FI_IM",
     //"careIdCs" : '121_IM'
     careIdCs: "10008379_IM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Finance & Accounting - 90",
     careId: "121_FI_FA",
     //"careIdCs" : '121_FA'
     careIdCs: "10008379_FA",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Engineering Management - 90",
     careId: "121_FI_EM",
     //"careIdCs" : '121_EM'
     careIdCs: "10008379_EM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation IT Management - 90",
     careId: "121_FI_ITM",
     //"careIdCs" : '121_ITM'
     careIdCs: "10008379_ITM",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22, Jan 23, Apr 23, Jul 23",
   },
   {
     name: "MBA - Specialisation Health Care Management - 90",
@@ -1943,7 +1944,9 @@ function activate() {
     let country = document.getElementById("country").value;
     let nationality = document.getElementById("nationality").value;
     let studyStartDate =
-      document.getElementsByClassName("study-start")[0].innerHTML;
+      //document.getElementsByClassName("study-start")[0].innerHTML;
+      //document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('.');
+      document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('-');
     let fullNumber =
       document.getElementsByClassName("iti__selected-dial-code")[0].innerText +
       document.getElementById("phone").value;
@@ -2328,8 +2331,8 @@ function findOutAndChange(x, y) {
     removeBadHonnefBasedIntake("apr23");
     checkIntakeStart();
   } else if (x === "winterintake4") {
-    document.getElementsByClassName("intake")[0].value = "2022-10-01";
-    document.getElementsByClassName("intake")[1].value = "2022-10-01";
+    document.getElementsByClassName("intake")[0].value = "2023-10-01";
+    document.getElementsByClassName("intake")[1].value = "2023-10-01";
     /*for (let i = 0; i < D2.length; i++) {
             D2[i].value = $("#"+x).val();
         }*/
@@ -3495,8 +3498,6 @@ function changeDegreeVal() {
 } // });
 
 document.getElementById("studyProgram").addEventListener("change", function () {
-  console.log('1')
-  
   checkIpAndChange();
 
   checkLocation();
@@ -3530,23 +3531,10 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("option", { minDate: new Date(2023, 2, 1) });
   } else if (
     $("#studyProgram :selected").text() ===
-      "B.A. International Healthcare Management - 180" ||
-    $("#studyProgram :selected").text() ===
-      "M.A. International Healthcare Management - 120"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 3, 1));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 3, 1) });
-  } else if (
-    $("#studyProgram :selected").text() ===
     "M.A. International Healthcare Management - 60"
   ) {
     $("#datepicker").datepicker("setDate", new Date(2022, 8, 30));
     $("#datepicker").datepicker("option", { minDate: new Date(2022, 8, 30) });
-  } else if (
-    $("#studyProgram :selected").text() === "B.Sc. Software Development - 180"
-  ) {
-    $("#datepicker").datepicker("setDate", new Date(2022, 3, 15));
-    $("#datepicker").datepicker("option", { minDate: new Date(2022, 3, 15) });
   } else if (
     $("#studyProgram :selected").text() ===
     "M.A. Digital Innovation & Intrapreneurship - 60"
