@@ -275,7 +275,7 @@ NanBadHonnef = [
   },
   {
     name: "M.Sc. Computer Science - 120",
-    tillIntake: "Oct 22, Jan 23, Oct 23",
+    tillIntake: "Oct 22, Apr 23, Oct 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -1176,6 +1176,7 @@ let mT = [
     careIdCs: "10008373",
     intake: "Oct 22, Jan 23, Oct 23",
     intake2: "Apr 22, Oct 22, Apr 23, Oct 23",
+    studyLocation: "OnlyBerlin"
   },
 
   {
@@ -1197,6 +1198,7 @@ let mT = [
     careId: "10008014_FI",
     careIdCs: "10008533_CS",
     intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
+    studyLocation: "OnlyBerlin"
   },
   {
     name: "M.Sc. Cyber Security Management - 60",
@@ -1574,7 +1576,8 @@ let mT = [
     st_careId: "70",
     //"careIdCs" : '10008075_CS'
     careIdCs: "10008374",
-    intake: "Oct 21, Apr 22, Oct 22",
+    intake: "Oct 22, Apr 22, Oct 22, Apr 23, Oct 23",
+    studyLocation: "OnlyBerlin"
   },
 ];
 //ALL THESE ARE FLEX PROGRAMS
@@ -1990,6 +1993,7 @@ function activate() {
     let startDate = null;
     if (document.getElementsByClassName("intake")[0].value !== "") {
       //studyStartDate = null;
+      intake = document.getElementsByClassName("intake")[0].value;
       for (let i = 0; i < mT.length; i++) {
         if (mT[i].name === $("#studyProgram :selected").text()) {
           startDate = document.getElementsByClassName("intake")[0].value;
@@ -2107,7 +2111,7 @@ function activate() {
           country: country,
           studyProgram: studyProgram,
           studyStartDate: studyStartDate,
-          intake: null,
+          intake: intake,
           studySite: locationSite,
           duration: studyDuration,
           monthlyFee: finalPrice,
