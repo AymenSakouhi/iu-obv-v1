@@ -85,6 +85,8 @@
 <!--responsive css  -->
 
 <link href="css/responsive.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/tooltip.css">
+<link rel="stylesheet" href="css/tooltipsmall.css">
 
 <!--
 
@@ -1515,7 +1517,8 @@
 
                 <div class="formblock">
 
-                    <h3 class="formstep-title"><span class="number">1</span> study information</h3>
+                    <h3 class="formstep-title"><span class="number">1</span> study information
+                    </h3>
 
                     <div class="row">
 
@@ -1648,7 +1651,7 @@
 
                             <div class="form-group mb-38">
 
-                                <div class="message-info"><i class="fas fa-exclamation-circle"></i>The programme you selected is available in the following study models
+                                <div class="message-info"><a  class="tooltip-right" data-tooltip="Study anywhere, anytime online or at one of our campuses in Germany. Select online now and later you can switch to campus flexibly"><i class="fa fa-info-circle"></i></a> The programme you selected is available in the following study models
 
                                 </div>
 
@@ -1701,7 +1704,7 @@
 
                             <div class="form-group mb-38">
 
-                                <div class="message-info"><i class="fas fa-exclamation-circle"></i>The programme you selected is available in the following study models
+                                <div class="message-info"><a  class="tooltip-right" data-tooltip="Study anywhere, anytime online or at one of our campuses in Germany. Select online now and later you can switch to campus flexibly"><i class="fa fa-info-circle"></i></a> The programme you selected is available in the following study models
 
                                 </div>
 
@@ -1778,7 +1781,8 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
 
-                            <label class="required-mark">Time Model</label>
+                            <label class="required-mark">Time Model <a  class="tooltip-right" data-tooltip="Pick a favoured time model. You can decide how much time you want to spend on studying and how much you’d like to invest monthly"><i class="fa fa-info-circle"></i></a>
+                            </label>
 
                         </div>
 
@@ -1836,7 +1840,7 @@
 
                         <div class="col-md-12 col-sm-12 col-xs-12">
 
-                            <label>Start Date <span class="required-mark">*</span></label>
+                            <label>Start Date <span class="required-mark"></span><a id="startDateTooltip"  class="tooltip-right" data-tooltip="The earliest possible start date of this programme is xx.xx.xxxx. Afterwards you can choose to start on any date flexibly"><i class="fa fa-info-circle"></i></a></label>
 
                             <!-- Calender -->
 
@@ -3407,7 +3411,7 @@
                     
                     <div class="row" style="align-items: baseline">
                         <div class="col-md-6 col-sm-6 col-xs-12" translate="no">
-                            <label>Current level of education <span class="required-mark">*</span></label>
+                            <label>Current level of education <span class="required-mark"><a  id="currentLevelEducationTooltip" class="tooltip-right" data-tooltip="IU is a state accredited university, so we need your high school diploma due to admission requirements. Upload your diploma easily after form submit"><i class="fa fa-info-circle"></i></a></span></label>
                             <label class="text-transform-none" id="bgrInformation">Do you have a High School / Bachelor Diploma?</label>
                             <!-- //old row for select box high school or bachelor-->
                             <!-- <div class="form-group">
@@ -3439,7 +3443,7 @@
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12" translate="no">
-                            <label style="padding-top: 25px;">English level <span class="required-mark">*</span></label>
+                            <label style="padding-top: 25px;">English level <span class="required-mark"><a  class="tooltipsmall-right" data-tooltipsmall="10 being the highest"><i class="fa fa-info-circle"></i></a></span></label>
                             <!-- <div class="form-group">
                                 <select name="enlgishlevel" id="enlgishlevel" onchange="findOutAndChange(this.id ,'EnglishLevelSummary')">
                                     <option value="" disabled selected>Choose one</option>
@@ -3522,7 +3526,7 @@
 
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12" translate="no">
-                            <label>Budget <span class="required-mark">*</span></label>
+                            <label>Budget <span class="required-mark"><a class="tooltip-right" data-tooltip="This will help your study advisor better guide you in your choice of programme, study and time model that is right for you and your budget"><i class="fa fa-info-circle"></i></a></span></label>
                             <br>
                             <span>How much budget do you have to spend on your degree per month?</span>
                             <div class="form-group">
