@@ -585,7 +585,7 @@ function checkAgentVoucher() {
 }
 
 $(document).ready(function () {
-  document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${formatDate(dateRandom)}. Afterwards you can choose to start on any date flexibly`);
+  document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${datepicker.value}. Afterwards you can choose to start on any date flexibly`);
 });
 
 $(window).scroll(function () {
@@ -3612,6 +3612,7 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.querySelectorAll(".study-start").forEach((item) => {
       item.value = $("#datepicker").val();
     });
+    document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${datepicker.value}. Afterwards you can choose to start on any date flexibly`);
   }, 100);
 
   if ($("#studyProgram :selected").text().includes("60")) {
@@ -4009,7 +4010,7 @@ $("#studyOnline").click(function () {
     $("#BAF").removeClass("hide");
     $("#voucherHr").addClass("hide");
     $("#monthsone").trigger("click");
-    document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${formatDate(dateRandom)}. Afterwards you can choose to start on any date flexibly`);
+    document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${datepicker.value}. Afterwards you can choose to start on any date flexibly`);
   }, 100);
 });
 

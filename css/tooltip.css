@@ -9,6 +9,7 @@
   position: relative;
   cursor: pointer;
   color: #000;
+  font-weight: normal !important;
 }
 
 /* Base styles for the entire tooltip */
@@ -180,14 +181,6 @@
 /* Right */
 .tooltip-right:before,
 .tooltip-right:after {
-  bottom: 50%;
-  left: 100%;
-}
-
-/* Right Small */
-.tooltip-rightsmall:before,
-.tooltip-rightsmall:after {
-  width: 100px;
   bottom: 50%;
   left: 100%;
 }
