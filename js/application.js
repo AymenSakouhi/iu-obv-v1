@@ -275,7 +275,7 @@ NanBadHonnef = [
   },
   {
     name: "M.Sc. Computer Science - 120",
-    tillIntake: "Oct 22, Jan 23, Oct 23",
+    tillIntake: "Oct 22, Apr 23, Oct 23",
   },
   {
     name: "M.A. International Management - 120",
@@ -584,7 +584,9 @@ function checkAgentVoucher() {
   });
 }
 
-$(document).ready(function () {});
+$(document).ready(function () {
+  document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${datepicker.value}. Afterwards you can choose to start on any date flexibly`);
+});
 
 $(window).scroll(function () {
   if ($(window).scrollTop() == $(document).height() - $(window).height()) {
@@ -1174,8 +1176,9 @@ let mT = [
     careId: "10007941_FI",
     //"careIdCs" : '10007952'
     careIdCs: "10008373",
-    intake: "Oct 22, Jan 23, Oct 23",
+    intake: "Oct 22, Apr 23, Oct 23",
     intake2: "Apr 22, Oct 22, Apr 23, Oct 23",
+    studyLocation: "OnlyBerlin"
   },
 
   {
@@ -1197,6 +1200,7 @@ let mT = [
     careId: "10008014_FI",
     careIdCs: "10008533_CS",
     intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
+    studyLocation: "OnlyBerlin"
   },
   {
     name: "M.Sc. Cyber Security Management - 60",
@@ -1574,7 +1578,8 @@ let mT = [
     st_careId: "70",
     //"careIdCs" : '10008075_CS'
     careIdCs: "10008374",
-    intake: "Oct 21, Apr 22, Oct 22",
+    intake: "Oct 22, Apr 22, Oct 22, Apr 23, Oct 23",
+    studyLocation: "OnlyBerlin"
   },
 ];
 //ALL THESE ARE FLEX PROGRAMS
@@ -1990,6 +1995,7 @@ function activate() {
     let startDate = null;
     if (document.getElementsByClassName("intake")[0].value !== "") {
       //studyStartDate = null;
+      intake = document.getElementsByClassName("intake")[0].value;
       for (let i = 0; i < mT.length; i++) {
         if (mT[i].name === $("#studyProgram :selected").text()) {
           startDate = document.getElementsByClassName("intake")[0].value;
@@ -2107,7 +2113,7 @@ function activate() {
           country: country,
           studyProgram: studyProgram,
           studyStartDate: studyStartDate,
-          intake: null,
+          intake: intake,
           studySite: locationSite,
           duration: studyDuration,
           monthlyFee: finalPrice,
@@ -3383,11 +3389,13 @@ function changeDegreeVal() {
     $("#rowLocTwo").addClass("hide");
     $("#rowLocThree").addClass("hide");
     $("#rowLocFour").addClass("hide");
+    document.getElementById('currentLevelEducationTooltip').setAttribute('data-tooltip', `IU is a state accredited university, so we need your bachelor’s degree due to admission requirements. Upload your diploma easily after form submit`);
   } else {
     $("#rowLocOne").addClass("hide");
     $("#rowLocTwo").removeClass("hide");
     $("#rowLocThree").removeClass("hide");
     $("#rowLocFour").removeClass("hide");
+    document.getElementById('currentLevelEducationTooltip').setAttribute('data-tooltip', `IU is a state accredited university, so we need your high school diploma due to admission requirements. Upload your diploma easily after form submit`);
   }
 
   $(".labelMonthlyPrice").text("Monthly Price With Scholarship");
@@ -3604,6 +3612,7 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     document.querySelectorAll(".study-start").forEach((item) => {
       item.value = $("#datepicker").val();
     });
+    document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${datepicker.value}. Afterwards you can choose to start on any date flexibly`);
   }, 100);
 
   if ($("#studyProgram :selected").text().includes("60")) {
@@ -3991,6 +4000,7 @@ $("#studyOnCampus").click(function () {
     });
     locationSite = "4";
     $("#berlin").trigger("click");
+    document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The start date depends on the officially available on campus intakes`);
   }, 100);
 });
 
@@ -4000,6 +4010,7 @@ $("#studyOnline").click(function () {
     $("#BAF").removeClass("hide");
     $("#voucherHr").addClass("hide");
     $("#monthsone").trigger("click");
+    document.getElementById('startDateTooltip').setAttribute('data-tooltip', `The earliest possible start date of this programme is ${datepicker.value}. Afterwards you can choose to start on any date flexibly`);
   }, 100);
 });
 
@@ -4098,3 +4109,5 @@ function findOutAndClick(x, y) {
 setTimeout(() => {
   $("#degreeTypeBachelor").click();
 }, 1000);
+
+

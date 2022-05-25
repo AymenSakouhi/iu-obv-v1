@@ -106,8 +106,8 @@ html{overflow-x:hidden;}
 .formleft{padding-right:8% !important; position:relative; border-right:#A5ABA6 solid 0px;}
 .formleft:before{position:absolute; right:3%; top:7%; content:''; width:1px; height:90%; background:#A5ABA6;}
 .content .form-group{margin-bottom:25px;}
-.message-info{font-size:16px; line-height:24px; font-weight:400; color:#000; position:relative; padding-left:25px;}
-.message-info svg{font-size:18px; position:absolute; left:0px; top:4px;}
+.message-info{font-size:16px; line-height:24px; font-weight:400; color:#000; position:relative; padding-left:0px;}
+.message-info svg{font-size:18px; left:0px; top:4px;}
 .mb-38{margin-bottom:38px;}
 .content h2.formtitle{font-size:24px; line-height:30px; font-weight:700; color:#000; margin-bottom:50px;}
 .content h3.formstep-title{font-size:16px; line-height:20px; font-weight:700; color:#000; text-transform:uppercase; margin-bottom:35px;}
