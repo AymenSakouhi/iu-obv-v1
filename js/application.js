@@ -1134,7 +1134,7 @@ let mT = [
     careId: "10007953_FI",
     //"careIdCs" : '10007953_CS'
     careIdCs: "10008367",
-    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23, Oct 23",
   },
   {
     name: "B.A. Management - 240",
@@ -1156,7 +1156,7 @@ let mT = [
     name: "B.Sc. Data Science - 180",
     careId: "10007851",
     careIdCs: "10008525_CS_DS",
-    intake: "Oct 22, Oct 23",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
   },
   {
     name: "M.Sc. Artificial Intelligence - 60",
@@ -1405,27 +1405,27 @@ let mT = [
     name: "B.Sc. Applied Artificial Intelligence - 180",
     careId: "10008073_FI_AI",
     careIdCs: "10008523_CS_AAI",
-    intake: "Oct 22, Oct 23",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
     //needs to be there
   },
   {
     name: "B.A. Entrepreneurship - 180",
     careId: "10008062_FI",
     careIdCs: "10008526_CS_ENT",
-    intake: "Oct 22",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
   },
   {
     name: "B.Sc. Business & IT - 180",
     careId: "10008001_FI",
     //"careIdCs" : '10008001_CS'
     careIdCs: "10008368",
-    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23, Oct 23"
   },
   {
     name: "B.Eng. Robotics - 180",
     careId: "10007964_FI",
     careIdCs: "10008527_CS_ROB",
-    intake: "Oct 22, Jan 23, Apr 23, Jul 23",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
   },
   /*{
         "name" : 'B.Eng. Engineering - 180',
@@ -1436,14 +1436,14 @@ let mT = [
     careId: "10008000_FI",
     //"careIdCs" : '10008000_CS'
     careIdCs: "10008370",
-    intake: "Oct 22, Jan 23, Apr 23,  Jul 23",
+    intake: "Oct 22, Jan 23, Apr 23,  Jul 23, Oct 23",
   },
   {
     name: "B.A. International Management - 180",
     careId: "10008002_FI",
     //"careIdCs" : '10008002_CS'
     careIdCs: "10008371",
-    intake: "Oct 21, Jan 22, Apr 22, Jul 22, Oct 22",
+    intake: "Jul 22, Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
   },
   {
     name: "B.A. Aviation Management - 180",
@@ -1495,13 +1495,13 @@ let mT = [
     name: "B.Sc. Computer Science - 180",
     careId: "10007944_FI",
     careIdCs: "10008369",
-    intake: "Oct 21, Apr 22, Oct 22",
+    intake: "Oct 22, Apr 23, Oct 23",
   },
   {
     name: "B.Sc. Software Development - 180",
     careId: "10008074_FI_SD",
     careIdCs: "10008528_CS_SD",
-    intake: "Oct 22, Apr 23, Oct 23",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
   },
   {
     name: "M.A. International Management - 60",
