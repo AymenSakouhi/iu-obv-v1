@@ -1136,7 +1136,7 @@ let mT = [
     careId: "10007953_FI",
     //"careIdCs" : '10007953_CS'
     careIdCs: "10008367",
-    intake: "Oct 22, Jan 23, Apr 23,  Jul 23, Oct 23",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
   },
   {
     name: "B.A. Management - 240",
@@ -1423,7 +1423,7 @@ let mT = [
     careId: "10008001_FI",
     //"careIdCs" : '10008001_CS'
     careIdCs: "10008368",
-    intake: "Oct 22, Jan 23, Apr 23,  Jul 23, Oct 23"
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23"
   },
   {
     name: "B.Eng. Robotics - 180",
@@ -1440,7 +1440,7 @@ let mT = [
     careId: "10008000_FI",
     //"careIdCs" : '10008000_CS'
     careIdCs: "10008370",
-    intake: "Oct 22, Jan 23, Apr 23,  Jul 23, Oct 23",
+    intake: "Oct 22, Jan 23, Apr 23, Jul 23, Oct 23",
   },
   {
     name: "B.A. International Management - 180",
