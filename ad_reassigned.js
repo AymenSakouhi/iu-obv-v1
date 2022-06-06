@@ -63,8 +63,8 @@ function signContract() {
     fetch('https://api.careerpartner.eu/centraldataservice-api/lara/api/v2/application/'+result+'/sign' , {
         method : 'POST',
         headers: {
-            //Authorization: "TPPDVgSNCvp4TY5y",
-            Authorization: "74UgeuBcRZjX6akV",
+            //Authorization: "TPPDVgSNCvp4TY5y", //UAT
+            Authorization: "74UgeuBcRZjX6akV", //PROD
             'Content-Type' : 'application/json'
         },
     }).then(res => {
@@ -81,13 +81,6 @@ function signContract() {
 
         }).then(
         () => {
-            //t.key = obj.key
-            //study-model it as a json
-            //localStorage.setItem('allData', JSON.stringify(t));
-            //localStorage.setItem('Keys', JSON.stringify(t));
-            //Long link in case variables arent accessible in the success page
-            //window.location.href='success.html?firstname='+ myName+'&surName='+surName+'&country='+country+'&email='+email+'&mobileNumber='+mobileNumber+'&address='+address+'&studyProgram='+studyProgram+'&key='+obj.key
-            //For shorting the link
 
             $('.loading').toggleClass("hide")
             setTimeout(function () {
