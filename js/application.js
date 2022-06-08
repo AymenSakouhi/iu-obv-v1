@@ -1581,6 +1581,18 @@ let mT = [
     intake: "Oct 22, Apr 22, Oct 22, Apr 23, Oct 23",
     studyLocation: "OnlyBerlin"
   },
+  {
+    name: "B.Sc. Applied Psychology - 180",
+    careId: "10008623_FI",
+  },
+  {
+    name: "M.A. Digital Marketing - 60",
+    careId: "10008036_FI",
+  },
+  {
+    name: "M.A. Digital Marketing - 120",
+    careId: "10008035_FI",
+  }
 ];
 //ALL THESE ARE FLEX PROGRAMS
 
@@ -1609,8 +1621,10 @@ mtCheckOnline = [
   "B.A. Management - 240",
   "B.A. Human Resource Management - 180",
   "B.A. Marketing - 180",
-  "B.Sc. Industrial and Organisational Psychology - 180"
-
+  "B.Sc. Industrial and Organisational Psychology - 180",
+  "B.Sc. Applied Psychology - 180",
+  "M.A. Digital Marketing - 60",
+  "M.A. Digital Marketing - 120",
 ];
 
 function fullOut(dip) {
@@ -3594,9 +3608,18 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#studyProgram :selected").text() === "B.Sc. Industrial and Organisational Psychology - 180") {
     $("#datepicker").datepicker("setDate", new Date(2023, 1, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2023, 1, 1) });
+  } else if( $("#studyProgram :selected").text() === "B.Sc. Applied Psychology - 180") {
+    $("#datepicker").datepicker("setDate", new Date(2023, 7, 1));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 7, 1) });
+  } else if($("#studyProgram :selected").text() === "M.A. Digital Marketing - 60") {
+    $("#datepicker").datepicker("setDate", new Date(2023, 1, 11));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 1, 11) });
+    
+  } else if($("#studyProgram :selected").text() === "M.A. Digital Marketing - 120") {
+    $("#datepicker").datepicker("setDate", new Date(2023, 4, 2));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 4, 2) });
+    
   } else {
-    $("#datepicker").datepicker("setDate", +5);
-    $("#datepicker").datepicker("option", { minDate: +5 });
     $("#datepicker").datepicker("setDate", +5);
     $("#datepicker").datepicker("option", { minDate: +5 });
   }
