@@ -98,6 +98,10 @@ function EmptyFields() {
 }
 
 function scrollTo() {
+  
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 14);
+
   if ($("#studyProgram").find(":selected").text().startsWith("S")) {
     document.getElementById("studyProgram").scrollIntoView({
       behavior: "smooth",
@@ -148,6 +152,12 @@ function scrollTo() {
     });
   } else if ($("input[name=gender]:checked").length === 0) {
     document.getElementById("gender").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
+  } else if(new Date(document.getElementById("date-of-birth").value) > maxDate ||  document.getElementById("date-of-birth").value === "" ){
+    document.getElementById("date-of-birth").scrollIntoView({
       behavior: "smooth",
       block: "center",
       inline: "nearest",
@@ -1581,6 +1591,18 @@ let mT = [
     intake: "Oct 22, Apr 22, Oct 22, Apr 23, Oct 23",
     studyLocation: "OnlyBerlin"
   },
+  {
+    name: "B.Sc. Applied Psychology - 180",
+    careId: "10008623_FI",
+  },
+  {
+    name: "M.A. Digital Marketing - 60",
+    careId: "10008036_FI",
+  },
+  {
+    name: "M.A. Digital Marketing - 120",
+    careId: "10008035_FI",
+  }
 ];
 //ALL THESE ARE FLEX PROGRAMS
 
@@ -1609,8 +1631,10 @@ mtCheckOnline = [
   "B.A. Management - 240",
   "B.A. Human Resource Management - 180",
   "B.A. Marketing - 180",
-  "B.Sc. Industrial and Organisational Psychology - 180"
-
+  "B.Sc. Industrial and Organisational Psychology - 180",
+  "B.Sc. Applied Psychology - 180",
+  "M.A. Digital Marketing - 60",
+  "M.A. Digital Marketing - 120",
 ];
 
 function fullOut(dip) {
@@ -1648,6 +1672,9 @@ function validatefilledIn() {
   let arr = Array.from(requiredFields).filter((input) => input.required);
   let arr2 = $("label").filter(".pl-0");
   let arr3 = $("label").filter(".cst-pl-0");
+
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 14);
 
   //if ($('#Degree').find(":selected").text().startsWith('S')) { $('#Degree').css('border-color', 'red'); } else { $('#Degree').css('border-color', 'green'); }
   //if ($('#studyProgram').find(":selected").text().startsWith('S')) { $('#studyProgram').css('border-color', 'red'); } else { $('#studyProgram').css('border-color', 'green'); }
@@ -1742,6 +1769,17 @@ function validatefilledIn() {
     }
   }
 
+  if(new Date(document.getElementById("date-of-birth").value) > maxDate ||  document.getElementById("date-of-birth").value === "" ) {
+    $("#date-of-birth")
+      .css("border-color", "red")
+      .addClass("field-error")
+      .removeClass("field-valid");
+  } else {
+    $("#date-of-birth").css("border-color", "green")
+      .removeClass("field-error")
+      .addClass("field-valid");
+  }
+
   if ($("#yes").find(":selected").text().startsWith("C")) {
     $("#yes").css("border-color", "red");
   } else {
@@ -1779,6 +1817,9 @@ function validatefilledIn() {
 function checkingFields() {
   let myNameCheck = document.getElementById("first-name").value;
   let surNameCheck = document.getElementById("last-name").value;
+
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 14);
 
   if (
     !$("#studyProgram").find(":selected").val().match(/^\d/) &&
@@ -1862,7 +1903,13 @@ function checkingFields() {
     $("#myModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } /*else if ($('input[name=school]:checked').length === 0 || $('input[name=budget]:checked').length === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
+  } else if(new Date(document.getElementById("date-of-birth").value) > maxDate) {
+    validatefilledIn();
+    $("#dateOfBirthModal").modal();
+    document.getElementById("submit").disabled = false;
+    return false;
+  }
+   /*else if ($('input[name=school]:checked').length === 0 || $('input[name=budget]:checked').length === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
             validatefilledIn();
             $("#eligibilityModal").modal();
             document.getElementById("submit").disabled = false;
@@ -3594,9 +3641,18 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#studyProgram :selected").text() === "B.Sc. Industrial and Organisational Psychology - 180") {
     $("#datepicker").datepicker("setDate", new Date(2023, 1, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2023, 1, 1) });
+  } else if( $("#studyProgram :selected").text() === "B.Sc. Applied Psychology - 180") {
+    $("#datepicker").datepicker("setDate", new Date(2023, 7, 1));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 7, 1) });
+  } else if($("#studyProgram :selected").text() === "M.A. Digital Marketing - 60") {
+    $("#datepicker").datepicker("setDate", new Date(2023, 1, 11));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 1, 11) });
+    
+  } else if($("#studyProgram :selected").text() === "M.A. Digital Marketing - 120") {
+    $("#datepicker").datepicker("setDate", new Date(2023, 4, 2));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 4, 2) });
+    
   } else {
-    $("#datepicker").datepicker("setDate", +5);
-    $("#datepicker").datepicker("option", { minDate: +5 });
     $("#datepicker").datepicker("setDate", +5);
     $("#datepicker").datepicker("option", { minDate: +5 });
   }
