@@ -98,6 +98,10 @@ function EmptyFields() {
 }
 
 function scrollTo() {
+  
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 14);
+
   if ($("#studyProgram").find(":selected").text().startsWith("S")) {
     document.getElementById("studyProgram").scrollIntoView({
       behavior: "smooth",
@@ -148,6 +152,12 @@ function scrollTo() {
     });
   } else if ($("input[name=gender]:checked").length === 0) {
     document.getElementById("gender").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
+  } else if(new Date(document.getElementById("date-of-birth").value) > maxDate ||  document.getElementById("date-of-birth").value === "" ){
+    document.getElementById("date-of-birth").scrollIntoView({
       behavior: "smooth",
       block: "center",
       inline: "nearest",
@@ -1663,6 +1673,9 @@ function validatefilledIn() {
   let arr2 = $("label").filter(".pl-0");
   let arr3 = $("label").filter(".cst-pl-0");
 
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 14);
+
   //if ($('#Degree').find(":selected").text().startsWith('S')) { $('#Degree').css('border-color', 'red'); } else { $('#Degree').css('border-color', 'green'); }
   //if ($('#studyProgram').find(":selected").text().startsWith('S')) { $('#studyProgram').css('border-color', 'red'); } else { $('#studyProgram').css('border-color', 'green'); }
   if ($("#studyProgram").find(":selected").text().startsWith("D")) {
@@ -1756,6 +1769,17 @@ function validatefilledIn() {
     }
   }
 
+  if(new Date(document.getElementById("date-of-birth").value) > maxDate ||  document.getElementById("date-of-birth").value === "" ) {
+    $("#date-of-birth")
+      .css("border-color", "red")
+      .addClass("field-error")
+      .removeClass("field-valid");
+  } else {
+    $("#date-of-birth").css("border-color", "green")
+      .removeClass("field-error")
+      .addClass("field-valid");
+  }
+
   if ($("#yes").find(":selected").text().startsWith("C")) {
     $("#yes").css("border-color", "red");
   } else {
@@ -1793,6 +1817,9 @@ function validatefilledIn() {
 function checkingFields() {
   let myNameCheck = document.getElementById("first-name").value;
   let surNameCheck = document.getElementById("last-name").value;
+
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 14);
 
   if (
     !$("#studyProgram").find(":selected").val().match(/^\d/) &&
@@ -1876,7 +1903,13 @@ function checkingFields() {
     $("#myModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } /*else if ($('input[name=school]:checked').length === 0 || $('input[name=budget]:checked').length === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
+  } else if(new Date(document.getElementById("date-of-birth").value) > maxDate) {
+    validatefilledIn();
+    $("#dateOfBirthModal").modal();
+    document.getElementById("submit").disabled = false;
+    return false;
+  }
+   /*else if ($('input[name=school]:checked').length === 0 || $('input[name=budget]:checked').length === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
             validatefilledIn();
             $("#eligibilityModal").modal();
             document.getElementById("submit").disabled = false;
