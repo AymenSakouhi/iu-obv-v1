@@ -1855,7 +1855,10 @@ function checkingFields() {
     document.getElementById("street").value === "" ||
     document.getElementById("e-mail").value === "" ||
     document.getElementById("date-of-birth").value === "" ||
-    document.getElementById("city").value === ""
+    document.getElementById("city").value === "" ||
+    document.getElementById("phone").value === ""||
+    document.getElementById("nr").value === ""||
+    document.getElementById("postcode").value === ""
   ) {
     validatefilledIn();
     $("#myModal").modal();
