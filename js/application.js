@@ -199,7 +199,13 @@ function scrollTo() {
       inline: "nearest",
     });
   }
-  //else if ($('input[name=school]:checked').length === 0) {
+  else if ($('input[name=school]:checked').length === 0) {
+    document.getElementById("yes").scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest",
+    });
+  }
   else if (
     $("#yes").find(":selected").text().startsWith("C") ||
     $("#yes").val() == ""
@@ -221,11 +227,7 @@ function scrollTo() {
       inline: "nearest",
     });
   }
-  //else if($('input[name=budget]:checked').length === 0) {
-  else if (
-    $("#budget").find(":selected").text().startsWith("C") ||
-    $("#budget").val() == ""
-  ) {
+  else if ($("#budget")[0].selectedIndex === 0) {
     document.getElementById("budget").scrollIntoView({
       behavior: "smooth",
       block: "center",
@@ -234,10 +236,7 @@ function scrollTo() {
   }
   //else if($('input[name=workexperience]:checked').length === 0 && workExperience()) {
   else if (
-    ($("#workexperience").find(":selected").text().startsWith("C") ||
-      $("#workexperience").val() == "") &&
-    workExperience()
-  ) {
+    $("input[name=workexperience]:checked").length === 0 && workExperience()) {
     document.getElementById("we3").scrollIntoView({
       behavior: "smooth",
       block: "center",
@@ -1738,25 +1737,46 @@ function validatefilledIn() {
       .addClass("field-valid");
   }
 
-  if ($("#yes").find(":selected").text().startsWith("C")) {
-    $("#yes").css("border-color", "red");
+  if ($("input[name=school]:checked").length === 0) {
+    const schoolArr =  $("[name='school']");
+    for (const [key, value] of Object.entries(schoolArr)) {
+      $('label[for="' + value.id + '"]').css("border-color", "red");
+   }
   } else {
-    $("#yes").css("border-color", "green");
+    const schoolArr =  $("[name='school']");
+    for (const [key, value] of Object.entries(schoolArr)) {
+      $('label[for="' + value.id + '"]').css("border-color", "green");
+   }
   }
-  if ($("#enlgishlevel").find(":selected").text().startsWith("C")) {
-    $("#enlgishlevel").css("border-color", "red");
+
+  if ($('input[name=enlgishlevel]:checked').length === 0 ) {
+    const englishArr =  $("[name='enlgishlevel']");
+    for (const [key, value] of Object.entries(englishArr)) {
+      $('label[for="' + value.id + '"]').css("border-color", "red");
+   }
   } else {
-    $("#enlgishlevel").css("border-color", "green");
+    const englishArr =  $("[name='enlgishlevel']");
+    for (const [key, value] of Object.entries(englishArr)) {
+      $('label[for="' + value.id + '"]').css("border-color", "green");
+   }
   }
-  if ($("#budget").find(":selected").text().startsWith("C")) {
+
+  if ($("#budget")[0].selectedIndex === 0) {
     $("#budget").css("border-color", "red");
   } else {
     $("#budget").css("border-color", "green");
   }
-  if ($("#workexperience").find(":selected").text().startsWith("C")) {
-    $("#workexperience").css("border-color", "red");
+
+  if ($("input[name=workexperience]:checked").length === 0 && workExperience()) {
+    const workArr =  $("[name='workexperience']");
+    for (const [key, value] of Object.entries(workArr)) {
+      $('label[for="' + value.id + '"]').css("border-color", "red");
+   }
   } else {
-    $("#workexperience").css("border-color", "green");
+    const workArr =  $("[name='workexperience']");
+    for (const [key, value] of Object.entries(workArr)) {
+      $('label[for="' + value.id + '"]').css("border-color", "green");
+   }
   }
 
   if ($("#voucher").val().toLowerCase().includes("agent")) {
@@ -1870,40 +1890,13 @@ function checkingFields() {
     document.getElementById("submit").disabled = false;
     return false;
   }
-   /*else if ($('input[name=school]:checked').length === 0 || $('input[name=budget]:checked').length === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
-            validatefilledIn();
-            $("#eligibilityModal").modal();
-            document.getElementById("submit").disabled = false;
-            return false;
-    }*/ else if (
-    $("#yes").find(":selected").text().startsWith("C") ||
-    $("#yes").val() == ""
-  ) {
+  else if ($('input[name=school]:checked').length === 0 || $("#budget")[0].selectedIndex === 0 || $('input[name=enlgishlevel]:checked').length === 0 ) {
     validatefilledIn();
     $("#eligibilityModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
   } else if (
-    $("#enlgishlevel").find(":selected").text().startsWith("C") ||
-    $("#enlgishlevel").val() == ""
-  ) {
-    validatefilledIn();
-    $("#eligibilityModal").modal();
-    document.getElementById("submit").disabled = false;
-    return false;
-  } else if (
-    $("#budget").find(":selected").text().startsWith("C") ||
-    $("#budget").val() == ""
-  ) {
-    validatefilledIn();
-    $("#eligibilityModal").modal();
-    document.getElementById("submit").disabled = false;
-    return false;
-  } else if (
-    ($("#workexperience").find(":selected").text().startsWith("C") ||
-      $("#workexperience").val() == "") &&
-    workExperience()
-  ) {
+    $("input[name=workexperience]:checked").length === 0 && workExperience()) {
     validatefilledIn();
     $("#eligibilityModal").modal();
     document.getElementById("submit").disabled = false;
