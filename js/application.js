@@ -1890,7 +1890,7 @@ function checkingFields() {
     return false;
   }else if(!document.getElementById("phone").value.match(/^[+]?\d{10,13}$/) || document.getElementById("phone").value === ""){
     validatefilledIn();
-    $("#myModal").modal();
+    $("#phoneModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
   } 
