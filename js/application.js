@@ -1783,11 +1783,23 @@ function validatefilledIn() {
       .removeClass("field-error")
       .addClass("field-valid");
   }
+
+  if(!document.getElementById("phone").value.match(/^[+]?\d{10,13}$/)){   
+    $("#phone")
+      .css("border-color", "red")
+      .addClass("field-error")
+      .removeClass("field-valid");
+  } else {
+    $("#phone").css("border-color", "green")
+      .removeClass("field-error")
+      .addClass("field-valid");
+  }
 }
 
 function checkingFields() {
   let myNameCheck = document.getElementById("first-name").value;
   let surNameCheck = document.getElementById("last-name").value;
+  
 
   const maxDate = new Date();
   maxDate.setFullYear(maxDate.getFullYear() - 14);
@@ -1869,7 +1881,6 @@ function checkingFields() {
     document.getElementById("e-mail").value === "" ||
     document.getElementById("date-of-birth").value === "" ||
     document.getElementById("city").value === "" ||
-    document.getElementById("phone").value === ""||
     document.getElementById("nr").value === ""||
     document.getElementById("postcode").value === ""
   ) {
@@ -1877,7 +1888,13 @@ function checkingFields() {
     $("#myModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  } else if(new Date(document.getElementById("date-of-birth").value) > maxDate) {
+  }else if(!document.getElementById("phone").value.match(/^[+]?\d{10,13}$/) || document.getElementById("phone").value === ""){
+    validatefilledIn();
+    $("#myModal").modal();
+    document.getElementById("submit").disabled = false;
+    return false;
+  } 
+  else if(new Date(document.getElementById("date-of-birth").value) > maxDate) {
     validatefilledIn();
     $("#dateOfBirthModal").modal();
     document.getElementById("submit").disabled = false;
