@@ -1784,7 +1784,7 @@ function validatefilledIn() {
       .addClass("field-valid");
   }
 
-  if(!document.getElementById("phone").value.match(/^[+]?\d{10,13}$/)){   
+  if(!document.getElementById("phone").value.match(/^\d{7,13}$/)){   
     $("#phone")
       .css("border-color", "red")
       .addClass("field-error")
