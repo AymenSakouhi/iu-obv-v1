@@ -1888,7 +1888,7 @@ function checkingFields() {
     $("#myModal").modal();
     document.getElementById("submit").disabled = false;
     return false;
-  }else if(!document.getElementById("phone").value.match(/^[+]?\d{10,13}$/) || document.getElementById("phone").value === ""){
+  }else if(!document.getElementById("phone").value.match(/^\d{7,13}$/) || document.getElementById("phone").value === ""){
     validatefilledIn();
     $("#phoneModal").modal();
     document.getElementById("submit").disabled = false;
