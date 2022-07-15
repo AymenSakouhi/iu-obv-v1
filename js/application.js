@@ -6,6 +6,7 @@ let directDebit = null;
 let locationSite = "3";
 let currentPage = 3;
 let completed = true;
+let studyStartDate;
 
 //error function + labels
 let labelContent = "";
@@ -1959,10 +1960,7 @@ function activate() {
     let city = document.getElementById("city").value;
     let country = document.getElementById("country").value;
     let nationality = document.getElementById("nationality").value;
-    let studyStartDate =
-      //document.getElementsByClassName("study-start")[0].innerHTML;
-      //document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('.');
-      document.getElementsByClassName("study-start")[0].innerHTML.replace(/T.*/,'').split('/').join('-');
+      
     let fullNumber =
       document.getElementsByClassName("iti__selected-dial-code")[0].innerText +
       document.getElementById("phone").value;
@@ -2262,6 +2260,7 @@ function findOutAndChange(x, y) {
     for (let i = 0; i < D2.length; i++) {
       D2[i].value = D1.value;
       D2[i].innerHTML = D1.value;
+      studyStartDate = D1.value.replace(/T.*/,'').split('/').join('-');
       // D2[i].innerText = D1.value;
       $(D2[i]).addClass("summary-selected");
     }
@@ -3617,8 +3616,8 @@ document.getElementById("studyProgram").addEventListener("change", function () {
     $("#datepicker").datepicker("setDate", new Date(2023, 7, 1));
     $("#datepicker").datepicker("option", { minDate: new Date(2023, 7, 1) });
   } else if($("#studyProgram :selected").text() === "M.A. Digital Marketing - 60") {
-    $("#datepicker").datepicker("setDate", new Date(2023, 10, 2));
-    $("#datepicker").datepicker("option", { minDate: new Date(2023, 10, 2) });
+    $("#datepicker").datepicker("setDate", new Date(2023, 10, 1));
+    $("#datepicker").datepicker("option", { minDate: new Date(2023, 10, 1) });
     
   } else if($("#studyProgram :selected").text() === "M.A. Digital Marketing - 120") {
     $("#datepicker").datepicker("setDate", new Date(2023, 4, 2));
@@ -3768,6 +3767,8 @@ function checkIntakeStart() {
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2021/10/01";
 
+      studyStartDate = "2021-10-01";
+
       break;
     }
     case "October 2022": {
@@ -3777,6 +3778,8 @@ function checkIntakeStart() {
         "2022/10/01";
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2022/10/01";
+      
+      studyStartDate = "2022-10-01";
 
       break;
     }
@@ -3788,6 +3791,8 @@ function checkIntakeStart() {
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2022/01/01";
 
+      studyStartDate = "2022-01-01";
+
       break;
     }
     case "April 2022": {
@@ -3797,6 +3802,8 @@ function checkIntakeStart() {
         "2022/04/01";
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2022/04/01";
+
+      studyStartDate = "2022-04-01";
 
       break;
     }
@@ -3808,6 +3815,8 @@ function checkIntakeStart() {
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2023/04/01";
 
+      studyStartDate = "2023-04-01";
+
       break;
     }
     case "October 2023": {
@@ -3817,6 +3826,8 @@ function checkIntakeStart() {
         "2023/10/01";
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2023/10/01";
+
+       studyStartDate = "2023-10-01";
 
       break;
     }
@@ -3828,6 +3839,8 @@ function checkIntakeStart() {
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2023/01/01";
 
+      studyStartDate = "2023-01-01";
+        
       break;
     }
     case "July 2023": {
@@ -3838,6 +3851,8 @@ function checkIntakeStart() {
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2023/07/01";
 
+      studyStartDate = "2023-07-01";
+
       break;
     }
     default: {
@@ -3847,6 +3862,8 @@ function checkIntakeStart() {
         "2022/07/01";
       document.getElementsByClassName("study-start")[1].innerHTML =
         "2022/07/01";
+
+      studyStartDate = "2022-07-01";
     }
   }
   $(".study-start").addClass("summary-selected");
